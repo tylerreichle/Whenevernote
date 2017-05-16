@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Evernote Clone",
   "main": "index.js",
+  "repository": {
+  "type": "git",
+  "url": "git://github.com/tylerreichle/whenevernote.git"
+  },
   "directories": {
     "doc": "docs",
     "test": "test"
@@ -15,6 +19,7 @@
   "author": "Tyler Reichle",
   "license": "ISC",
   "dependencies": {
+    "react-router-dom": "^4.1.1",
     "redux-thunk": "^2.2.0"
   }
 }
