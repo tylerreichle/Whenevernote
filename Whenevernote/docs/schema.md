@@ -38,8 +38,8 @@
 
 ### tagged_notes - Join Table (tags and notes)
 
-| Column Name |	Data Type	Details |
+| Column Name |	Data Type |	Details |
 |-------------|-------------------|
-| `id` |	`integer`	`not null, primary key` |
-| `note_id` |	`integer`	`not null, foreign key (reference to notes), indexed` |
-| `tag_id` |	`integer`	`not null, foreign key (reference to tags), indexed` |
+| `id` |	`integer` |	`not null, primary key` |
+| `note_id` |	`integer` |	`not null, foreign key (reference to notes), indexed` |
+| `tag_id` |	`integer` |	`not null, foreign key (reference to tags), indexed` |

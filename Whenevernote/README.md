@@ -33,7 +33,7 @@ Whenevernote is a full-stack web application inspired by Evernote built using Ru
 
 ### Implementation Timeline
 
-#### Phase 1: Rails back end setup and User Authentication (1 day)
+#### Phase 1: Rails back end setup and User Authentication (2 days)
 
 **Objective:** Functioning Ruby on Rails project with necessary routes, models, controllers, and database seeds. User Authentication in the front and back end.
 
@@ -53,9 +53,9 @@ Whenevernote is a full-stack web application inspired by Evernote built using Ru
 
 **Objective:** Allow rich text editing of notes and creation of lists.
 
-#### Phase 6: - Pagination on Notes Index / Bonus Features (2 days)
+#### Phase 6: - Pagination on Notes Index, Any additional CSS (1 day)
 
-**Objective:** Add infinite scroll to Notes Index and searches, begin to work on bonus features.
+**Objective:** Add infinite scroll to Notes Index and searches, add final touches to make site pixel perfect
 
 #### Bonus Features (TBD)
 
