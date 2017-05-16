@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { AuthRoute } from '../util/route_util';
 import SessionForm from './session_form/session_form_container';
 
 const App = () => (
@@ -8,8 +9,8 @@ const App = () => (
       <h2>Whenevernote</h2>
     </header>
 
-    <Route path="/signin" component={SessionForm} />
-    <Route exact path="/" component={SessionForm} />
+    <AuthRoute path="/signin" component={SessionForm} />
+    <AuthRoute exact path="/" component={SessionForm} />
   </div>
 );
 
