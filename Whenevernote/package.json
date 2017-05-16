@@ -12,6 +12,9 @@
     "start": "webpack --watch"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Tyler Reichle",
+  "license": "ISC",
+  "dependencies": {
+    "redux-thunk": "^2.2.0"
+  }
 }
