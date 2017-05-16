@@ -1,15 +1,16 @@
+var path = require('path');
+
 module.exports = {
-  entry: "frontend/whenevernote.jsx",
+  entry: './frontend/whenevernote.jsx',
   output: {
-    path: "app/assets/javascripts",
-    filename: "bundle.js",
+    filename: './app/assets/javascripts/bundle.js',
   },
   module: {
     loaders: [
       {
-        test: [/\.jsx?$/, /\.js?$/],
+        test: [/\.jsx?$/],
         exclude: /(node_modules)/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['es2015', 'react']
         }
@@ -18,6 +19,6 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
+    extensions: ['.js', '.jsx', '*']
   }
 };
