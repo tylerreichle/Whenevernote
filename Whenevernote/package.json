@@ -1,0 +1,17 @@
+{
+  "name": "Whenevernote",
+  "version": "1.0.0",
+  "description": "Evernote Clone",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
