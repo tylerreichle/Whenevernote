@@ -4,7 +4,9 @@ class Api::SessionsController < ApplicationController
       params[:user][:user_sign_in],
       params[:user][:password]
     )
-    if @user.save
+
+    if @user
+      login_user!(@user)
       render '/api/users/show'
     else
       render json: ['Invalid Credentials'], status: 422
@@ -13,7 +15,8 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     if current_user
-      logout!(current_user)
+      logout_user!
+      render json: {}
     else
       render json: ['Not Signed In'], status: 404
     end
