@@ -1,3 +1,106 @@
 // Place all the styles related to the Api::sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.auth-comp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #f6f6f6;
+
+  margin: 0 auto 0 auto;
+  width: 500px;
+  height: 400px;
+  z-index: 50
+}
+
+.auth-comp h2 {
+  font-size: 35px;
+  letter-spacing: 1.5px;
+  margin: 5px;
+}
+
+.auth-comp h3 {
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  line-height: 25px;
+  margin: 10px;
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 470px;
+  height: 150px;
+
+  margin-bottom: 15px;
+  color: #f6f6f6;
+}
+
+div.form-nav-link {
+  height: 200px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.form-nav-link h4 {
+
+}
+
+.form-nav-link button {
+  height: 40px;
+  width: 200px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: 400;
+
+  color: white;
+  background-color: #2dbe60;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.auth-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  width: 100%;
+
+  margin: 10px 5px 10px 5px;
+}
+
+.auth-inputs input {
+  height: 90%;
+  width: 47%;
+  font-size: 15px;
+
+  padding-left: 8px;
+  border-radius: 3px;
+  border: 2px;
+}
+
+.auth-form button {
+  height: 40px;
+  width: 100%;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: 400;
+
+  color: white;
+  background-color: #2dbe60;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}

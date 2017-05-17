@@ -33,16 +33,20 @@ class SessionForm extends React.Component {
   navLink() {
     if (this.props.formType === '/signin/') {
       return (
-        <div>
-          <p>Don't have an account?</p>
-          <Link to="/">Create account</Link>
+        <div className="form-nav-link">
+          <h4>Don't have an account?</h4>
+            <Link to="/">
+              <button>Create account</button>
+            </Link>
         </div>
       );
     } else {
       return (
-        <div>
-          <p>Already registered?</p>
-          <Link to="/signin/">Sign In</Link>
+        <div className="form-nav-link">
+          <h4>Already registered?</h4>
+            <Link to="/signin/">
+              <button>Sign In</button>
+            </Link>
         </div>
       );
     }
@@ -73,32 +77,33 @@ class SessionForm extends React.Component {
       );
     } else {
       return (
-        <div className="auth-comp">
-          <h2>{headerType}</h2>
+        <section className="auth-comp">
+          <h2>Remember Everything</h2>
+          <h3>Inspiration strikes anywhere. Evernote lets you capture and nurture ideas whenevever you have them.</h3>
 
-          <form className="auth-form" onSubmit={this.handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              id="username"
-              type="text"
-              value={this.state.username}
-              onChange={this.update('username')} />
+          <form className="auth-form">
+            <div className="auth-inputs">
+                <input
+                  id="username"
+                  type="text"
+                  placeholder="Email"
+                  value={this.state.username}
+                  onChange={this.update('username')} />
 
-            {this.emailInput()}
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.update('password')} />
+              </div>
 
-            <label htmlFor="password">Password:</label>
-            <input
-              id="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.update('password')} />
-
-            <input type="submit" />
+            <button onClick={this.handleSubmit}>SIGN UP FOR FREE</button>
           </form>
 
           <Errors />
           {this.navLink()}
-        </div>
+        </section>
       );
     }
   }

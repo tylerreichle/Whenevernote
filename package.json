@@ -13,8 +13,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch",
-    "postinstall": "webpack"
+    "start": "webpack --watch"
   },
   "engines": {
    "node": "6.10.1",
