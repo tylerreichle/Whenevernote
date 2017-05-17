@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Errors from '../errors/errors_container';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -72,10 +73,10 @@ class SessionForm extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="auth-comp">
           <h2>{headerType}</h2>
 
-          <form onSubmit={this.handleSubmit}>
+          <form className="auth-form" onSubmit={this.handleSubmit}>
             <label htmlFor="username">Username:</label>
             <input
               id="username"
@@ -95,6 +96,7 @@ class SessionForm extends React.Component {
             <input type="submit" />
           </form>
 
+          <Errors />
           {this.navLink()}
         </div>
       );
