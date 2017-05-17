@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
 
     this.state = { username: '', email: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -26,6 +27,10 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  handleClick(e) {
+    this.props.clearErrors();
+  }
+
   update(property) {
     return e => this.setState({ [property]: e.target.value });
   }
@@ -36,7 +41,7 @@ class SessionForm extends React.Component {
         <div className="form-nav-link">
           <h4>Don't have an account?</h4>
             <Link to="/">
-              <button>Create account</button>
+              <button onClick={this.handleClick}>Create account</button>
             </Link>
         </div>
       );
@@ -45,7 +50,7 @@ class SessionForm extends React.Component {
         <div className="form-nav-link">
           <h4>Already registered?</h4>
             <Link to="/signin/">
-              <button>Sign In</button>
+              <button onClick={this.handleClick}>Sign In</button>
             </Link>
         </div>
       );
