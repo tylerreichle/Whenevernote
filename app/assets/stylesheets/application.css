@@ -13,7 +13,7 @@
  *= require_self
  */
 
-@import "./reset.scss";
+@import "reset";
 @import "./api/sessions.scss";
 
 /*  google font: https://fonts.google.com/specimen/Khula?selection.family=Khula:300,400,600,700*/
