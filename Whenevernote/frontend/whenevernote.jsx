@@ -13,10 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
   window.store = store;
 
   const root = document.getElementById('root');
-
   ReactDom.render(<Root store={store}/>, root);
 });
+
+import { signout } from './actions/session_actions';
+
+window.signout = signout;

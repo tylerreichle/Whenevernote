@@ -16,7 +16,7 @@ export const receiveErrors = errors => ({
 export const signup = user => dispatch => (
   SessionAPI.signup(user)
     .then(newUser => dispatch(receiveCurrentUser(newUser)),
-    (errors => console.log(errors)))
+    (errors => dispatch(receiveErrors(errors.responseJSON))))
 );
 
 export const signin = user => dispatch => (
@@ -28,5 +28,5 @@ export const signin = user => dispatch => (
 export const signout = () => dispatch => (
   SessionAPI.signout()
     .then(signedOut => dispatch(receiveCurrentUser(null)),
-    (errors => console.log(errors)))
+    (errors => console.log()))
 );

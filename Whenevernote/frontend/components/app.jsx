@@ -10,7 +10,7 @@ const App = () => (
     </header>
 
     <AuthRoute path="/signin" component={SessionForm} />
-    <AuthRoute exact path="/" component={SessionForm} />
+    <Route exact path="/" component={SessionForm} />
   </div>
 );
 

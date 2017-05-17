@@ -1,5 +1,3 @@
-import merge from 'lodash/merge';
-
 import { RECEIVE_ERRORS } from '../actions/session_actions';
 
 const ErrorsReducer = (state = [], action) => {
