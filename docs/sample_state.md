@@ -1,4 +1,4 @@
-{
+`{
   currentUser: {
     id: 0,
     username: "treichle"
@@ -74,4 +74,4 @@
       description: "Personal stuff goes here"
     }
   }
-}
+}`

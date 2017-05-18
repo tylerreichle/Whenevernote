@@ -71,7 +71,7 @@
 #### Routes
 | Path |	Component |
 |------|------------|
-|"/signup" |	"AuthFormContainer" |
+|"/" |	"AuthFormContainer" |
 |"/signin" |	"AuthFormContainer" |
 |"/" |	"HomeContainer" |
 |"/note/:noteId" |	"NotesContainer" |
