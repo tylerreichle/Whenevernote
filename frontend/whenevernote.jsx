@@ -20,5 +20,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 import { signout } from './actions/session_actions';
-
 window.signout = signout;
