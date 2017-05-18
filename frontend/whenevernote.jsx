@@ -21,7 +21,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 import { signout } from './actions/session_actions';
 window.signout = signout;
-
-import * as NoteAPI from './actions/notes_actions';
-window.fetchNotes = NoteAPI.fetchNotes;
-window.fetchSingleNote = NoteAPI.fetchSingleNote;
