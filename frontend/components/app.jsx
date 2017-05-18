@@ -6,7 +6,12 @@ import SessionForm from './session_form/session_form_container';
 const App = () => (
   <div className="home-container">
     <header>
-      <h1>WHENEVERNOTE</h1>
+      <div className="left-nav">
+        <img
+          src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495083594/header-logo.png"
+          alt="Whenevernote logo" />
+        <h1>WHENEVERNOTE</h1>
+    </div>
 
       <div className="header-nav-links">
         <Link to="/signin/">Sign In</Link>
@@ -20,7 +25,6 @@ const App = () => (
       <AuthRoute path="/signin" component={SessionForm} />
       <Route exact path="/" component={SessionForm} />
 
-      <div className="bg-video-overlay"></div>
         <div className="bg-video">
           <video
             autoPlay="autoplay"
@@ -39,7 +43,7 @@ const App = () => (
     </section>
 
     <footer>
-      <h3>Join <span className="green">millions</span> of people who rely on Whenevernote to more things done every day.</h3>
+      <h3>Join <span className="green">tens</span> of people who rely on Whenevernote to more things done every day.</h3>
     </footer>
   </div>
 );

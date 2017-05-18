@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
     this.state = { username: '', email: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -24,6 +25,14 @@ class SessionForm extends React.Component {
       user = Object.assign({}, this.state);
     }
 
+    this.props.processForm(user);
+  }
+
+  handleDemo(e) {
+    const user = {
+      user_sign_in: 'demo',
+      password: 'password'
+    };
     this.props.processForm(user);
   }
 
@@ -71,6 +80,23 @@ class SessionForm extends React.Component {
     }
   }
 
+  submitButtons() {
+    if (this.props.formType === '/signin/') {
+      return (
+        <div className="signin-buttons">
+          <button onClick={this.handleDemo}>DEMO SIGN IN</button>
+          <button onClick={this.handleSubmit}>Sign in</button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="signup-button">
+          <button onClick={this.handleSubmit}>SIGN UP FOR FREE</button>
+        </div>
+      );
+    }
+  }
+
   render() {
     const { loggedIn, formType } = this.props;
     const headerType = (formType === '/signin/') ? 'Sign In' : 'Sign Up';
@@ -103,14 +129,10 @@ class SessionForm extends React.Component {
                   onChange={this.update('password')} />
               </div>
 
-            <button onClick={this.handleSubmit}>SIGN UP FOR FREE</button>
+            {this.submitButtons()}
           </form>
 
           <Errors />
-          <div className="or-divider">
-            <span className="divider"></span>
-            <span className="divider"></span>
-          </div>
           {this.navLink()}
         </section>
       );
@@ -119,3 +141,9 @@ class SessionForm extends React.Component {
 }
 
 export default SessionForm;
+
+// <div className="or-divider">
+//   <span className="divider"></span>
+//   <span>or</span>
+//   <span className="divider"></span>
+// </div>
