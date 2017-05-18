@@ -1,26 +1,16 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
-import Sidebar from './sidebar/sidebar_container';
-import SessionForm from './session_form/session_form_container';
-import NotesIndex from './notes/notes_index_container';
-import NoteDetail from './notes/note_detail_container';
+import SessionForm from '../session_form/session_form_container';
+import { Link, Route } from 'react-router-dom';
 
-import NewNote from './notes/new_note_container';
-
-class Home extends React.Component {
+class SplashPage extends React.Component {
 
   render() {
-    return <NewNote />;
-    // return this.splashPage();
-  }
-  splashPage() {
     return (
-      <div className="home-container">
+      <div className="splash-container">
         {this.header()}
 
         <section className="main-content">
-          <AuthRoute path="/signin" component={SessionForm} />
+          <Route path="/signin/" component={SessionForm} />
           <Route exact path="/" component={SessionForm} />
         </section>
 
@@ -79,4 +69,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default SplashPage;

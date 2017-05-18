@@ -25,18 +25,24 @@ class SessionForm extends React.Component {
       user = Object.assign({}, this.state);
     }
 
-    this.props.processForm(user);
+    this.props.processForm(user).then(() => {
+      this.props.history.push('/');
+    });
   }
 
   handleDemo(e) {
+    e.preventDefault();
     const user = {
       user_sign_in: 'demo',
       password: 'password'
     };
-    this.props.processForm(user);
+    this.props.processForm(user).then(() => {
+      this.props.history.push('/');
+    });
   }
 
   handleClick(e) {
+    e.preventDefault();
     this.props.clearErrors();
   }
 
@@ -49,18 +55,18 @@ class SessionForm extends React.Component {
       return (
         <div className="form-nav-link">
           <h4>Don't have an account?</h4>
-            <Link to="/">
-              <button onClick={this.handleClick}>Create account</button>
-            </Link>
+          <Link to="/">
+            <button onClick={this.handleClick}>Create account</button>
+          </Link>
         </div>
       );
     } else {
       return (
         <div className="form-nav-link">
           <h4>Already registered?</h4>
-            <Link to="/signin/">
-              <button onClick={this.handleClick}>Sign In</button>
-            </Link>
+          <Link to="/signin/">
+            <button onClick={this.handleClick}>Sign In</button>
+          </Link>
         </div>
       );
     }
@@ -102,41 +108,35 @@ class SessionForm extends React.Component {
     const headerType = (formType === '/signin/') ? 'Sign In' : 'Sign Up';
     const linkToType = (formType === '/signin/') ? 'Sign Up' : 'Log In';
 
-    if (loggedIn) {
-      return (
-        <Redirect to='/' />
-      );
-    } else {
-      return (
-        <section className="auth-comp">
-          <h2>Remember Everything</h2>
-          <h3>Inspiration strikes anywhere. Evernote lets you capture and nurture ideas whenevever you have them.</h3>
+    return (
+      <section className="auth-comp">
+        <h2>Remember Everything</h2>
+        <h3>Inspiration strikes anywhere. Evernote lets you capture and nurture ideas whenevever you have them.</h3>
 
-          <form className="auth-form">
-            <div className="auth-inputs">
-                <input
-                  id="username"
-                  type="text"
-                  placeholder="Email"
-                  value={this.state.username}
-                  onChange={this.update('username')} />
+        <form className="auth-form">
+          <div className="auth-inputs">
+            <input
+              id="username"
+              type="text"
+              placeholder="Email"
+              value={this.state.username}
+              onChange={this.update('username')} />
 
-                <input
-                  id="password"
-                  type="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.update('password')} />
-              </div>
+            <input
+              id="password"
+              type="password"
+              placeholder="Password"
+              value={this.state.password}
+              onChange={this.update('password')} />
+          </div>
 
-            {this.submitButtons()}
-          </form>
+          {this.submitButtons()}
+        </form>
 
-          <Errors />
-          {this.navLink()}
-        </section>
-      );
-    }
+        <Errors />
+        {this.navLink()}
+      </section>
+    );
   }
 }
 
