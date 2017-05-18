@@ -6,11 +6,12 @@ import SessionForm from './session_form/session_form_container';
 import NotesIndex from './notes/notes_index_container';
 import NoteDetail from './notes/note_detail_container';
 
+import NewNote from './notes/new_note_container';
 
 class Home extends React.Component {
 
   render() {
-    return <Sidebar />;
+    return <NewNote />;
     // return this.splashPage();
   }
   splashPage() {
