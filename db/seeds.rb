@@ -33,3 +33,6 @@ end
     email: emails[idx],
     password: 'password')
 end
+
+Note.create(title: 'title', body: 'body', author_id: 1, notebook_id: 1)
+Note.create(title: 'titleTwo', body: 'bodyTwo', author_id: 1, notebook_id: 1)

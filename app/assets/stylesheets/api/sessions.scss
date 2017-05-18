@@ -63,8 +63,8 @@ div.form-nav-link {
   font-size: 16px;
   font-weight: 400;
 
-  color: white;
-  background-color: #2dbe60;
+  color: #414141;
+  background-color: #f6f6f6;
   outline: none;
   border: none;
   border-radius: 5px;
@@ -102,4 +102,21 @@ div.form-nav-link {
   outline: none;
   border: none;
   border-radius: 5px;
+}
+
+.or-divider {
+  display: block;
+  width: 500px;
+  height: 20px;
+  padding: 15px;
+}
+
+.divider {
+    display: block;
+    position: relative;
+    top: 10px;
+    float: left;
+    width: 43%;
+    height: 1px;
+    background: rgba(255,255,255,0.3);
 }

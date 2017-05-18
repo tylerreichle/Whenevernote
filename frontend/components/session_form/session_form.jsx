@@ -107,6 +107,10 @@ class SessionForm extends React.Component {
           </form>
 
           <Errors />
+          <div className="or-divider">
+            <span className="divider"></span>
+            <span className="divider"></span>
+          </div>
           {this.navLink()}
         </section>
       );

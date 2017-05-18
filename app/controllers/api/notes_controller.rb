@@ -32,6 +32,7 @@ class Api::NotesController < ApplicationController
   def destroy
     @note = Note.find_by(id: params[:id])
     @note.delete
+    render 'api/notes/show'
   end
 
   private
