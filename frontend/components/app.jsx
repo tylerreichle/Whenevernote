@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 import SessionForm from './session_form/session_form_container';
 import NotesIndex from './notes/notes_index_container';
+import NoteDetail from './notes/note_detail_container';
 
 const App = () => (
   <div className="home-container">
@@ -44,6 +45,7 @@ const App = () => (
     </section>
 
     <NotesIndex />
+    <NoteDetail />
 
     <footer>
       <h3>Join <span className="green">tens</span> of people who rely on Whenevernote to more things done every day.</h3>
