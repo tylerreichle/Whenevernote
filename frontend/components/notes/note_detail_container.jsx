@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
-import { fetchSingleNote, updateNote, deleteNote } from '../../actions/notes_actions';
 import { selectFirstNote } from '../../reducers/selectors';
 import NoteDetail from './note_detail';
+import {
+  fetchSingleNote,
+  updateNote,
+  deleteNote
+} from '../../actions/notes_actions';
 
 const mapStateToProps = state => ({
     note: state.note
