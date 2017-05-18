@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
+import Sidebar from './sidebar/sidebar_container';
 import SessionForm from './session_form/session_form_container';
 import NotesIndex from './notes/notes_index_container';
 import NoteDetail from './notes/note_detail_container';
@@ -9,7 +10,8 @@ import NoteDetail from './notes/note_detail_container';
 class Home extends React.Component {
 
   render() {
-    return this.splashPage();
+    return <Sidebar />;
+    // return this.splashPage();
   }
   splashPage() {
     return (
