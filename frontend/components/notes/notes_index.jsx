@@ -1,4 +1,5 @@
 import React from 'react';
+import NotesIndexItem from './notes_index_item_container';
 
 class NotesIndex extends React.Component {
 
@@ -12,7 +13,7 @@ class NotesIndex extends React.Component {
       <ul>
         {
           notes.map(note => (
-            <li key={note.id}>{note.title}</li>
+            <NotesIndexItem key={note.id} initialNote={note}/>
           ))
         }
       </ul>
@@ -21,8 +22,3 @@ class NotesIndex extends React.Component {
 }
 
 export default NotesIndex;
-
-// <li key={note.id}>
-//   <h4>{note.title}</h4>
-//   <p>{note.body}</p>
-// </li>
