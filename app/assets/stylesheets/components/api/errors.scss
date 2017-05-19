@@ -1,0 +1,12 @@
+.info, .success, .warning, .error, .validation {
+  border: 1px solid;
+  padding:15px 10px 15px 10px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  border-radius: 5px;
+}
+
+.validation {
+  color: #D63301;
+  background-color: #FFCCBA;
+}

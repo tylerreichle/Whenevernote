@@ -13,8 +13,8 @@ class Errors extends React.Component {
 
     return (
       <ul className={classname}>
-        { errors.map(error => (
-          <li>{error}</li>
+        { errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
         ))}
       </ul>
     );

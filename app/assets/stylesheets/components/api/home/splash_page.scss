@@ -28,7 +28,7 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  background-color: #f6f6f6;
+  background-color: $white-smoke;
 }
 
 header img {
@@ -42,7 +42,7 @@ header h1 {
   font-weight: 600;
   margin: 25px 15px 15px 2px;
 
-  color: #2dbe60;
+  color: $medium-sea-green;
 }
 
 .left-nav {
@@ -51,17 +51,17 @@ header h1 {
 }
 
 .header-nav-links a {
-  color: #848484;
-  font-weight: 500;
+  padding: 0;
+  color: $gray;
+  font-size: 16px;
   text-decoration: none;
-  transition: color 0.7s;
+  transition: border .3s ease-in-out 0s,
+    color .3s ease-in-out 0s;
   margin: 10px;
-  border: 2px solid black;
 }
 
-header-nav-links a:hover {
-  color: #2d2d2d;
-  text-decoration: underline;
+.header-nav-links a:hover {
+  color: $darker-slate-gray;
 }
 
 .header-nav-links:last-of-type {
@@ -76,28 +76,14 @@ footer {
   align-items: center;
   justify-content: center;
 
-  color: #f6f6f6;
-  background-color: #414141;
+  color: $white-smoke;
+  background-color: $dark-slate-gray;
   font-size: 17px;
-  border-top: 4px solid #2d2d2d;
+  border-top: 4px solid $darker-slate-gray;
 }
 
 .green {
-  color: #2dbe60;
-}
-
-// message boxes
-
-.info, .success, .warning, .error, .validation {
-  border: 1px solid;
-  padding:15px 10px 15px 10px;
-  background-repeat: no-repeat;
-  background-position: 10px center;
-}
-
-.validation {
-  color: #D63301;
-  background-color: #FFCCBA;
+  color: $medium-sea-green;
 }
 
 .bg-video video {

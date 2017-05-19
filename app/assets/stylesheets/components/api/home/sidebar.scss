@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
 
-  background-color: #f6f6f6;
+  background-color: $white-smoke;
   border: 2px solid red;
 }
 
@@ -23,15 +23,15 @@
     margin: 15px;
 
     line-height: 45px;
-    border: 1.5px solid #2dbe60;
+    border: 1.5px solid $medium-sea-green;
     border-radius: 50%;
-    color: #2dbe60;
+    color: $medium-sea-green;
     text-align: center;
     text-decoration: none;
     font-size: 35px;
     transition: color 0.7s;
 }
 .circle-button:hover {
-  background: #2dbe60;
-  color: #f6f6f6;
+  background: $medium-sea-green;
+  color: $white-smoke;
 }

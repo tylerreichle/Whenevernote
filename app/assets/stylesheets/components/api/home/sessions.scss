@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #f6f6f6;
+  color: $white-smoke;
 
   margin: 0 auto 0 auto;
   width: 547px;
@@ -37,7 +37,7 @@
   height: 100px;
   padding-bottom: 10px;
 
-  color: #f6f6f6;
+  color: $white-smoke;
 }
 
 div.form-nav-link {
@@ -62,12 +62,12 @@ div.form-nav-link {
   font-size: 16px;
   font-weight: 400;
 
-  color: #414141;
-  background-color: #f6f6f6;
+  color: $dark-slate-gray;
+  background-color: $white-smoke;
   outline: none;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  
 }
 
 .auth-inputs {
@@ -93,12 +93,12 @@ div.form-nav-link {
   font-size: 16px;
   font-weight: 400;
 
-  color: #f6f6f6;
-  background-color: #2dbe60;
+  color: $white-smoke;
+  background-color: $medium-sea-green;
   outline: none;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  
 }
 
 .signin-buttons {
@@ -110,7 +110,7 @@ div.form-nav-link {
 .signin-buttons button {
  width: 48%;
  height: 40px;
- cursor: pointer;
+ 
 }
 
 .signup-button {
@@ -121,7 +121,7 @@ div.form-nav-link {
 .signup-button button {
   width: 100%;
   height: 40px;
-  cursor: pointer;
+  
 }
 
 .or-divider {
