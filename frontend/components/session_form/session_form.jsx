@@ -44,6 +44,12 @@ class SessionForm extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.props.clearErrors();
+
+    if (this.props.formType === '/signin/') {
+      this.props.history.push('/');
+    } else {
+      this.props.history.push('/signin/');
+    }
   }
 
   update(property) {
@@ -55,18 +61,18 @@ class SessionForm extends React.Component {
       return (
         <div className="form-nav-link">
           <h4>Don't have an account?</h4>
-          <Link to="/">
+          <div>
             <button onClick={this.handleClick}>Create account</button>
-          </Link>
+          </div>
         </div>
       );
     } else {
       return (
         <div className="form-nav-link">
           <h4>Already registered?</h4>
-          <Link to="/signin/">
+          <div>
             <button onClick={this.handleClick}>Sign In</button>
-          </Link>
+          </div>
         </div>
       );
     }
