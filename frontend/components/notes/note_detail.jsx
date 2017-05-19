@@ -35,7 +35,11 @@ class NoteDetail extends React.Component {
 
     return (
       <section className="note-detail">
+        <div className="detail-toolbar">
+          <button id="info" className="detail-button"></button>
+          <button id="trash" className="detail-button"></button>
 
+        </div>
         <form onSubmit={this.handleSubmit}>
           <input
             id="title"

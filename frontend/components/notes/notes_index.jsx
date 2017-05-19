@@ -1,4 +1,5 @@
 import React from 'react';
+import isEqual from 'lodash/isequal';
 import NotesIndexItem from './notes_index_item_container';
 
 class NotesIndex extends React.Component {
@@ -12,7 +13,7 @@ class NotesIndex extends React.Component {
     return (
       <section className="notes-index">
         <div className="notes-header">
-          <h2>Notes</h2>
+          <h2>NOTES</h2>
           <h4>33 notes</h4>
         </div>
         <ul>

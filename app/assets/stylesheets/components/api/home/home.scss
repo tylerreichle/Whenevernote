@@ -9,36 +9,113 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: 100px;
-  padding-bottom: 5px;
+  height: 95px;
 }
 
 .notes-header h2 {
-  font-size: 30px;
-  padding: 15px;
+  font-size: 21px;
+  padding: 25px;
+
+  letter-spacing: 1.9px;
+  color: $header-gray;
 }
 
 .notes-header h4 {
-  padding: 5px 15px;
+  padding: 5px 25px;
+  color: $header-notes-count;
 }
 
 .notes-index {
   height: 100%;
   width: 350px;
-  border: 2px solid blue;
+
 }
 
 .notes-index-item {
-  width: 100%;
+  width: inherit;
   height: 115px;
-  border: 3px solid grey;
+
+  padding: 5px;
+  cursor: pointer;
+}
+
+.notes-index-item:hover {
+  background-color: $ii-hover;
+}
+
+.notes-index-item:hover .ii-child {
+  color: $white-smoke;
+}
+
+.highlighted {
+  border: 5px solid $ii-border;
+  padding: 0
+}
+
+.preview-title {
+  font-size: 20px;
+  color: $ii-title;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+.preview-time {
+  color: $ii-body;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.preview-body {
+  color: $ii-body;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .note-detail {
   width: 100%;
-
-  border: 2px solid purple;
+  padding-left: 45px;
 }
+
+.detail-toolbar {
+  padding: 12px 0;
+  height: 95px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.detail-button {
+  width: 24px;
+  height: 24px;
+}
+
+.detail-button:hover div {
+  opacity: 1;
+}
+
+.detail-button#trash {
+  background: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495221055/trash.png);
+  background-size: 24px 24px;
+}
+
+.detail-button#info {
+  background: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495221055/info.png);
+  background-size: 24px 24px;
+}
+
+  // icons
+  // height: 24px;
+  // width: 24px;
+  // overflow: hidden;
+  // background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABZElEQ…gpCEHqySlFHxJZ/jwkq5gGRqY3UPNzfIYDg+wR1SqekQsAXvLYIoII+uAAAAAASUVORK5CYII=) -0px -0px no-repeat;
+  // background-size: 24px 24px;
+
+  // HOVER icons
+  // opacity: 1;
+  // transition: opacity 0.2s ease-in-out;
 
 .note-detail form {
   display: flex;
@@ -46,11 +123,16 @@
 }
 
 #title {
+  color: $detail-note-title;
   font-size: 30px;
   height: 50px;
   padding: 5px;
+  border-style: none;
 }
 
 #body {
+  font-size: 15px;
+  padding: 10px;
   height: 100%;
+  border-style: none;
 }

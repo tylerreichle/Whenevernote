@@ -1,18 +1,18 @@
 .sidebar {
   height: 100%;
-  width: 70px;
+  width: 68px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
   background-color: $white-smoke;
-  border: 2px solid red;
+  border-right: 2px solid $sidebar-border;
 }
 
 .sidebar img {
-  width: 31px;
-  height: 34px;
+  width: 28px;
+  height: 31px;
   margin: 13px 15px 15px 20px;
 }
 
@@ -23,13 +23,13 @@
     margin: 15px;
 
     line-height: 45px;
-    border: 1.5px solid $medium-sea-green;
+    border: 1px solid $medium-sea-green;
     border-radius: 50%;
     color: $medium-sea-green;
     text-align: center;
     text-decoration: none;
     font-size: 35px;
-    transition: color 0.7s;
+    transition: color 0.7s ease;
 }
 .circle-button:hover {
   background: $medium-sea-green;

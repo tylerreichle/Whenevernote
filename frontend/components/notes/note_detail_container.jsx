@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { selectFirstNote } from '../../reducers/selectors';
 import NoteDetail from './note_detail';
 import {
+  fetchNotes,
   fetchSingleNote,
   updateNote,
   deleteNote
@@ -12,6 +12,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  fetchNotes: () => dispatch(fetchNotes()),
   fetchSingleNote: (noteId) => dispatch(fetchSingleNote(noteId)),
   updateNote: (note) => dispatch(updateNote(note)),
   deleteNote: (noteId) => dispatch(deleteNote(noteId))

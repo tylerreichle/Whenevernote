@@ -13,6 +13,10 @@ class NotesIndexItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
+
+    $('.highlighted').removeClass('highlighted');
+    $(e.currentTarget).addClass('highlighted');
+
     this.props.fetchSingleNote(this.props.initialNote.id);
   }
 
@@ -22,8 +26,9 @@ class NotesIndexItem extends React.Component {
     return (
       <div onClick={this.handleClick} className="notes-index-item">
         <li>
-          <h4>{title}</h4>
-          <p>{body}</p>
+          <h4 className="preview-title ii-child">{title}</h4>
+          <h5 className="preview-time ii-child">YESTERDAY</h5>
+          <p className="preview-body ii-child">{body}</p>
         </li>
       </div>
     );
