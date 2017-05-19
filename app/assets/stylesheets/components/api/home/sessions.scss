@@ -67,6 +67,7 @@ div.form-nav-link {
   outline: none;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .auth-inputs {
@@ -97,6 +98,7 @@ div.form-nav-link {
   outline: none;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .signin-buttons {
@@ -108,6 +110,7 @@ div.form-nav-link {
 .signin-buttons button {
  width: 48%;
  height: 40px;
+ cursor: pointer;
 }
 
 .signup-button {
@@ -118,6 +121,7 @@ div.form-nav-link {
 .signup-button button {
   width: 100%;
   height: 40px;
+  cursor: pointer;
 }
 
 .or-divider {

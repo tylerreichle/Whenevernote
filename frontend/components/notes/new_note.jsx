@@ -27,7 +27,7 @@ class NewNote extends React.Component {
 
   render() {
     return (
-      <div className="new-note">
+      <section className="new-note">
         <Link to="/">
           <button>Cancel</button>
         </Link>
@@ -47,7 +47,7 @@ class NewNote extends React.Component {
 
           <button onClick={this.handleSubmit}>Create Note</button>
         </form>
-      </div>
+      </section>
     );
   }
 }

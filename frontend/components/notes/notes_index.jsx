@@ -10,13 +10,19 @@ class NotesIndex extends React.Component {
   render() {
     const notes = this.props.notes;
     return (
-      <ul>
-        {
-          notes.map(note => (
-            <NotesIndexItem key={note.id} initialNote={note}/>
-          ))
-        }
-      </ul>
+      <section className="notes-index">
+        <div className="notes-header">
+          <h2>Notes</h2>
+          <h4>33 notes</h4>
+        </div>
+        <ul>
+          {
+            notes.map(note => (
+              <NotesIndexItem key={note.id} initialNote={note}/>
+            ))
+          }
+        </ul>
+      </section>
     );
   }
 }

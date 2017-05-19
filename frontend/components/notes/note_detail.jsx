@@ -34,15 +34,17 @@ class NoteDetail extends React.Component {
     const { title, body } = this.state;
 
     return (
-      <div className="note-detail">
+      <section className="note-detail">
 
         <form onSubmit={this.handleSubmit}>
           <input
+            id="title"
             type="text"
             value={this.state.title}
             onChange={this.update('title')}/>
 
           <textarea
+            id="body"
             rows="10"
             cols="50"
             value={this.state.body}
@@ -50,7 +52,7 @@ class NoteDetail extends React.Component {
 
           <input type="submit"/>
         </form>
-      </div>
+      </section>
     );
   }
 }

@@ -12,6 +12,7 @@ class NotesIndexItem extends React.Component {
   }
 
   handleClick(e) {
+    e.preventDefault();
     this.props.fetchSingleNote(this.props.initialNote.id);
   }
 
@@ -19,10 +20,12 @@ class NotesIndexItem extends React.Component {
     const { title, body } = this.props.initialNote;
 
     return (
-      <li onClick={this.handleClick}>
-        <h4>{title}</h4>
-        <p>{body}</p>
-      </li>
+      <div onClick={this.handleClick} className="notes-index-item">
+        <li>
+          <h4>{title}</h4>
+          <p>{body}</p>
+        </li>
+      </div>
     );
   }
 }
