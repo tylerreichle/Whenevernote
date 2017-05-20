@@ -10,11 +10,12 @@ class NotesIndex extends React.Component {
 
   render() {
     const notes = this.props.notes;
+    const notesCount = this.props.notes.length;
     return (
       <section className="notes-index">
         <div className="notes-header">
           <h2>NOTES</h2>
-          <h4>33 notes</h4>
+          <h4>{notesCount} notes</h4>
         </div>
 
         <ul className="notes-index-scroll">
