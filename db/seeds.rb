@@ -10,29 +10,20 @@ User.create(username: 'user', email: 'user@aa.io', password: 'password')
 User.create(username: 'demo', email: 'demo@aa.io', password: 'password')
 User.create(username: 'test', email: 'test@aa.io', password: 'password')
 User.create(username: 'tyler', email: 'tyler@aa.io', password: 'password')
-User.create(username: 'thegraceann', email: 'tyler@aa.io', password: 'password')
+User.create(username: 'treichle', email: 'treichle@aa.io', password: 'password')
+User.create(username: 'thegraceann', email: 'grace@aa.io', password: 'password')
 
-users = []
-50.times {
-  user = Faker::GameOfThrones.character
-  user = user.split(' ').join('')
-  users << user
-}
+titles = []
+25.times { titles << Faker::Zelda.character }
 
-emails = []
-25.times do
-  email = ''
-  email << Faker::LordOfTheRings.character
-  email << '@' << Faker::Hipster.word << '.com'
-  emails << email.downcase
-end
+bodies = []
+25.times { bodies << Faker::Hipster.paragraph }
 
 (0..24).each do |idx|
-  User.create!(
-    username: users[idx],
-    email: emails[idx],
-    password: 'password')
+  Note.create(
+    title: titles[idx],
+    body: bodies[idx],
+    author_id: 1,
+    notebook_id: 1
+  )
 end
-
-Note.create(title: 'title', body: 'body', author_id: 1, notebook_id: 1)
-Note.create(title: 'titleTwo', body: 'bodyTwo', author_id: 1, notebook_id: 1)
