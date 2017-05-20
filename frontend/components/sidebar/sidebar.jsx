@@ -21,13 +21,16 @@ class Sidebar extends React.Component {
             src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495083594/header-logo.png"
             alt="Whenevernote logo" />
 
-          <Link to="/note/new" className="circle-button">+</Link>
+          <Link to="/note/new" id="new-note" className="circle-button">+</Link>
         </div>
 
+        <div className="sidebar-bot">
         <Link
           to="/"
+          id="signout"
           className="circle-button"
           onClick={this.handleClick}>-</Link>
+      </div>
       </aside>
     );
   }

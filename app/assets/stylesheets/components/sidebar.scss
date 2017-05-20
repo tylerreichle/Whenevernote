@@ -8,7 +8,7 @@
   justify-content: space-between;
 
   background-color: $white-smoke;
-  border-right: 1px solid $sidebar-border;
+  border-right: 1px solid $index-border;
 }
 
 .sidebar img {
@@ -17,13 +17,16 @@
   margin: 13px 15px 15px 20px;
 }
 
+.sidebar-bot {
+  border-top: 1px solid $index-border;
+}
+
 .circle-button {
     display:block;
     width: 35px;
     height: 35px;
     margin: 15px;
 
-    line-height: 45px;
     border: 1px solid $medium-sea-green;
     border-radius: 50%;
     color: $medium-sea-green;
@@ -35,4 +38,11 @@
 .circle-button:hover {
   background: $medium-sea-green;
   color: $white-smoke;
+}
+
+.circle-button#new-note {
+  line-height: 41px;
+}
+.circle-button#signout {
+  line-height: 41px;
 }

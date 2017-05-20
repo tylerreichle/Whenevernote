@@ -3,43 +3,58 @@
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;
-  padding-left: 45px;
 }
 
 .detail-toolbar {
-  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95px;
   width: 100%;
   border: 1px solid black;
 }
 
 .note-options {
+  display: flex;
+  align-items: flex-end;
   height: 35px;
-  width: 100%;
-  border: 1px solid blue;
+  padding-left: 45px;
 }
 
 .detail-notebook {
-  height: 30px;
+  height: 35px;
   width: 150px;
-  border: 1px solid red;
+}
+
+.detail-notebook img {
+  height: 17px;
+  width: 15px;
+  padding: 5px;
 }
 
 .detail-tag {
-  height: 30px;
   width: 90px;
-  border: 1px solid red;
+  height: 35px;
+}
+
+.detail-tag img {
+  height: 15px;
+  width: 15px;
+  padding: 5px;
+}
+
+.detail-form {
+  padding-left: 45px;
 }
 
 .detail-buttons {
-  height: 95px;
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
+  margin: 15px;
 }
 
 .detail-button {
   width: 24px;
   height: 24px;
-  margin: 0px 15px;
+  margin-right: 15px;
   background-position: center;
   border-style: none;
 }

@@ -97,7 +97,7 @@ class SessionForm extends React.Component {
       return (
         <div className="signin-buttons">
           <button onClick={this.handleDemo}>DEMO SIGN IN</button>
-          <button onClick={this.handleSubmit}>Sign in</button>
+          <button onClick={this.handleSubmit}>SIGN IN</button>
         </div>
       );
     } else {
