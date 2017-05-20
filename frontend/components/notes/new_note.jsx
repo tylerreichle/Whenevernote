@@ -11,7 +11,8 @@ class NewNote extends React.Component {
     this.update = this.update.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     const note = {
       title: this.state.title,
       body: this.state.body,

@@ -2,12 +2,13 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_NOTES,
   REMOVE_NOTE,
-   RECEIVE_SINGLE_NOTE
+  RECEIVE_SINGLE_NOTE
   } from '../actions/notes_actions';
 
 const NotesReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
+
   switch (action.type) {
     case RECEIVE_NOTES:
       return merge({}, action.notes);

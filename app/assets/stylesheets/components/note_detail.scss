@@ -11,7 +11,6 @@
   justify-content: space-between;
   height: 95px;
   width: 100%;
-  border: 1px solid black;
 }
 
 .note-options {
@@ -93,9 +92,17 @@ input#title {
   border-style: none;
 }
 
+input#title:focus {
+  outline: none;
+}
+
 textarea#body {
   font-size: 15px;
   padding: 10px;
   height: 100%;
   border-style: none;
+}
+
+textarea#body:focus {
+  outline: none;
 }

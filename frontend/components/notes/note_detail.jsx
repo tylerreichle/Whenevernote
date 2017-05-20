@@ -8,6 +8,7 @@ class NoteDetail extends React.Component {
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillMount() {
@@ -26,6 +27,11 @@ class NoteDetail extends React.Component {
     this.props.updateNote(note);
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteNote(this.state.id);
+  }
+
   update(property) {
     return e => this.setState({ [property]: e.target.value });
   }
@@ -38,8 +44,16 @@ class NoteDetail extends React.Component {
         <span className="detail-toolbar">
 
           <div className="detail-buttons">
-            <button id="info" className="detail-button"></button>
-            <button id="trash" className="detail-button"></button>
+            <button
+              title="Note Detail"
+              id="info"
+              className="detail-button" />
+
+            <button
+              title="Delete Note"
+              id="trash"
+              className="detail-button"
+              onClick={this.handleDelete} />
           </div>
 
           <div className="note-options">
