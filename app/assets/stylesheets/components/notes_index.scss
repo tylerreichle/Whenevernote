@@ -37,7 +37,7 @@
   width: auto;
   height: 115px;
 
-  padding: 5px;
+  padding: 3px;
   cursor: pointer;
 }
 
@@ -50,8 +50,8 @@
 }
 
 .highlighted {
-  border: 5px solid $ii-border;
-  padding: 0
+  border: 3px solid $ii-border;
+  padding: 0;
 }
 
 .preview-title {
@@ -75,5 +75,5 @@
   font-size: 14px;
   height: 45px;
   overflow: hidden;
-  margin: 10px 0 5px 20px;
+  margin: 10px 3px 5px 20px;
 }

@@ -37,6 +37,8 @@
 }
 
 .new-note form {
+  height: 100%;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -64,6 +66,7 @@
 }
 
 #new-body {
+  height: 100%;
   font-size: 18px;
   border: none;
   padding-top: 10px;
