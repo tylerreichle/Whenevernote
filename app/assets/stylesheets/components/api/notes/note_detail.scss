@@ -1,0 +1,82 @@
+.note-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 45px;
+}
+
+.detail-toolbar {
+  height: 100px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.note-options {
+  height: 35px;
+  width: 100%;
+  border: 1px solid blue;
+}
+
+.detail-notebook {
+  border: 1px solid red;
+}
+
+.detail-tag {
+  border: 1px solid red;
+}
+
+.detail-buttons {
+  padding: 12px 0;
+  height: 95px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.detail-button {
+  width: 24px;
+  height: 24px;
+  margin: 0px 15px;
+  background-position: center;
+  border-style: none;
+}
+
+.detail-button#trash {
+  background: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495221055/trash.png);
+  background-size: 24px 24px;
+}
+
+.detail-button#trash:hover {
+  background: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495231777/trash-green.png);
+  background-size: 24px 24px;
+}
+
+.detail-button#info {
+  background: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495221055/info.png);
+  background-size: 24px 24px;
+}
+
+.detail-button#info:hover {
+  background: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495231777/info-green.png);
+  background-size: 24px 24px;
+}
+
+.note-detail form {
+  display: flex;
+  flex-direction: column;
+}
+
+input#title {
+  color: $detail-note-title;
+  font-size: 30px;
+  height: 50px;
+  padding: 5px;
+  border-style: none;
+}
+
+textarea#body {
+  font-size: 15px;
+  padding: 10px;
+  height: 100%;
+  border-style: none;
+}

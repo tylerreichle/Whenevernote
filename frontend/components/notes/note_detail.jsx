@@ -35,11 +35,25 @@ class NoteDetail extends React.Component {
 
     return (
       <section className="note-detail">
-        <div className="detail-toolbar">
-          <button id="info" className="detail-button"></button>
-          <button id="trash" className="detail-button"></button>
 
+        <div className="detail-toolbar">
+          
+          <div className="detail-buttons">
+            <button id="info" className="detail-button"></button>
+            <button id="trash" className="detail-button"></button>
+          </div>
+
+          <div className="note-options">
+            <div className="detail-notebook">
+              <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/notebook.png"/>
+            </div>
+
+            <div className="detail-tag">
+              <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
+            </div>
+          </div>
         </div>
+
         <form onSubmit={this.handleSubmit}>
           <input
             id="title"
