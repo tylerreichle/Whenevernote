@@ -16,7 +16,8 @@ class NotesIndex extends React.Component {
           <h2>NOTES</h2>
           <h4>33 notes</h4>
         </div>
-        <ul>
+
+        <ul className="notes-index-scroll">
           {
             notes.map(note => (
               <NotesIndexItem key={note.id} initialNote={note}/>

@@ -14,23 +14,10 @@
  */
 
  @import "base/reset";
-
  @import "base/colors";
  @import "base/fonts";
- @import "base/layout";
- @import "base/grid";
 
- @import "components/api/errors";
- @import "components/api/home/home";
- @import "components/api/home/sessions";
- @import "components/api/home/sidebar";
- @import "components/api/home/splash_page";
-
- @import "components/api/notes/*";
- // @import "components/api/home/*";
- // @import "components/api/notes/*";
-
-/*  google font: https://fonts.google.com/specimen/Khula?selection.family=Khula:300,400,600,700*/
+ @import "components/*";
 
 body, html {
   height: 100%;

@@ -1,7 +1,7 @@
 .note-detail {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
   width: 100%;
   padding-left: 45px;
 }
@@ -19,15 +19,18 @@
 }
 
 .detail-notebook {
+  height: 30px;
+  width: 150px;
   border: 1px solid red;
 }
 
 .detail-tag {
+  height: 30px;
+  width: 90px;
   border: 1px solid red;
 }
 
 .detail-buttons {
-  padding: 12px 0;
   height: 95px;
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
@@ -64,6 +67,7 @@
 .note-detail form {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 input#title {

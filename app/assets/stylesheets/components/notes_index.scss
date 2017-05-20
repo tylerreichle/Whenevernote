@@ -1,16 +1,16 @@
 .notes-index {
+  border: 1px solid black;
   height: 100%;
-  width: 462.5px;
-
-  border: 1px solid red;
 }
 
 .notes-header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
+  width: auto;
   height: 95px;
+
+  border: 1px solid red;
 }
 
 .notes-header h2 {
@@ -26,8 +26,14 @@
   color: $header-notes-count;
 }
 
+
+.notes-index-scroll {
+  overflow-y: auto;
+  height: 80%;
+}
+
 .notes-index-item {
-  width: inherit;
+  width: 350px;
   height: 115px;
 
   padding: 5px;

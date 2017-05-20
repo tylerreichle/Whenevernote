@@ -14,9 +14,9 @@ class Home extends React.Component {
       <div className="home-container">
         <AuthRoute path="/" component={SplashPage} />
         <ProtectedRoute exact path="/" component={Sidebar} />
-        <ProtectedRoute exect path="/" component={NotesIndex} />
+        <ProtectedRoute exact path="/" component={NotesIndex} />
         <ProtectedRoute exact path="/" component={NoteDetail} />
-        <ProtectedRoute exact path="/note/new" component={NewNote} />
+        <ProtectedRoute path="/note/new" component={NewNote} />
       </div>
     );
   }
