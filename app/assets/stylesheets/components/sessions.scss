@@ -1,7 +1,3 @@
-// Place all the styles related to the Api::sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .auth-comp {
   display: flex;
   flex-direction: column;
@@ -41,14 +37,13 @@
 }
 
 div.form-nav-link {
-  height: 200px;
-  width: 100%;
+  height: 80px;
+  width: 220px;
 
   display: flex;
   flex-direction: column;
   justify-content:space-between;
   align-items: center;
-  height: 50px;
 }
 
 .form-nav-link h4 {
@@ -73,13 +68,13 @@ div.form-nav-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 45px;
   width: 100%;
+  height: 43px;
   margin: 10px 5px 10px 5px;
 }
 
 .auth-inputs input {
-  height: 43px;
+  height: 100%;
   width: 47%;
   font-size: 15px;
 
@@ -99,40 +94,37 @@ div.form-nav-link {
   border-radius: 5px;
 }
 
-.signin-buttons {
+.submit-buttons {
   display: flex;
   justify-content:space-between;
-  width: 470px;
-}
+  align-items: center;
 
-.signin-buttons button {
- width: 48%;
- height: 40px;
-}
-
-.signup-button {
+  height: 42px;
   width: 100%;
-  height: 40px;
 }
 
-.signup-button button {
+.submit-buttons button {
+  width: 48%;
+  height: 100%;
+}
+
+.submit-buttons button#signup {
   width: 100%;
-  height: 40px;
 }
 
-.or-divider {
-  display: block;
-  width: 500px;
-  height: 20px;
-  padding: 15px;
-}
-
-.divider {
-    display: block;
-    position: relative;
-    top: 10px;
-    float: left;
-    width: 43%;
-    height: 1px;
-    background: rgba(255,255,255,0.3);
-}
+// .or-divider {
+//   display: block;
+//   width: 500px;
+//   height: 20px;
+//   padding: 15px;
+// }
+//
+// .divider {
+//     display: block;
+//     position: relative;
+//     top: 10px;
+//     float: left;
+//     width: 43%;
+//     height: 1px;
+//     background: rgba(255,255,255,0.3);
+// }

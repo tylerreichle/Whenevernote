@@ -95,15 +95,17 @@ class SessionForm extends React.Component {
   submitButtons() {
     if (this.props.formType === '/signin/') {
       return (
-        <div className="signin-buttons">
+        <div className="submit-buttons">
           <button onClick={this.handleDemo}>DEMO SIGN IN</button>
           <button onClick={this.handleSubmit}>SIGN IN</button>
         </div>
       );
     } else {
       return (
-        <div className="signup-button">
-          <button onClick={this.handleSubmit}>SIGN UP FOR FREE</button>
+        <div className="submit-buttons">
+          <button
+            id="signup"
+            onClick={this.handleSubmit}>SIGN UP FOR FREE</button>
         </div>
       );
     }

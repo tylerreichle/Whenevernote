@@ -2,14 +2,17 @@ import React from 'react';
 import NotesIndexItem from './notes_index_item_container';
 
 class NotesIndex extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchNotes();
   }
 
   render() {
     const notes = this.props.notes;
-    const notesCount = this.props.notes.length;
+    const notesCount = notes.length;
 
     return (
       <section className="notes-index">
@@ -20,8 +23,8 @@ class NotesIndex extends React.Component {
 
         <ul className="notes-index-scroll">
           {
-            notes.map(note => (
-              <NotesIndexItem key={note.id} initialNote={note} />
+            notes.map((note, idx) => (
+              <NotesIndexItem key={idx} initialNote={note} />
             ))
           }
         </ul>
