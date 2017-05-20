@@ -8,7 +8,8 @@ import {
 } from '../../actions/notes_actions';
 
 const mapStateToProps = state => ({
-    note: state.note
+    note: state.note,
+    notes: state.notes
 });
 
 const mapDispatchToProps = dispatch => ({

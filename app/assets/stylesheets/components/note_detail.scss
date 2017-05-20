@@ -17,7 +17,9 @@
   display: flex;
   align-items: flex-end;
   height: 35px;
-  padding-left: 45px;
+  margin: 0 45px;
+
+  border-bottom: 1px solid $index-border;
 }
 
 .detail-notebook {
@@ -41,11 +43,6 @@
   width: 15px;
   padding: 5px;
 }
-
-.detail-form {
-  padding-left: 45px;
-}
-
 .detail-buttons {
   margin: 15px;
 }
@@ -78,14 +75,15 @@
   background-size: 24px 24px;
 }
 
-.note-detail form {
+.detail-form {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 0 45px;
 }
 
 input#title {
-  color: $detail-note-title;
+  color: $note-title;
   font-size: 30px;
   height: 50px;
   padding: 5px;

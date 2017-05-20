@@ -20,6 +20,7 @@ class NewNote extends React.Component {
       notebook_id: this.state.notebook_id
     };
     this.props.createNote(note);
+    this.props.history.push('/');
   }
 
   update(property) {
@@ -29,17 +30,32 @@ class NewNote extends React.Component {
   render() {
     return (
       <section className="new-note">
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
+
+        <div className="new-cancel">
+          <Link id="cancel" to="/">
+            <button>Cancel</button>
+          </Link>
+        </div>
+        <div className="new-toolbar">
+          <div className="detail-notebook">
+            <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/notebook.png"/>
+          </div>
+
+          <div className="detail-tag">
+            <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
+          </div>
+        </div>
+
         <form>
           <input
+            id="new-title"
             type="text"
             value={this.state.title}
             placeholder="Title your note"
             onChange={this.update('title')}/>
 
           <textarea
+            id="new-body"
             rows="10"
             cols="50"
             value={this.state.body}

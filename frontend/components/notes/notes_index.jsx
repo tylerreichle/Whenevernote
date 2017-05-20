@@ -1,5 +1,4 @@
 import React from 'react';
-import isEqual from 'lodash/isequal';
 import NotesIndexItem from './notes_index_item_container';
 
 class NotesIndex extends React.Component {
@@ -11,6 +10,7 @@ class NotesIndex extends React.Component {
   render() {
     const notes = this.props.notes;
     const notesCount = this.props.notes.length;
+
     return (
       <section className="notes-index">
         <div className="notes-header">
@@ -21,7 +21,7 @@ class NotesIndex extends React.Component {
         <ul className="notes-index-scroll">
           {
             notes.map(note => (
-              <NotesIndexItem key={note.id} initialNote={note}/>
+              <NotesIndexItem key={note.id} initialNote={note} />
             ))
           }
         </ul>

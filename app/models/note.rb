@@ -12,8 +12,12 @@
 #
 
 class Note < ApplicationRecord
-  validates :title, :body, :author_id, :notebook_id, presence: true
+  validates :title, :body, :author, :notebook_id, presence: true
 
-  # belongs_to :author
+  belongs_to :author,
+             primary_key: :id,
+             foreign_key: :author_id,
+             class_name: :User
+
   # belongs_to :notebook
 end

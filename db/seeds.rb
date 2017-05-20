@@ -23,7 +23,7 @@ bodies = []
   Note.create(
     title: titles[idx],
     body: bodies[idx],
-    author_id: 1,
+    author_id: 2,
     notebook_id: 1
   )
 end
