@@ -1,5 +1,9 @@
 import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
+import {
+  AuthRoute,
+  ProtectedRoute,
+  ProtectedExactRoute
+} from '../../util/route_util';
 
 import SplashPage from './splash_page';
 import Sidebar from '../sidebar/sidebar_container';
@@ -13,9 +17,9 @@ class Home extends React.Component {
     return (
       <div className="home-container">
         <AuthRoute path="/" component={SplashPage} />
-        <ProtectedRoute exact path="/" component={Sidebar} />
-        <ProtectedRoute exact path="/" component={NotesIndex} />
-        <ProtectedRoute exact path="/" component={NoteDetail} />
+        <ProtectedExactRoute path="/" component={Sidebar} />
+        <ProtectedExactRoute path="/" component={NotesIndex} />
+        <ProtectedExactRoute path="/" component={NoteDetail} />
         <ProtectedRoute path="/note/new" component={NewNote} />
       </div>
     );
