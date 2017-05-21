@@ -39,6 +39,7 @@ class NoteDetail extends React.Component {
 
   render() {
     const { title, body } = this.state;
+    const notebookId = this.state.notebook_id;
 
     return (
       <section className="note-detail">
@@ -58,7 +59,7 @@ class NoteDetail extends React.Component {
           </div>
 
           <div className="note-options">
-              <NotebookHeader />
+              <NotebookHeader notebookId={notebookId}/>
 
             <div className="detail-tag">
               <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
