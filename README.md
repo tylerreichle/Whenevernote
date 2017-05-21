@@ -26,7 +26,7 @@ Whenevernote is a full-stack web application inspired by Evernote built using Ru
 ## Design Docs
 
 * [View Wireframes](./docs/wireframes)
-* [React Components](./docs/apicomponents.md)
+* [React Components](./docs/component-hierarchy.md)
 * [API endpoints](./docs/api-endpoints.md)
 * [DB schema](./docs/schema.md)
 * [Sample State](./docs/sample_state.md)
