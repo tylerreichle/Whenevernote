@@ -18,9 +18,9 @@ class Home extends React.Component {
     return (
       <div className="home-container">
         <AuthRoute path="/" component={SplashPage} />
-        <ProtectedExactRoute path="/" component={Sidebar} />
-        <ProtectedExactRoute path="/" component={NotesIndex} />
-        <ProtectedExactRoute path="/" component={NoteDetail} />
+        <ProtectedRoute path="/" component={Sidebar} />
+        <ProtectedRoute path="/" component={NotesIndex} />
+        <ProtectedRoute path="/notes/:noteId" component={NoteDetail} />
         <ProtectedRoute path="/note/new" component={NewNote} />
         <ProtectedRoute path="/notebook/new" component={NewNotebook} />
       </div>

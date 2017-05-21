@@ -13,7 +13,7 @@ class NoteDetail extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchSingleNote(3);
+    this.props.fetchSingleNote(this.props.match.params.noteId);
   }
 
   componentWillReceiveProps(newProps) {

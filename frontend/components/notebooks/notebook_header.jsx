@@ -3,7 +3,6 @@ import React from 'react';
 class NotebookHeader extends React.Component {
 
   componentWillMount() {
-    console.log('Iamhere');
     this.props.fetchSingleNotebook(1);
   }
 
