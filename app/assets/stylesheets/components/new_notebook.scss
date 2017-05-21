@@ -83,6 +83,7 @@
 #nn-create:disabled {
   background-color: $locked-create;
   color: $locked-create-text;
+  cursor: default;
 }
 
 #nn-create {

@@ -32,9 +32,11 @@ class NewNotebook extends React.Component {
     const title = e.target.value;
 
     if (title.length > 0) {
-      console.log('i am here');
       $('#nn-create').attr('disabled', false);
-    } else {
+    } else if (title === "") {
+      $('nn-create').attr('disabled', true);
+    }
+      else {
       $('#nn-create').attr('diabled', true);
     }
     this.setState({ title });

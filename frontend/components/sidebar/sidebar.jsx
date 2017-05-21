@@ -42,6 +42,3 @@ class Sidebar extends React.Component {
 }
 
 export default Sidebar;
-
-
-// <button onClick={this.handleClick}>Sign Out</button>

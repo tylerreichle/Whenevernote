@@ -119,7 +119,7 @@ class SessionForm extends React.Component {
     return (
       <section className="auth-comp">
         <h2>Remember Everything</h2>
-        <h3>Inspiration strikes anywhere. Evernote lets you capture and nurture ideas whenevever you have them.</h3>
+        <h3>Inspiration strikes anywhere. Whenevernote lets you capture and nurture ideas whenevever you have them.</h3>
 
         <form className="auth-form">
           <div className="auth-inputs">
