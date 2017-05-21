@@ -36,7 +36,7 @@ export const fetchSingleNotebook = notebookId => dispatch => (
 
 export const createNotebook = notebook => dispatch => (
   NotebooksAPI.createNotebook(notebook)
-    .then(newNotebook =>  {
+    .then(newNotebook => {
       dispatch(receiveSingleNotebook(newNotebook));
       dispatch(clearErrors());
     },
@@ -45,7 +45,7 @@ export const createNotebook = notebook => dispatch => (
 
 export const updateNotebook = notebook => dispatch => (
   NotebooksAPI.updateNotebook(notebook)
-    .then(updatedNotebook =>  {
+    .then(updatedNotebook => {
       dispatch(receiveSingleNotebook(updatedNotebook));
       dispatch(clearErrors());
     },
@@ -54,9 +54,22 @@ export const updateNotebook = notebook => dispatch => (
 
 export const deleteNotebook = notebookId => dispatch => (
   NotebooksAPI.deleteNotebook(notebookId)
-    .then(deletedNotebook =>  {
+    .then(deletedNotebook => {
       dispatch(removeNotebook(deletedNotebook));
       dispatch(clearErrors());
     },
     (errors => dispatch(receiveErrors(errors.responseJSON))))
 );
+
+
+window.fetchNotebooks = NotebooksAPI.fetchNotebooks;
+window.fetchSingleNotebook = NotebooksAPI.fetchSingleNotebook;
+window.createNotebook = NotebooksAPI.createNotebook;
+window.updateNotebook = NotebooksAPI.updateNotebook;
+window.deleteNotebook = NotebooksAPI.deleteNotebook;
+
+window.thunkfetchNotebooks = fetchNotebooks;
+window.thunkfetchSingleNotebook = fetchSingleNotebook;
+window.thunkcreateNotebook = createNotebook;
+window.thunkupdateNotebook = updateNotebook;
+window.thunkdeleteNotebook = deleteNotebook;

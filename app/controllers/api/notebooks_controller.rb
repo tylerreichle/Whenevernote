@@ -22,7 +22,7 @@ class Api::NotebooksController < ApplicationController
   def update
     @notebook = Notebook.find_by(id: params[:id])
 
-    if @notebook.author.id != current_user
+    if @notebook.author.id != current_user.id
       render json: ["Cannot update another user's notebook"]
     elsif @notebook.update_attributes(notebook_params)
       render 'api/notebooks/show'
