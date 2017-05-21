@@ -13,17 +13,31 @@ User.create(username: 'tyler', email: 'tyler@aa.io', password: 'password')
 User.create(username: 'treichle', email: 'treichle@aa.io', password: 'password')
 User.create(username: 'thegraceann', email: 'grace@aa.io', password: 'password')
 
+nb_titles = []
+20.times { nb_titles << Faker::StarWars.planet }
+
+descriptions = []
+20.times { descriptions << Faker::ChuckNorris.fact }
+
 Notebook.create(
-author_id: 2,
-title: 'Personal Notes',
-description: 'personal stuff here'
+  author_id: 2,
+  title: 'Personal Notes',
+  description: 'personal stuff here'
 )
 
 Notebook.create(
-author_id: 2,
-title: 'Work Notes',
-description: 'Notes from Work'
+  author_id: 2,
+  title: 'Work Notes',
+  description: 'Notes from Work'
 )
+
+(0..19).each do |idx|
+  Notebook.create(
+    author_id: 2,
+    title: nb_titles[idx],
+    description: descriptions[idx]
+  )
+end
 
 titles = []
 25.times { titles << Faker::Zelda.character }
