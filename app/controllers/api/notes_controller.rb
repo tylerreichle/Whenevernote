@@ -22,7 +22,9 @@ class Api::NotesController < ApplicationController
   def update
     @note = Note.find_by(id: params[:id])
 
-    if @note.update_attributes(note_params)
+    if @note.author.id != current_user.id
+      render json: ["Cannot update another user's note"]
+    elsif @note.update_attributes(note_params)
       render 'api/notes/show'
     else
       render json: @note.errors.full_messages, status: 422
