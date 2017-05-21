@@ -1,5 +1,4 @@
 import React from 'react';
-import NotebookHeader from '../notebooks/notebook_header_container';
 
 class NoteDetail extends React.Component {
   constructor(props) {
@@ -59,7 +58,6 @@ class NoteDetail extends React.Component {
 
           <div className="note-options">
             <div className="detail-notebook">
-              <NotebookHeader />
             </div>
 
             <div className="detail-tag">
