@@ -15,7 +15,7 @@ class Api::NotesController < ApplicationController
     if @note.save
       render 'api/notes/show'
     else
-      render json: @note.errors.full_messages
+      render json: @note.errors.full_messages, status: 422
     end
   end
 
@@ -25,14 +25,19 @@ class Api::NotesController < ApplicationController
     if @note.update_attributes(note_params)
       render 'api/notes/show'
     else
-      render json: @note.errors.full_messages
+      render json: @note.errors.full_messages, status: 422
     end
   end
 
   def destroy
     @note = Note.find_by(id: params[:id])
-    @note.delete
-    render 'api/notes/show'
+
+    if @note.author.id == current_user.id
+      @note.delete
+      render 'api/notes/show'
+    else
+      render json: ["Cannot delete another user's note"], status: 403
+    end
   end
 
   private
