@@ -17,17 +17,15 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
-        <NewNotebook/>
+        <AuthRoute path="/" component={SplashPage} />
+        <ProtectedExactRoute path="/" component={Sidebar} />
+        <ProtectedExactRoute path="/" component={NotesIndex} />
+        <ProtectedExactRoute path="/" component={NoteDetail} />
+        <ProtectedRoute path="/note/new" component={NewNote} />
+        <ProtectedRoute path="/notebook/new" component={NewNotebook} />
       </div>
     );
   }
 }
 
 export default Home;
-
-
-// <AuthRoute path="/" component={SplashPage} />
-// <ProtectedExactRoute path="/" component={Sidebar} />
-// <ProtectedExactRoute path="/" component={NotesIndex} />
-// <ProtectedExactRoute path="/" component={NoteDetail} />
-// <ProtectedRoute path="/note/new" component={NewNote} />

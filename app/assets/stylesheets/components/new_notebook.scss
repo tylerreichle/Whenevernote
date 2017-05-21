@@ -1,0 +1,91 @@
+.new-notebook {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nn-main-content {
+  height: 330px;
+  width: 420px;
+
+  margin-top: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nn-main-content img {
+  height: 33px;
+  width: 40px;
+}
+
+.nn-main-content h4 {
+  font-family: $sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: $header-gray;
+  letter-spacing: 1px;
+  margin-bottom: 50px;
+}
+
+.nn-form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nn-form input {
+  font-size: 34px;
+  letter-spacing: 1px;
+  height: 40px;
+  margin-bottom: 100px;
+  border-style: none;
+}
+
+.nn-form input::placeholder {
+  text-align: center;
+  color: $title-placeholder
+}
+
+.nn-form input:focus {
+  outline: none
+}
+
+.nn-buttons {
+  height: 35px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.nn-buttons button {
+  width: 49%;
+  height: 100%;
+
+  font-size: 14px;
+  font-weight: bold;
+  font-family: $sans-serif;
+  letter-spacing: 1px;
+  border-style: none;
+  border-radius: 5px;
+}
+
+#nn-cancel {
+  background-color: $index-border;
+  color: $dark-slate-gray;
+}
+
+#nn-create:disabled {
+  background-color: $locked-create;
+  color: $locked-create-text;
+}
+
+#nn-create {
+  background-color: $medium-sea-green;
+  color: $locked-create-text;
+}

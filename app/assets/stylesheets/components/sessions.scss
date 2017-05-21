@@ -56,6 +56,7 @@ div.form-nav-link {
   margin: 10px;
   font-size: 16px;
   font-weight: 400;
+  font-family: $sans-serif;
 
   color: $dark-slate-gray;
   background-color: $white-smoke;
@@ -83,9 +84,14 @@ div.form-nav-link {
   border: 2px;
 }
 
+.auth-inputs input::placeholder {
+  font-family: $sans-serif;
+}
+
 .auth-form button {
   font-size: 16px;
   font-weight: bold;
+  font-family: $sans-serif;
 
   color: $white-smoke;
   background-color: $medium-sea-green;

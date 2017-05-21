@@ -8,7 +8,8 @@ class NewNotebook extends React.Component {
     this.state = { title: '' };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit(e) {
@@ -21,31 +22,50 @@ class NewNotebook extends React.Component {
     this.props.history.push('/');
   }
 
-  update(property) {
-    return e => this.setState({ [property]: e.target.value });
+  handleCancel(e) {
+    e.preventDefault();
+    this.props.history.push('/');
+  }
+
+  handleChange(e) {
+    e.preventDefault();
+    const title = e.target.value;
+
+    if (title.length > 0) {
+      console.log('i am here');
+      $('#nn-create').attr('disabled', false);
+    } else {
+      $('#nn-create').attr('diabled', true);
+    }
+    this.setState({ title });
   }
 
   render() {
     return (
       <section className="new-notebook">
-          <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/notebook.png"></img>
+        <section className="nn-main-content">
+          <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495352597/new-notebook.png"></img>
           <h4>CREATE NOTEBOOK</h4>
 
-          <form>
+          <form className="nn-form">
             <input
               type="text"
-              placeholder=""
+              placeholder="Title your notebook"
               value={this.state.title}
-              onChange={this.update('title')}/>
+              onChange={this.handleChange}/>
 
-            <Link id="cancel" to="/">
-              <button id="nn-cancel">Cancel</button>
-            </Link>
-            
-            <button
-              id="nn-create"
-              onClick={this.handleSubmit}>Create notebook</button>
+            <div className="nn-buttons">
+              <button
+                id="nn-cancel"
+                onClick={this.handleCancel}>Cancel</button>
+
+              <button
+                id="nn-create"
+                onClick={this.handleSubmit}
+                disabled >Create notebook</button>
+            </div>
           </form>
+        </section>
       </section>
     );
   }

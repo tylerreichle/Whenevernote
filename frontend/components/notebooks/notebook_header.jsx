@@ -9,7 +9,6 @@ class NotebookHeader extends React.Component {
 
   render() {
     const { notebook } = this.props.notebook;
-    debugger
     return (
       <div className="notebooks">
         <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/notebook.png"/>
