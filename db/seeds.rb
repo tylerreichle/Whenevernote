@@ -13,6 +13,18 @@ User.create(username: 'tyler', email: 'tyler@aa.io', password: 'password')
 User.create(username: 'treichle', email: 'treichle@aa.io', password: 'password')
 User.create(username: 'thegraceann', email: 'grace@aa.io', password: 'password')
 
+Notebook.create(
+author_id: 2,
+title: 'Personal Notes',
+description: 'personal stuff here'
+)
+
+Notebook.create(
+author_id: 2,
+title: 'Work Notes',
+description: 'Notes from Work'
+)
+
 titles = []
 25.times { titles << Faker::Zelda.character }
 

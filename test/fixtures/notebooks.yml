@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: notebooks
+#
+#  id          :integer          not null, primary key
+#  author_id   :integer          not null
+#  title       :string           not null
+#  description :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  author_id: 1
+  title: MyString
+  description: MyString
+
+two:
+  author_id: 1
+  title: MyString
+  description: MyString

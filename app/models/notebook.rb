@@ -1,23 +1,22 @@
 # == Schema Information
 #
-# Table name: notes
+# Table name: notebooks
 #
 #  id          :integer          not null, primary key
-#  title       :string           not null
-#  body        :text             not null
 #  author_id   :integer          not null
-#  notebook_id :integer          not null
+#  title       :string           not null
+#  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
-class Note < ApplicationRecord
-  validates :title, :body, :author, :notebook, presence: true
+class Notebook < ApplicationRecord
+  validates :author, :title, presence: true
+
+  has_many :notes
 
   belongs_to :author,
              primary_key: :id,
              foreign_key: :author_id,
              class_name: :User
-
-  belongs_to :notebook
 end

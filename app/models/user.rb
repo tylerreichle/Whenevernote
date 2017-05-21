@@ -4,7 +4,7 @@
 #
 #  id              :integer          not null, primary key
 #  username        :string           not null
-#  email           :string           not null
+#  email           :string
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -24,6 +24,11 @@ class User < ApplicationRecord
            primary_key: :id,
            foreign_key: :author_id,
            class_name: :Note
+
+  has_many :notebooks,
+           primary_key: :id,
+           foreign_key: :author_id,
+           class_name: :Notebook
 
   def password=(password)
     @password = password
