@@ -18,6 +18,3 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   ReactDom.render(<Root store={store}/>, root);
 });
-
-import { signout } from './actions/session_actions';
-window.signout = signout;
