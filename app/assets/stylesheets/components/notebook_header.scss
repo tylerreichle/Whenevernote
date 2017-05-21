@@ -1,0 +1,18 @@
+.notebook-header {
+  width: 150px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+}
+
+.notebook-header img {
+  height: 17px;
+  width: 15px;
+  margin: 10px 5px;
+}
+
+.notebook-header h3 {
+  font-size: 14px;
+  margin: 10px;
+}
