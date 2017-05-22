@@ -31,6 +31,7 @@ class NoteDetail extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteNote(this.state.id);
+    this.props.history.push('/');
   }
 
   update(property) {
