@@ -8,10 +8,6 @@ class NotesIndexItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchSingleNote(this.props.initialNote.id);
-  }
-
   handleClick(e) {
     e.preventDefault();
 

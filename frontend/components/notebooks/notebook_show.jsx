@@ -1,19 +1,26 @@
 import React from 'react';
-import NotesIndexItem from './notes_index_item_container';
+import NotesIndexItem from '../notes/notes_index_item_container';
 
-class NotesIndex extends React.Component {
+class NotebookShow extends React.Component {
+
   componentWillMount() {
-    this.props.fetchNotes();
+    this.props.fetchSingleNotebook(this.props.match.params.notebookId);
+  }
+
+  componentWillReceiveProps(newProps) {
+
   }
 
   render() {
+    const { title } = this.props.notebook;
     const notes = this.props.notes;
     const notesCount = notes.length;
+    console.log(notes);
 
     return (
       <section className="notes-index">
-        <div className="notes-header">
-          <h2>NOTES</h2>
+        <div className="nb-show-header">
+          <h2>{title}</h2>
           <h4>{notesCount} notes</h4>
         </div>
 
@@ -29,4 +36,4 @@ class NotesIndex extends React.Component {
   }
 }
 
-export default NotesIndex;
+export default NotebookShow;
