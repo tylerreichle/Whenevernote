@@ -1,6 +1,6 @@
 ## Whenevernote
 
-[Heroku](www.heroku.com)
+[Heroku](https://whenevernote.herokuapp.com)
 
 [Trello](https://trello.com/b/SQD6TvvD/full-stack-project)
 
