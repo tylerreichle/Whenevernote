@@ -2,17 +2,18 @@ import React from 'react';
 import NotesIndexItem from './notes_index_item_container';
 
 class NotesIndex extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   componentWillMount() {
-    this.props.fetchNotes();
-    // this.props.fetchNotes().then(() => {
-    //   dispatch(receiveSingleNote(this.props.notes[0]))
-    // })
+    this.props.fetchNotes().then(() => {
+      this.props.history.push(`notes/${this.props.notes[0].id}`);
+    });
+    // this.props.receiveSingleNote(this.props.notes[0]);
   }
+
+  // componentWillReceiveProps(newProps) {
+  //   console.log(newProps.notes);
+  //   console.log(this.props.notes);
+  // }
 
   render() {
     const notes = this.props.notes;

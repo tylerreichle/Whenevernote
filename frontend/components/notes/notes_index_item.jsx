@@ -1,20 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class NotesIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.highlightedClass = this.highlightedClass.bind(this);
   }
 
   handleClick(e) {
     e.preventDefault();
-
-    $('.highlighted').removeClass('highlighted');
-    $(e.currentTarget).addClass('highlighted');
-
     this.props.fetchSingleNote(this.props.initialNote.id);
+  }
+
+  highlightedClass() {
+    if (this.props.location.pathname === this.props.linkPath) {
+      return "notes-index-item highlighted";
+    } else {
+      return "notes-index-item";
+    }
   }
 
   render() {
@@ -23,7 +28,7 @@ class NotesIndexItem extends React.Component {
     const lastUpdate = new Date(updated_at);
 
     return (
-      <div onClick={this.handleClick} className="notes-index-item">
+      <div onClick={this.handleClick} className={this.highlightedClass()}>
         <Link to={linkPath}>
           <li>
             <h4 className="preview-title ii-child">{title}</h4>
@@ -36,4 +41,4 @@ class NotesIndexItem extends React.Component {
   }
 }
 
-export default NotesIndexItem;
+export default withRouter(NotesIndexItem);
