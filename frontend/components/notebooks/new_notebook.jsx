@@ -46,7 +46,7 @@ class NewNotebook extends React.Component {
     return (
       <section className="new-notebook">
         <section className="nn-main-content">
-          <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495352597/new-notebook.png"></img>
+          <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495419507/new-notebook.png"></img>
           <h4>CREATE NOTEBOOK</h4>
 
           <form className="nn-form">

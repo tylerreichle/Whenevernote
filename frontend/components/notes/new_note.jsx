@@ -38,11 +38,11 @@ class NewNote extends React.Component {
         </div>
         <div className="new-toolbar">
           <div className="detail-notebook">
-            <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/notebook.png"/>
+            <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/notebook.png"/>
           </div>
 
           <div className="detail-tag">
-            <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
+            <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
           </div>
         </div>
 

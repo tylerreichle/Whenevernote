@@ -25,7 +25,7 @@ class SplashPage extends React.Component {
       <header>
         <div className="left-nav">
           <img
-            src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495083594/header-logo.png"
+            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495083594/header-logo.png"
             alt="Whenevernote logo" />
           <h1>WHENEVERNOTE</h1>
         </div>

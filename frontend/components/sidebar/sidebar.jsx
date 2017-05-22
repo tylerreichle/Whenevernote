@@ -19,7 +19,7 @@ class Sidebar extends React.Component {
       <aside className="sidebar">
         <div className="sidebar-top">
           <img
-            src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495083594/header-logo.png"
+            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424859/sidebar/logo-small.png"
             alt="Whenevernote logo" />
 
           <Link
