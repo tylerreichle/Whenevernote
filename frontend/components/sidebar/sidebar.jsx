@@ -18,20 +18,36 @@ class Sidebar extends React.Component {
     return (
       <aside className="sidebar">
         <div className="sidebar-top">
-          <img
-            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424859/sidebar/logo-small.png"
-            alt="Whenevernote logo" />
+          <Link
+            to="/"
+            title="HOME">
+            <img
+              src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424859/sidebar/logo-small.png"
+              alt="Whenevernote logo" />
+          </Link>
 
           <Link
             to="/note/new"
             title="NEW NOTE"
             id="new-note"
-            className="circle-button">+</Link>
+            className="circle-button"></Link>
 
         </div>
 
         <div className="sidebar-mid">
+          <Link
+            to="/"
+            title="NOTES"
+            id="notes"
+            className="circle-button"></Link>
+
           <NotebooksModal />
+
+          <Link
+            to="/"
+            title="TAGS"
+            id="tags"
+            className="circle-button"></Link>
         </div>
 
         <div className="sidebar-bot">

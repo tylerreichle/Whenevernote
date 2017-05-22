@@ -27,35 +27,61 @@
     display:block;
     width: 37px;
     height: 37px;
-    margin: 15px;
+    background-color: $white-smoke;
+    background-size: 37px;
+    background-position: center;
 
-    border: 1px solid $medium-sea-green;
+    margin: 15px;
+    border: none;
     border-radius: 50%;
-    color: $medium-sea-green;
-    text-align: center;
     text-decoration: none;
-    font-size: 35px;
-    transition: color 0.7s ease;
+    transition: background-image 0.4s ease;
 }
 .circle-button:hover {
   background: $medium-sea-green;
-  color: $white-smoke;
+}
+
+.circle-button#selected {
+  border: 1px solid $medium-sea-green;
+}
+
+
+.circle-button#new-note {
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/new-note.png);
+}
+
+.circle-button#new-note:hover {
+  background-size: 37px;
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/new-note-hover.png);
+}
+
+.circle-button#notes {
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/notes.png);
+}
+
+.circle-button#notes:hover {
+  background-size: 37px;
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/notes-hover.png);
 }
 
 .circle-button#notebooks {
-  background-color: $white-smoke;
   background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/notebooks.png);
-  background-size: 37px;
-  background-position: center;
 }
 
 .circle-button#notebooks:hover {
+  background-size: 37px;
   background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/notebooks_hover.png);
 }
 
-.circle-button#new-note {
-  line-height: 41px;
+.circle-button#tags {
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/tags.png);
 }
+
+.circle-button#tags:hover {
+  background-size: 37px;
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/tags_hover.png);
+}
+
 .circle-button#signout {
   margin: 15px auto;
   line-height: 41px;
