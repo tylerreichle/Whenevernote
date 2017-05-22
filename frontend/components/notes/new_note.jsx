@@ -20,7 +20,7 @@ class NewNote extends React.Component {
       notebook_id: this.state.notebook_id
     };
     this.props.createNote(note);
-    this.props.history.push('/');
+    this.props.history.push('/notes');
   }
 
   update(property) {
@@ -32,7 +32,7 @@ class NewNote extends React.Component {
       <section className="new-note">
 
         <div className="new-cancel">
-          <Link id="cancel" to="/">
+          <Link id="cancel" to="/notes">
             <button>Cancel</button>
           </Link>
         </div>

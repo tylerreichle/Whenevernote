@@ -19,7 +19,7 @@ class Sidebar extends React.Component {
       <aside className="sidebar">
         <div className="sidebar-top">
           <Link
-            to="/"
+            to="/notes"
             title="HOME">
             <img
               src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424859/sidebar/logo-small.png"
@@ -27,7 +27,7 @@ class Sidebar extends React.Component {
           </Link>
 
           <Link
-            to="/note/new"
+            to="/notes/new"
             title="NEW NOTE"
             id="new-note"
             className="circle-button"></Link>
@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
 
         <div className="sidebar-mid">
           <Link
-            to="/"
+            to="/notes"
             title="NOTES"
             id="notes"
             className="circle-button"></Link>
@@ -44,7 +44,7 @@ class Sidebar extends React.Component {
           <NotebooksModal />
 
           <Link
-            to="/"
+            to="/notes"
             title="TAGS"
             id="tags"
             className="circle-button"></Link>

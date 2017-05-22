@@ -45,7 +45,6 @@
   border: 1px solid $medium-sea-green;
 }
 
-
 .circle-button#new-note {
   background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/new-note.png);
 }
@@ -71,6 +70,10 @@
 .circle-button#notebooks:hover {
   background-size: 37px;
   background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/notebooks_hover.png);
+}
+
+.circle-button#notebooks:focus {
+  outline: none;
 }
 
 .circle-button#tags {
