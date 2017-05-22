@@ -1,0 +1,54 @@
+.overlay {
+    position          : fixed;
+    top               : 0;
+    left              : 72px;
+    right             : 0;
+    bottom            : 0;
+    background-color  : rgba(255, 255, 255, 0.75);
+    z-index           : 10;
+}
+
+.nb-modal {
+  position: absolute;
+  top: 0;
+  width: 460px;
+  height: 100%;
+  margin: 0;
+
+  font-family: $sans-serif;
+  background-color: $white;
+  border: 1px solid red;
+  z-index: 11;
+}
+
+.nb-modal:focus {
+  outline-style: none;
+}
+
+.nb-modal-header {
+  display: flex;
+  justify-content: space-between;
+
+  height: 120px;
+  border-bottom: 1px solid $index-border;
+}
+
+.nb-modal-header h3 {
+  font-size: 21px;
+  letter-spacing: 2.1px;
+  color: $header-gray;
+
+  width: 155px;
+  height: 20px;
+  margin: 20px;
+}
+
+.nb-modal-header button {
+  height: 25px;
+  width: 25px;
+  background: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495419507/new-notebook.png);
+  background-size: 25px 25px;
+
+  border: none;
+  margin: 20px 25px;
+}

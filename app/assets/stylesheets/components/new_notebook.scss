@@ -82,11 +82,11 @@
 
 #nn-create:disabled {
   background-color: $locked-create;
-  color: $locked-create-text;
+  color: $white;
   cursor: default;
 }
 
 #nn-create {
   background-color: $medium-sea-green;
-  color: $locked-create-text;
+  color: $white;
 }
