@@ -5,18 +5,21 @@ class NotebookShow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      notebookNotes : []
-    };
+    this.state = { id: '', title: '', description: '', notes: [] };
   }
 
   componentWillMount() {
     this.props.fetchSingleNotebook(this.props.match.params.notebookId);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.state.id !== newProps.notebook.id) {
+      this.state = newProps.notebook;
+    }
+  }
+
   render() {
-    const { title } = this.props.notebook;
-    const notes = this.props.notebookNotes;
+    const { title, notes } = this.state;
     const notesCount = notes.length;
 
     return (

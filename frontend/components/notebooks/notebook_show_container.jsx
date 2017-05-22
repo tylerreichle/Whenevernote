@@ -3,11 +3,9 @@ import NotebookShow from './notebook_show';
 import { fetchSingleNotebook } from '../../actions/notebooks_actions';
 import { selectNotesByNotebook } from '../../reducers/selectors';
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-  notebook: state.notebook,
-  notebookNotes: selectNotesByNotebook(state, ownProps.match.params.notebookId)
-};};
+const mapStateToProps = ({ notebook }) => ({
+  notebook: notebook
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchSingleNotebook: (notebookId) => dispatch(fetchSingleNotebook(notebookId))
