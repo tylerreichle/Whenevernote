@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ReactModal from 'react-modal';
 
 import NotebooksIndex from '../notebooks/notebooks_index_container';
@@ -35,7 +36,11 @@ class NotebooksModal extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.openModal}>Notebooks</button>
+        <button
+          className="circle-button"
+          id="notebooks"
+          onClick={this.openModal}></button>
+
         <ReactModal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
@@ -46,11 +51,14 @@ class NotebooksModal extends React.Component {
 
         <div className="nb-modal-header">
           <h3>NOTEBOOKS</h3>
-          <button>+</button>
+
+          <Link to="/notebook/new">
+            <button></button>
+          </Link>
         </div>
 
         <NotebooksIndex />
-        
+
       </ReactModal>
       </div>
     );

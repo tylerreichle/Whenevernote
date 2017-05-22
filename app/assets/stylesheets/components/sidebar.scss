@@ -25,8 +25,8 @@
 
 .circle-button {
     display:block;
-    width: 35px;
-    height: 35px;
+    width: 37px;
+    height: 37px;
     margin: 15px;
 
     border: 1px solid $medium-sea-green;
@@ -40,6 +40,17 @@
 .circle-button:hover {
   background: $medium-sea-green;
   color: $white-smoke;
+}
+
+.circle-button#notebooks {
+  background-color: $white-smoke;
+  background-image: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/notebooks.png);
+  background-size: 37px;
+  background-position: center;
+}
+
+.circle-button#notebooks:hover {
+  background-image: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424843/sidebar/notebooks_hover.png);
 }
 
 .circle-button#new-note {

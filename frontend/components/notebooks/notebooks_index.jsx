@@ -11,7 +11,7 @@ class NotebooksIndex extends React.Component {
     const notebooks = this.props.notebooks;
 
     return (
-      <div className="noteboooks-index">
+      <div className="notebooks-index">
         <ul>
           {
             notebooks.map((notebook, idx) => (

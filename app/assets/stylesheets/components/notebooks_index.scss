@@ -1,16 +1,49 @@
-.notebooks {
-  height: 30px;
-  width: 75px;
-  border: 1px solid red;
+.notebooks-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
 }
 
-.notebooks-index {
-  width: 75px;
-  height: 25px;
-  border: 1px solid red;
+.notebooks-index ul {
+  width: 95%;
+  overflow-y: auto;
 }
 
 .notebooks-ii {
-  width: 75px;
-  height: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 98%;
+  height: 60px;
+  padding-left: 10px;
+
+  font-family: $serif-2;
+  border-bottom: 1px solid $index-border;
+}
+
+.notebooks-ii:hover {
+  background-color: $medium-sea-green;
+}
+
+.notebooks-ii:hover .nb-ii-child {
+  color: $white-smoke;
+}
+
+.notebooks-ii h4 {
+  width: 75%;
+  color: $dark-slate-gray;
+  letter-spacing: .8px;
+}
+
+.notebooks-ii h5 {
+  width: 75%;
+  font-size: 12px;
+  font-family: $sans-serif;
+  color: $header-gray;
+
+  margin-top: 10px;
 }

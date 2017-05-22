@@ -28,6 +28,9 @@ class Sidebar extends React.Component {
             id="new-note"
             className="circle-button">+</Link>
 
+        </div>
+
+        <div className="sidebar-mid">
           <NotebooksModal />
         </div>
 
