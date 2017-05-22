@@ -20,8 +20,12 @@ class NotebookShow extends React.Component {
     return (
       <section className="notes-index">
         <div className="nb-show-header">
-          <h2>{title}</h2>
-          <h4>{notesCount} notes</h4>
+          <div className="nbs-header-top">
+            <h2>{title}</h2>
+          </div>
+          <div className="nbs-header-bot">
+            <h4>{notesCount} notes</h4>
+          </div>
         </div>
 
         <ul className="notes-index-scroll">

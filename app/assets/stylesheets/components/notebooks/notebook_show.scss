@@ -1,0 +1,35 @@
+.nb-show-header {
+  height: 205px;
+  width: 350px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nbs-header-top {
+  height: 150px;
+  width: 100%;
+  background-color: $notebook-header;
+  text-align: center;
+}
+
+.nb-show-header h2 {
+  font-family: $serif-2;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: $white;
+  margin-top: 30px;
+}
+
+.nbs-header-bot {
+  height: 55px;
+  width: 100%;
+  border-bottom: 1px solid $index-border;
+}
+
+.nbs-header-bot h4 {
+  font-size: 14px;
+  color: $header-notes-count;
+  margin: 30px 0 10px 20px;
+}
