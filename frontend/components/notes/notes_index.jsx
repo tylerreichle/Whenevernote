@@ -20,7 +20,10 @@ class NotesIndex extends React.Component {
         <ul className="notes-index-scroll">
           {
             notes.map((note, idx) => (
-              <NotesIndexItem key={idx} initialNote={note} />
+              <NotesIndexItem
+                linkPath={`/notes/${note.id}`}
+                key={idx}
+                initialNote={note} />
             ))
           }
         </ul>
