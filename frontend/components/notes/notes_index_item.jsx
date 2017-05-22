@@ -20,15 +20,14 @@ class NotesIndexItem extends React.Component {
   render() {
     const { id, title, body, updated_at } = this.props.initialNote;
     const linkPath = this.props.linkPath;
-    // TODO: last update in preview time
-    // const lastUpdate = new Date(updated_at);
+    const lastUpdate = new Date(updated_at);
 
     return (
       <div onClick={this.handleClick} className="notes-index-item">
         <Link to={linkPath}>
           <li>
             <h4 className="preview-title ii-child">{title}</h4>
-            <h5 className="preview-time ii-child">WHENEVER</h5>
+            <h5 className="preview-time ii-child">{lastUpdate.toDateString()}</h5>
             <p className="preview-body ii-child">{body}</p>
           </li>
         </Link>
