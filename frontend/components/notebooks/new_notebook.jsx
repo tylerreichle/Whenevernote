@@ -19,15 +19,16 @@ class NewNotebook extends React.Component {
       author_id: this.props.currentUser.id
     };
     this.props.createNotebook(notebook);
-    this.props.history.push('/');
+    this.props.history.push('/notes');
   }
 
   handleCancel(e) {
     e.preventDefault();
-    this.props.history.push('/');
+    this.props.history.push('/notes');
   }
 
   handleChange(e) {
+    // TODO: fix this shitty check
     e.preventDefault();
     const title = e.target.value;
 
