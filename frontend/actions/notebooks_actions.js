@@ -60,16 +60,3 @@ export const deleteNotebook = notebookId => dispatch => (
     },
     (errors => dispatch(receiveErrors(errors.responseJSON))))
 );
-
-
-window.fetchNotebooks = NotebooksAPI.fetchNotebooks;
-window.fetchSingleNotebook = NotebooksAPI.fetchSingleNotebook;
-window.createNotebook = NotebooksAPI.createNotebook;
-window.updateNotebook = NotebooksAPI.updateNotebook;
-window.deleteNotebook = NotebooksAPI.deleteNotebook;
-
-window.thunkfetchNotebooks = fetchNotebooks;
-window.thunkfetchSingleNotebook = fetchSingleNotebook;
-window.thunkcreateNotebook = createNotebook;
-window.thunkupdateNotebook = updateNotebook;
-window.thunkdeleteNotebook = deleteNotebook;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class NotesIndexItem extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class NotesIndexItem extends React.Component {
   }
 
   highlightedClass() {
-    if (this.props.location.pathname === this.props.linkPath) {
+    if (this.props.notePath === this.props.linkPath) {
       return "notes-index-item highlighted";
     } else {
       return "notes-index-item";
@@ -41,4 +41,4 @@ class NotesIndexItem extends React.Component {
   }
 }
 
-export default withRouter(NotesIndexItem);
+export default NotesIndexItem;

@@ -1,27 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import NotesIndexItem from '../notes/notes_index_item_container';
 
 class NotebookShow extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { id: '', title: '', description: '', notes: [] };
-  }
 
   componentWillMount() {
-    this.props.fetchSingleNotebook(this.props.match.params.notebookId);
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (this.state.id !== newProps.notebook.id) {
-      this.state = newProps.notebook;
-    }
+    this.props.fetchSingleNotebook(this.props.match.params.notebookId)
+      .then(() => {
+        this.props.history.push(`/notebook/${this.props.notebook.id}/notes/${this.props.notebook.notes[0].id}`);
+      });
   }
 
   render() {
-    const { id, title, notes } = this.state;
+    const id = this.props.notebook.id || '';
+    const title = this.props.notebook.title || '';
+    const notes = this.props.notebook.notes || [];
     const notesCount = notes.length;
+    console.log(this.props.location);
 
     return (
       <section className="notes-index">
@@ -39,6 +34,7 @@ class NotebookShow extends React.Component {
             notes.map((note, idx) => (
               <NotesIndexItem
                 linkPath={`/notebook/${id}/notes/${note.id}`}
+                notePath={this.props.location.pathname}
                 key={idx}
                 initialNote={note} />
             ))

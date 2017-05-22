@@ -7,13 +7,7 @@ class NotesIndex extends React.Component {
     this.props.fetchNotes().then(() => {
       this.props.history.push(`notes/${this.props.notes[0].id}`);
     });
-    // this.props.receiveSingleNote(this.props.notes[0]);
   }
-
-  // componentWillReceiveProps(newProps) {
-  //   console.log(newProps.notes);
-  //   console.log(this.props.notes);
-  // }
 
   render() {
     const notes = this.props.notes;
@@ -31,6 +25,7 @@ class NotesIndex extends React.Component {
             notes.map((note, idx) => (
               <NotesIndexItem
                 linkPath={`/notes/${note.id}`}
+                notePath={this.props.location.pathname}
                 key={idx}
                 initialNote={note} />
             ))
