@@ -6,7 +6,7 @@ class NotebooksIndexItem extends React.Component {
     const { id, title } = this.props.notebook;
 
     return (
-      <Link to={`notebook/${id}/notes`}>
+      <Link to={`/notebook/${id}/notes`}>
         <li className="notebooks-ii">
           <h4 className="nb-ii-child">{title}</h4>
           <h5 className="nb-ii-child">0 notes</h5>

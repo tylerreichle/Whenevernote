@@ -38,7 +38,7 @@ class NotebookShow extends React.Component {
           {
             notes.map((note, idx) => (
               <NotesIndexItem
-                linkPath={`notebook/${id}/notes/${note.id}`}
+                linkPath={`/notebook/${id}/notes/${note.id}`}
                 key={idx}
                 initialNote={note} />
             ))

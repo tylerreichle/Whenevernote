@@ -18,8 +18,8 @@ class Home extends React.Component {
     return (
       <div className="home-container">
         <AuthRoute path="/" component={SplashPage} />
-        <ProtectedExactRoute path="/" component={Sidebar} />
-        <ProtectedExactRoute path="/" component={NotesIndex} />
+        <ProtectedRoute path="/" component={Sidebar} />
+        <ProtectedRoute path="/" component={NotesIndex} />
         <ProtectedRoute path="/notes/:noteId" component={NoteDetail} />
         <ProtectedRoute path="/notebook/:notebookId/notes/" component={NotebookShow} />
         <ProtectedRoute path="/note/new" component={NewNote} />
