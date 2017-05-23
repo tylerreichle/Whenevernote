@@ -11,7 +11,6 @@ class NoteDetail extends React.Component {
     this.state = { id: '', title: '', body: '', notebook_id: ''};
 
     this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -24,8 +23,7 @@ class NoteDetail extends React.Component {
   componentDidMount() {
     this.setInterval( () => {
       this.autoSave();
-      console.log('autosaved');
-    }, 10000 );
+    }, 5000 );
   }
 
   componentWillReceiveProps(newProps) {
@@ -34,12 +32,6 @@ class NoteDetail extends React.Component {
     } else if (this.state.notebook_id !== newProps.note.notebook_id) {
       this.setState(newProps.note);
     }
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const note = Object.assign({}, this.state);
-    this.props.updateNote(note);
   }
 
   handleDelete(e) {
@@ -95,7 +87,7 @@ class NoteDetail extends React.Component {
           </div>
         </span>
 
-        <form className="detail-form" onSubmit={this.handleSubmit}>
+        <form className="detail-form">
           <input
             id="title"
             type="text"
@@ -108,8 +100,6 @@ class NoteDetail extends React.Component {
             cols="50"
             value={this.state.body}
             onChange={this.update('body')}/>
-
-          <input type="submit"/>
         </form>
       </section>
     );
