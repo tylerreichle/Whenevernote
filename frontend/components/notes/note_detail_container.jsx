@@ -6,15 +6,17 @@ import {
   updateNote,
   deleteNote
 } from '../../actions/notes_actions';
+import { fetchSingleNotebook } from '../../actions/notebooks_actions';
 
 const mapStateToProps = state => ({
     note: state.note,
-    notes: state.notes
+    notebook: state.notebook
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchNotes: () => dispatch(fetchNotes()),
   fetchSingleNote: (noteId) => dispatch(fetchSingleNote(noteId)),
+  fetchSingleNotebook: (notebookId) => dispatch(fetchSingleNotebook(notebookId)),
   updateNote: (note) => dispatch(updateNote(note)),
   deleteNote: (noteId) => dispatch(deleteNote(noteId))
 });

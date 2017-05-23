@@ -13,12 +13,14 @@ class NoteDetail extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchSingleNote(this.props.match.params.noteId);
+    this.props.fetchSingleNote(this.props.match.params.noteId).then(() => {
+      this.props.fetchSingleNotebook(this.props.note.notebook_id);
+    });
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.note.id !== newProps.note.id) {
-      this.state = newProps.note;
+    if (this.state.id !== newProps.note.id) {
+      this.setState(newProps.note);
     }
   }
 
@@ -31,7 +33,7 @@ class NoteDetail extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteNote(this.state.id);
-    this.props.history.push('/');
+    this.props.history.push('/notes');
   }
 
   update(property) {

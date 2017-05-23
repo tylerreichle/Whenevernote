@@ -1,9 +1,13 @@
 import { connect } from 'react-redux';
 import NotebookHeader from './notebook_header';
-import { fetchSingleNotebook } from '../../actions/notebooks_actions';
+import {
+  fetchSingleNotebook,
+  fetchNotebooks
+} from '../../actions/notebooks_actions';
 
 const mapStateToProps= state => ({
-  notebook: state.notebook
+  notebook: state.notebook,
+  notebooks: state.notebooks
 });
 
 const mapDispatchToProps = dispatch => ({

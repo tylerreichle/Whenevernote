@@ -16,7 +16,6 @@ class NotebookShow extends React.Component {
     const title = this.props.notebook.title || '';
     const notes = this.props.notebook.notes || [];
     const notesCount = notes.length;
-    console.log(this.props.location);
 
     return (
       <section className="notes-index">
