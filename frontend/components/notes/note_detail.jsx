@@ -1,4 +1,7 @@
 import React from 'react';
+import reactMixin from 'react-mixin';
+import TimerMixin from 'react-timer-mixin';
+
 import NotebookHeader from '../notebooks/notebook_header_container';
 
 class NoteDetail extends React.Component {
@@ -16,6 +19,13 @@ class NoteDetail extends React.Component {
     this.props.fetchSingleNote(this.props.match.params.noteId).then(() => {
       this.props.fetchSingleNotebook(this.props.note.notebook_id);
     });
+  }
+
+  componentDidMount() {
+    this.setInterval( () => {
+      this.autoSave();
+      console.log('autosaved');
+    }, 10000 );
   }
 
   componentWillReceiveProps(newProps) {
@@ -43,7 +53,13 @@ class NoteDetail extends React.Component {
   }
 
   autoSave() {
-    
+    if (this.state.title !== this.props.note.title) {
+      const note = Object.assign({}, this.state);
+      this.props.updateNote(note);
+    } else if (this.state.body !== this.props.note.body) {
+      const note = Object.assign({}, this.state);
+      this.props.updateNote(note);
+    }
   }
 
   render() {
@@ -99,5 +115,7 @@ class NoteDetail extends React.Component {
     );
   }
 }
+
+reactMixin(NoteDetail.prototype, TimerMixin);
 
 export default NoteDetail;
