@@ -21,6 +21,8 @@ class NoteDetail extends React.Component {
   componentWillReceiveProps(newProps) {
     if (this.state.id !== newProps.note.id) {
       this.setState(newProps.note);
+    } else if (this.state.notebook_id !== newProps.note.notebook_id) {
+      this.setState(newProps.note);
     }
   }
 
