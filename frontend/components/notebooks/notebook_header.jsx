@@ -12,6 +12,12 @@ class NotebookHeader extends React.Component {
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.notebookId !== newProps.notebookId) {
+      this.props.fetchSingleNotebook(newProps.notebookId);
+    }
+  }
+
   notebookMenu() {
     if (this.state.dropdownOpen) {
       return (
@@ -27,6 +33,7 @@ class NotebookHeader extends React.Component {
 
           <NotebooksIndex
             note={this.props.note}
+            fetchSingleNote={this.props.fetchSingleNote}
             updateNote={this.props.updateNote}
             iiCallback={'assign'}
             notesCount={false}/>

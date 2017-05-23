@@ -22,10 +22,14 @@ class NotebooksIndexItem extends React.Component {
   callbackAction() {
     if (this.props.iiCallback === 'link') {
       this.props.history.push(`/notebook/${this.props.notebook.id}/notes`);
+
     } else if (this.props.iiCallback === 'assign') {
       const newNotebook = { notebook_id : this.props.notebook.id };
       const updatedNote = merge({}, this.props.note, newNotebook);
-      this.props.updateNote(updatedNote);
+
+      this.props.updateNote(updatedNote).then(() => {
+        this.props.fetchSingleNote(updatedNote.id);
+      });
     }
   }
 

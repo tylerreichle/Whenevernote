@@ -19,6 +19,7 @@ class NotebooksIndex extends React.Component {
               <NotebooksIndexItem
                 notebook={notebook}
                 note={this.props.note}
+                fetchSingleNote={this.props.fetchSingleNote}
                 updateNote={this.props.updateNote}
                 iiCallback={this.props.iiCallback}
                 notesCount={notesCount}
