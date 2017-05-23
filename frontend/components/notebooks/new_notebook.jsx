@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class NewNotebook extends React.Component {
   constructor(props) {
@@ -29,17 +29,15 @@ class NewNotebook extends React.Component {
 
   handleChange(e) {
     // TODO: fix this shitty check
-    e.preventDefault();
     const title = e.target.value;
-
-    if (title.length > 0) {
-      $('#nn-create').attr('disabled', false);
-    } else if (title === "") {
-      $('nn-create').attr('disabled', true);
-    }
-      else {
-      $('#nn-create').attr('diabled', true);
-    }
+    //
+    // if (title.length > 0) {
+    //   $('#nn-create').attr('disabled', false);
+    // } else if (title === "") {
+    //   $('nn-create').attr('disabled', true);
+    // } else {
+    //   $('#nn-create').attr('diabled', true);
+    // }
     this.setState({ title });
   }
 
@@ -64,8 +62,7 @@ class NewNotebook extends React.Component {
 
               <button
                 id="nn-create"
-                onClick={this.handleSubmit}
-                disabled >Create notebook</button>
+                onClick={this.handleSubmit}>Create notebook</button>
             </div>
           </form>
         </section>
@@ -74,4 +71,4 @@ class NewNotebook extends React.Component {
   }
 }
 
-export default NewNotebook;
+export default withRouter(NewNotebook);
