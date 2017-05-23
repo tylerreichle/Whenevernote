@@ -3,6 +3,7 @@ import reactMixin from 'react-mixin';
 import TimerMixin from 'react-timer-mixin';
 
 import NotebookHeader from '../notebooks/notebook_header_container';
+import DeleteConfirmation from '../modals/delete_confirmation';
 
 class NoteDetail extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ class NoteDetail extends React.Component {
     this.state = { id: '', title: '', body: '', notebook_id: ''};
 
     this.update = this.update.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillMount() {
@@ -32,12 +32,6 @@ class NoteDetail extends React.Component {
     } else if (this.state.notebook_id !== newProps.note.notebook_id) {
       this.setState(newProps.note);
     }
-  }
-
-  handleDelete(e) {
-    e.preventDefault();
-    this.props.deleteNote(this.state.id);
-    this.props.history.push('/notes');
   }
 
   update(property) {
@@ -68,11 +62,11 @@ class NoteDetail extends React.Component {
               id="info"
               className="detail-button" />
 
-            <button
-              title="Delete Note"
-              id="trash"
-              className="detail-button"
-              onClick={this.handleDelete} />
+            <DeleteConfirmation
+              deleteNote={this.props.deleteNote}
+              id={this.state.id}
+              title={this.state.title} />
+
           </div>
 
           <div className="note-options">
