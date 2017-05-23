@@ -27,9 +27,7 @@ class NotebooksIndexItem extends React.Component {
       const newNotebook = { notebook_id : this.props.notebook.id };
       const updatedNote = merge({}, this.props.note, newNotebook);
 
-      this.props.updateNote(updatedNote).then(() => {
-        this.props.fetchSingleNote(updatedNote.id);
-      });
+      this.props.updateNote(updatedNote);
     }
   }
 

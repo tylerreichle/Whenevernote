@@ -33,7 +33,6 @@ class NotebookHeader extends React.Component {
 
           <NotebooksIndex
             note={this.props.note}
-            fetchSingleNote={this.props.fetchSingleNote}
             updateNote={this.props.updateNote}
             iiCallback={'assign'}
             notesCount={false}/>

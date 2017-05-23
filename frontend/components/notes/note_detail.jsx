@@ -63,7 +63,6 @@ class NoteDetail extends React.Component {
 
           <div className="note-options">
               <NotebookHeader
-                fetchSingleNote={this.props.fetchSingleNote}
                 updateNote={this.props.updateNote}
                 notebookId={notebookId}/>
 
