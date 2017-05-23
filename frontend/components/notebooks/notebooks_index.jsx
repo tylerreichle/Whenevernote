@@ -9,6 +9,7 @@ class NotebooksIndex extends React.Component {
 
   render() {
     const notebooks = this.props.notebooks;
+    const notesCount = this.props.notesCount;
 
     return (
       <div className="notebooks-index">
@@ -17,6 +18,10 @@ class NotebooksIndex extends React.Component {
             notebooks.map((notebook, idx) => (
               <NotebooksIndexItem
                 notebook={notebook}
+                note={this.props.note}
+                updateNote={this.props.updateNote}
+                iiCallback={this.props.iiCallback}
+                notesCount={notesCount}
                 key={idx}/>
             ))
           }

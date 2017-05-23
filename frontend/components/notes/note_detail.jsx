@@ -62,7 +62,9 @@ class NoteDetail extends React.Component {
           </div>
 
           <div className="note-options">
-              <NotebookHeader notebookId={notebookId}/>
+              <NotebookHeader
+                updateNote={this.props.updateNote}
+                notebookId={notebookId}/>
 
             <div className="detail-tag">
               <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>

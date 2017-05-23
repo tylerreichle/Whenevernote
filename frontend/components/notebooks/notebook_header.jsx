@@ -1,22 +1,47 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import NotebooksIndex from './notebooks_index_container';
 
 class NotebookHeader extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { dropdownOpen: false };
+
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 
   notebookMenu() {
-    return (
-      <div className="nb-header-dropdown">
+    if (this.state.dropdownOpen) {
+      return (
+        <div className="nb-header-dropdown">
 
-      </div>
-    );
+          <Link to="/notebook/new">
+            <div className="new-nb-item">
+
+                <div id="new-nb-img" className="new-nb-child"></div>
+                <button className="new-nb-child">Create new notebook</button>
+            </div>
+          </Link>
+
+          <NotebooksIndex
+            note={this.props.note}
+            updateNote={this.props.updateNote}
+            iiCallback={'assign'}
+            notesCount={false}/>
+        </div>
+      );
+    }
   }
 
   toggleMenu(e) {
     e.preventDefault();
+    if (this.state.dropdownOpen) {
+      this.setState({ dropdownOpen: false });
+    } else {
+      this.setState({ dropdownOpen: true });
+    }
   }
 
   render() {

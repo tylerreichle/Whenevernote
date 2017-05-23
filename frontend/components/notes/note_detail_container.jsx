@@ -6,6 +6,7 @@ import {
   updateNote,
   deleteNote
 } from '../../actions/notes_actions';
+
 import { fetchSingleNotebook } from '../../actions/notebooks_actions';
 
 const mapStateToProps = state => ({
