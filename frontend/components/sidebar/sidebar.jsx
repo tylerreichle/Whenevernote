@@ -56,7 +56,7 @@ class Sidebar extends React.Component {
           title="SIGN OUT"
           id="signout"
           className="circle-button"
-          onClick={this.handleClick}>-</Link>
+          onClick={this.handleClick}></Link>
       </div>
       </aside>
     );

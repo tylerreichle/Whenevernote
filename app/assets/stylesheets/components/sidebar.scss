@@ -21,6 +21,9 @@
   height: 70px;
   width: 72px;
   border-top: 1px solid $index-border;
+
+  display: flex;
+  align-items: center;
 }
 
 .circle-button {
@@ -30,6 +33,7 @@
     background-color: $white-smoke;
     background-size: 37px;
     background-position: center;
+    background-repeat: no-repeat;
 
     margin: 15px;
     border: none;
@@ -39,6 +43,8 @@
 }
 .circle-button:hover {
   background: $medium-sea-green;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .circle-button#selected {
@@ -86,6 +92,10 @@
 }
 
 .circle-button#signout {
-  margin: 15px auto;
-  line-height: 41px;
+  background-size: 24px;
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495554805/logout.png);
+}
+
+.circle-button#signout:hover {
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495554806/logout-hover.png);
 }
