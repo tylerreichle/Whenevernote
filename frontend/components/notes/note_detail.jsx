@@ -42,6 +42,10 @@ class NoteDetail extends React.Component {
     return e => this.setState({ [property]: e.target.value });
   }
 
+  autoSave() {
+    
+  }
+
   render() {
     const { title, body } = this.state;
     const notebookId = this.state.notebook_id;
