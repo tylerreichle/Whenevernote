@@ -1,4 +1,7 @@
 import React from 'react';
+import reactMixin from 'react-mixin';
+import TimerMixin from 'react-timer-mixin';
+
 import NotebookHeader from '../notebooks/notebook_header_container';
 
 class NoteDetail extends React.Component {
@@ -8,7 +11,6 @@ class NoteDetail extends React.Component {
     this.state = { id: '', title: '', body: '', notebook_id: ''};
 
     this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -16,6 +18,12 @@ class NoteDetail extends React.Component {
     this.props.fetchSingleNote(this.props.match.params.noteId).then(() => {
       this.props.fetchSingleNotebook(this.props.note.notebook_id);
     });
+  }
+
+  componentDidMount() {
+    this.setInterval( () => {
+      this.autoSave();
+    }, 5000 );
   }
 
   componentWillReceiveProps(newProps) {
@@ -26,12 +34,6 @@ class NoteDetail extends React.Component {
     }
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const note = Object.assign({}, this.state);
-    this.props.updateNote(note);
-  }
-
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteNote(this.state.id);
@@ -40,6 +42,16 @@ class NoteDetail extends React.Component {
 
   update(property) {
     return e => this.setState({ [property]: e.target.value });
+  }
+
+  autoSave() {
+    if (this.state.title !== this.props.note.title) {
+      const note = Object.assign({}, this.state);
+      this.props.updateNote(note);
+    } else if (this.state.body !== this.props.note.body) {
+      const note = Object.assign({}, this.state);
+      this.props.updateNote(note);
+    }
   }
 
   render() {
@@ -75,7 +87,7 @@ class NoteDetail extends React.Component {
           </div>
         </span>
 
-        <form className="detail-form" onSubmit={this.handleSubmit}>
+        <form className="detail-form">
           <input
             id="title"
             type="text"
@@ -88,12 +100,12 @@ class NoteDetail extends React.Component {
             cols="50"
             value={this.state.body}
             onChange={this.update('body')}/>
-
-          <input type="submit"/>
         </form>
       </section>
     );
   }
 }
+
+reactMixin(NoteDetail.prototype, TimerMixin);
 
 export default NoteDetail;
