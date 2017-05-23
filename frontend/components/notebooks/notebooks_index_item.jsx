@@ -11,11 +11,11 @@ class NotebooksIndexItem extends React.Component {
 
   notesCount() {
     if (this.props.notesCount) {
-      let noteCount = this.props.notebook.notes.length || 0 ;
-      if (this.props.notebook !== undefined) {
-        noteCount = this.props.notebook.notes.length;
-      }
-      return <h5 className="nb-ii-child">{noteCount} notes</h5>;
+      // let noteCount = this.props.notebook.notes.length || 0 ;
+      // if (this.props.notebook !== undefined) {
+      //   noteCount = this.props.notebook.notes.length;
+      // }
+      return <h5 className="nb-ii-child">0 notes</h5>;
     }
   }
 

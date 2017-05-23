@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class NewNote extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { title: '', body: '', notebook_id: 0};
+    this.state = { title: '', body: '', notebook_id: 1};
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -20,7 +20,7 @@ class NewNote extends React.Component {
       notebook_id: this.state.notebook_id
     };
     this.props.createNote(note);
-    this.props.history.push('/notes');
+    this.props.history.push("/notes");
   }
 
   update(property) {
@@ -32,6 +32,7 @@ class NewNote extends React.Component {
       <section className="new-note">
 
         <div className="new-cancel">
+          <button onClick={this.handleSubmit}>Create</button>
           <Link id="cancel" to="/notes">
             <button>Cancel</button>
           </Link>
@@ -62,11 +63,10 @@ class NewNote extends React.Component {
             placeholder="Just start typing..."
             onChange={this.update('body')}/>
 
-          <button onClick={this.handleSubmit}>Create Note</button>
         </form>
       </section>
     );
   }
 }
 
-export default NewNote;
+export default withRouter(NewNote);
