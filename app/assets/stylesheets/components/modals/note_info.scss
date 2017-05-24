@@ -88,15 +88,16 @@
   border-radius: 5px;
 }
 
-button#modal-cancel {
-  background-color: $white-smoke;
-  color: $dark-slate-gray;
+.modal-close {
+  // background-color: $white-smoke;
+  // color: $dark-slate-gray;
+  background-color: $medium-sea-green;
+  color: $white-smoke;
   border-color: $index-border;
   line-height: 23px;
 }
 
 button#info-save {
-  border-style: none;
   background-color: $medium-sea-green;
   color: $white-smoke;
 }

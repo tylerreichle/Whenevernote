@@ -7,6 +7,10 @@
   font-family: $serif-2;
 }
 
+.detail-button#trash:focus {
+  outline: none;
+}
+
 .delete-confirm {
   height: 370px;
   width: 620px;
@@ -23,7 +27,6 @@
   margin: 20px;
 }
 
-
 .delete-confirm h4 {
   font-size: 16px;
   font-family: sans-serif;
@@ -34,6 +37,7 @@
 
 .delete-confirm h3 {
   font-size: 30px;
+  text-align: center;
   margin-bottom: 75px;
 }
 

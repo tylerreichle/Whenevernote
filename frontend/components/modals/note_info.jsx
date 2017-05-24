@@ -74,12 +74,9 @@ class NoteInfo extends React.Component {
 
           <div className="info-buttons">
             <button
-              className="modal-cancel"
-              onClick={this.closeModal}>Cancel</button>
+              className="modal-close"
+              onClick={this.closeModal}>Close</button>
 
-            <button
-              id="info-save"
-              onClick={this.handleSave}>Save</button>
           </div>
         </div>
 
@@ -90,3 +87,9 @@ class NoteInfo extends React.Component {
 }
 
 export default NoteInfo;
+
+// TODO: update note?
+
+// <button
+//   id="info-save"
+//   onClick={this.handleSave}>Save</button>
