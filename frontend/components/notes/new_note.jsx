@@ -13,6 +13,11 @@ class NewNote extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
+    if (this.state.title.length < 1) {
+      this.setState({ title: 'Untitled' });
+    }
+
     const note = {
       title: this.state.title,
       body: this.state.body,
