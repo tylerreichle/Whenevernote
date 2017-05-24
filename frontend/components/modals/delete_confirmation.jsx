@@ -53,7 +53,7 @@ class DeleteConfirmation extends React.Component {
           <div className="delete-buttons">
             <button
               className="delete-cancel"
-              onClick={this.closeModal}>Cancel</button>
+              onClick={this.closeModal}>Close</button>
 
             <button
               id="delete-delete"

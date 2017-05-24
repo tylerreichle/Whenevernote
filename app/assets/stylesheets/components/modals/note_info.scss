@@ -1,0 +1,103 @@
+.info-modal {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  font-family: $serif-2;
+  color: $white;
+}
+
+.detail-button#info:focus {
+  outline: none;
+}
+
+.note-info {
+  height: 100%;
+  width: 620px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note-info img {
+  height: 40px;
+  width: 40px;
+  margin: 20px;
+}
+
+.note-info h2 {
+  font-size: 14px;
+  font-family: $sans-serif;
+  letter-spacing: 1px;
+  margin: 25px;
+  color: $ii-body;
+}
+
+.note-info h3 {
+  font-size: 30px;
+  color: $dark-slate-gray;
+  margin: 40px;
+}
+
+.note-info h4 {
+  font-size: 16px;
+  font-family: $sans-serif;
+  color: $dark-slate-gray;
+
+
+  margin: 10px 5px;;
+}
+
+.note-details {
+  width: 400px;
+  color: $dark-slate-gray;
+}
+
+.note-details li {
+  height: 25px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.note-details label {
+  font-size: 14px;
+  font-family: sans-serif;
+  color: $ii-body;
+  margin: 5px;
+}
+
+.info-buttons {
+  margin: 70px;
+}
+
+.note-info button {
+  height: 35px;
+  width: 190px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: $sans-serif;
+  letter-spacing: 1px;
+  line-height: 25px;
+
+  margin: 5px;
+  border-style: none;
+  border-radius: 5px;
+}
+
+.modal-close {
+  // background-color: $white-smoke;
+  // color: $dark-slate-gray;
+  background-color: $medium-sea-green;
+  color: $white-smoke;
+  border-color: $index-border;
+  line-height: 23px;
+}
+
+button#info-save {
+  background-color: $medium-sea-green;
+  color: $white-smoke;
+}
