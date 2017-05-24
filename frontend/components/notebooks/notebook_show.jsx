@@ -18,7 +18,7 @@ class NotebookShow extends React.Component {
     const notesCount = notes.length;
 
     return (
-      <section className="notes-index">
+      <section className="notebook-show">
         <div className="nb-show-header">
           <div className="nbs-header-top">
             <h2>{title}</h2>

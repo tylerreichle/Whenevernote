@@ -50,7 +50,7 @@ class NotebooksModal extends React.Component {
           </Link>
         </div>
 
-        <NotebooksIndex notesCount={true} iiCallback={'link'} />
+        <NotebooksIndex notesCount={false} iiCallback={'link'} />
 
       </ReactModal>
       </div>
