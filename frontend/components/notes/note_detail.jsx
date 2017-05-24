@@ -5,6 +5,11 @@ import TimerMixin from 'react-timer-mixin';
 
 import NotebookHeader from '../notebooks/notebook_header_container';
 import DeleteConfirmation from '../modals/delete_confirmation';
+import {
+  StyleButton,
+  BlockStyleControls,
+  InlineStyleControls
+} from './style_button';
 
 class NoteDetail extends React.Component {
   constructor(props) {
@@ -20,7 +25,12 @@ class NoteDetail extends React.Component {
 
     this.update = this.update.bind(this);
     this.onChange = (editorState) => this.setState({ editorState });
-    this.handleKeyCommand = this.handleKeyCommand.bind(this);
+    this.handleKeyCommand = (command) => this._handleKeyCommand.bind(command);
+    this.onTab = (e) => this._onTab(e);
+    this.focus = () => this.refs.editor.focus();
+
+    this.toggleBlockType = (type) => this._toggleBlockType(type);
+    this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
   }
 
   componentWillMount() {
@@ -57,7 +67,7 @@ class NoteDetail extends React.Component {
     }
   }
 
-  handleKeyCommand(command) {
+  _handleKeyCommand(command) {
     const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
     if (newState) {
       this.onChange(newState);
@@ -65,6 +75,69 @@ class NoteDetail extends React.Component {
     } else {
       return 'not-handled';
     }
+  }
+
+  _onTab(e) {
+    const maxDepth = 4;
+    this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
+  }
+
+  _toggleBlockType(blockType) {
+    this.onChange(
+      RichUtils.toggleBlockType(
+        this.state.editorState,
+        blockType
+      )
+    );
+  }
+
+  _toggleInlineStyle(inlineStyle) {
+    this.onChange(
+      RichUtils.toggleInlineStyle(
+        this.state.editorState,
+        inlineStyle
+      )
+    );
+  }
+
+  richTextEditor() {
+    const { editorState } = this.state;
+
+    let className = 'RichEditor-editor';
+    let contentState = editorState.getCurrentContent();
+    if (!contentState.hasText()) {
+      if (contentState.getBlockMap().first().getType() !== 'unstyled') {
+        className += 'RichEditor-hidePlaceholder';
+      }
+    }
+
+    return (
+      <div className="RichEditor-root">
+        <BlockStyleControls
+          editorState={editorState}
+          onToggle={this.toggleBlockType}
+        />
+
+        <InlineStyleControls
+          editorState={editorState}
+          onToggle={this.toggleInlineStyle}
+        />
+
+      <div className={className} onClick={this.focus}>
+          <Editor
+            blocksStyleFn={getBlockStyle}
+            customStyleMap={styleMap}
+            editorState={editorState}
+            handleKeyCommand={this.handleKeyCommand}
+            onChange={this.onChange}
+            onTab={this.onTab}
+            placeholder="Just start typing..."
+            spellCheck={true}
+            ref="editor"
+          />
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -107,11 +180,8 @@ class NoteDetail extends React.Component {
             value={this.state.title}
             onChange={this.update('title')}/>
 
-          <Editor
-            editorState={this.state.editorState}
-            handleKeyCommand={this.handleKeyCommand}
-            onChange={this.onChange} />
-          
+          {this.richTextEditor()}
+
         </form>
       </section>
     );
@@ -121,3 +191,20 @@ class NoteDetail extends React.Component {
 reactMixin(NoteDetail.prototype, TimerMixin);
 
 export default NoteDetail;
+
+
+const styleMap = {
+  CODE: {
+    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+    fontFamily: "'Antic Slab', serif",
+    fontSize: 16,
+    padding: 2
+  }
+};
+
+const getBlockStyle = (block) => {
+  switch (block.getType()) {
+    case 'blockquote': return 'RichEditor-blockquote';
+    default: return null;
+  }
+};
