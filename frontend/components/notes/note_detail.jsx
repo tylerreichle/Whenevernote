@@ -29,7 +29,6 @@ class NoteDetail extends React.Component {
     this.state = {
       id: '',
       title: '',
-      body: '',
       notebook_id: '',
       editorState: EditorState.createEmpty(),
       created_at: '',
@@ -49,7 +48,7 @@ class NoteDetail extends React.Component {
   componentWillMount() {
     this.props.fetchSingleNote(this.props.match.params.noteId).then(() => {
       this.props.fetchSingleNotebook(this.props.note.notebook_id);
-      this.convertFromDB();
+      this.convertFromDB(this.props.note);
     });
   }
 
@@ -62,10 +61,10 @@ class NoteDetail extends React.Component {
   componentWillReceiveProps(newProps) {
     if (this.state.id !== newProps.note.id) {
       this.setState(newProps.note);
-      this.convertFromDB();
+      this.convertFromDB(newProps.note);
     } else if (this.state.notebook_id !== newProps.note.notebook_id) {
       this.setState(newProps.note);
-      this.convertFromDB();
+      this.convertFromDB(newProps.note);
     }
   }
 
@@ -75,12 +74,17 @@ class NoteDetail extends React.Component {
 
   autoSave() {
     if (this.state.title !== this.props.note.title) {
-      this.convertForDB();
-      const note = Object.assign({}, this.state);
+      const body = convertToRaw(this.state.editorState.getCurrentContent());
+
+      const note = {
+        id: this.state.id,
+        title: this.state.title,
+        body: JSON.stringify(body),
+        notebook_id: this.state.notebook_id,
+      };
       this.props.updateNote(note);
 
     } else if (this.state.body !== this.props.note.body) {
-      this.convertForDB();
       const note = Object.assign({}, this.state);
       this.props.updateNote(note);
     }
@@ -119,14 +123,11 @@ class NoteDetail extends React.Component {
     );
   }
 
-  convertFromDB() {
-    const contentState = convertFromRaw( JSON.parse(this.state.body) );
-    this.setState({ editorState: EditorState.createWithContent(contentState) });
-  }
-
-  convertForDB() {
-    const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
-    this.setState({ body: noteBody });
+  convertFromDB(note) {
+    if (note.body) {
+      const contentState = convertFromRaw(JSON.parse(note.body));
+      this.setState({ editorState: EditorState.createWithContent(contentState) });
+    }
   }
 
   richTextToolbar() {
