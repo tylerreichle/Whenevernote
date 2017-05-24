@@ -7,7 +7,7 @@ import TimerMixin from 'react-timer-mixin';
 import NotebookHeader from '../notebooks/notebook_header_container';
 import NoteInfo from '../modals/note_info';
 import DeleteConfirmation from '../modals/delete_confirmation';
-// import NoteInfo from '../modals/note_info';
+import NoteInfo from '../modals/note_info';
 import StyleButton from './style_button';
 import { BlockStyleControls, InlineStyleControls } from './format_bar';
 
