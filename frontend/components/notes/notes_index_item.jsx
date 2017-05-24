@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { convertFromRaw } from 'draft-js';
 import { timeSince } from '../../util/app_util.js';
 
 class NotesIndexItem extends React.Component {
@@ -24,7 +25,9 @@ class NotesIndexItem extends React.Component {
   }
 
   render() {
-    const { id, title, body, updated_at } = this.props.initialNote;
+    const { id, title, updated_at } = this.props.initialNote;
+    let body = convertFromRaw( JSON.parse(this.props.initialNote.body) );
+    body = body.getPlainText();
     const linkPath = this.props.linkPath;
     const lastUpdate = timeSince(new Date(updated_at));
 

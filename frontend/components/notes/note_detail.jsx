@@ -1,5 +1,11 @@
 import React from 'react';
-import { Editor, EditorState, RichUtils } from 'draft-js';
+import {
+  Editor,
+  EditorState,
+  RichUtils,
+  convertFromRaw,
+  convertToRaw
+} from 'draft-js';
 import reactMixin from 'react-mixin';
 import TimerMixin from 'react-timer-mixin';
 
@@ -7,6 +13,7 @@ import NotebookHeader from '../notebooks/notebook_header_container';
 import NoteInfo from '../modals/note_info';
 import DeleteConfirmation from '../modals/delete_confirmation';
 import StyleButton from './style_button';
+
 import {
   BlockStyleControls,
   InlineStyleControls,
@@ -42,6 +49,7 @@ class NoteDetail extends React.Component {
   componentWillMount() {
     this.props.fetchSingleNote(this.props.match.params.noteId).then(() => {
       this.props.fetchSingleNotebook(this.props.note.notebook_id);
+      this.convertFromDB();
     });
   }
 
@@ -54,8 +62,10 @@ class NoteDetail extends React.Component {
   componentWillReceiveProps(newProps) {
     if (this.state.id !== newProps.note.id) {
       this.setState(newProps.note);
+      this.convertFromDB();
     } else if (this.state.notebook_id !== newProps.note.notebook_id) {
       this.setState(newProps.note);
+      this.convertFromDB();
     }
   }
 
@@ -65,9 +75,12 @@ class NoteDetail extends React.Component {
 
   autoSave() {
     if (this.state.title !== this.props.note.title) {
+      this.convertForDB();
       const note = Object.assign({}, this.state);
       this.props.updateNote(note);
+
     } else if (this.state.body !== this.props.note.body) {
+      this.convertForDB();
       const note = Object.assign({}, this.state);
       this.props.updateNote(note);
     }
@@ -106,22 +119,32 @@ class NoteDetail extends React.Component {
     );
   }
 
+  convertFromDB() {
+    const contentState = convertFromRaw( JSON.parse(this.state.body) );
+    this.setState({ editorState: EditorState.createWithContent(contentState) });
+  }
+
+  convertForDB() {
+    const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
+    this.setState({ body: noteBody });
+  }
+
   richTextToolbar() {
     const { editorState } = this.state;
     return (
       <div className="richtext-toolbar">
+        <InlineStyleControls
+          editorState={editorState}
+          onToggle={this.toggleInlineStyle}
+          />
+
         <BlockStyleControls
           editorState={editorState}
           onToggle={this.toggleBlockType}
         />
-
-        <InlineStyleControls
-          editorState={editorState}
-          onToggle={this.toggleInlineStyle}
-        />
       </div>
-      );
-    }
+    );
+  }
 
   richTextEditor() {
     const { editorState } = this.state;

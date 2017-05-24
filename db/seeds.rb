@@ -39,17 +39,24 @@ Notebook.create(
   )
 end
 
-titles = []
-25.times { titles << Faker::Zelda.character }
+Note.create(
+  title: "Algorithms",
+  body: '{"entityMap":{},"blocks":[{"key":"9ec8t","text":"Singly Linked List:","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"4ch9m","text":"like unary tree, pointers to next element","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"4q48","text":"easy to delete, just change pointers, element garbage collected","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"4oee5","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"7ifaa","text":"Doubly Linked List:","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"10ci7","text":"@prev","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"6dppl","text":"@next","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"2mn1v","text":"@head and @tail sentinel nodes (always exit)","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"odr9","text":"deletion and insertion in O(1) time","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"1qhas","text":"finding index is O(n)\n","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"er97u","text":"Hash Map:","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"eiip1","text":"each bucket is a linked list with key, value pairs","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"6ims6","text":"send key through hash function % #buckets","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"9jkm4","text":"change #buckets when max density reached","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"4j14t","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"5u6hb","text":"In Place Quick-sort:","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"18cmp","text":"regular solution creates new array for each recursive call","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"8t9k","text":"swap with first element to right of partition","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"d42s3","text":"swap pivot with element to left of partition","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"507ud","text":"modifying the input array","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"9gul5","text":"how to choose the pivot? (O(n) with already sorted array)","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"a33qg","text":"random pivot —> O(nlogn) = more robust","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"6dij4","text":"does take up some space in the call stack","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"bqn30","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"4ipqs","text":"Binary Search Tree:","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"8qdo9","text":"O(logn) for insert, find, delete","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"ecvbi","text":"all nodes are BSTs","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"1au54","text":"nodes on left are < root, nodes on right are > root","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"fp8l6","text":"find, insert —> # decisions determined by depth of tree —> O(depth)","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"bl2hj","text":"delete —> replace w/ max in left subtree —> right as far as possible O(depth)","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"9medv","text":"Hibbard Deletion","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"6mr9t","text":"worst case —> all elements on same side O(n)","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"3nf8s","text":"Balanced BST —> O(logn)","type":"unordered-list-item","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"e61fm","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}]}',
+  author_id: 2,
+  notebook_id: 4
+)
 
-bodies = []
-25.times { bodies << Faker::Hipster.paragraph }
-
-(0..24).each do |idx|
-  Note.create(
-    title: titles[idx],
-    body: bodies[idx],
-    author_id: 2,
-    notebook_id: 1
-  )
-end
+# titles = []
+# 25.times { titles << Faker::Zelda.character }
+#
+# bodies = []
+# 25.times { bodies << Faker::Hipster.paragraph }
+#
+# (0..24).each do |idx|
+#   Note.create(
+#     title: titles[idx],
+#     body: bodies[idx],
+#     author_id: 2,
+#     notebook_id: 1
+#   )
+# end
