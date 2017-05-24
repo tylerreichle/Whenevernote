@@ -1,16 +1,11 @@
 import React from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
-<<<<<<< HEAD
-=======
-import { styleMap, blocksStyleFn } from './format_bar';
->>>>>>> 8ac865d67eca65c704c8e0891b5bdf6a40a0625b
 import reactMixin from 'react-mixin';
 import TimerMixin from 'react-timer-mixin';
 
 import NotebookHeader from '../notebooks/notebook_header_container';
 import NoteInfo from '../modals/note_info';
 import DeleteConfirmation from '../modals/delete_confirmation';
-<<<<<<< HEAD
 import StyleButton from './style_button';
 import {
   BlockStyleControls,
@@ -18,11 +13,6 @@ import {
   styleMap,
   blocksStyleFn
 } from './format_bar';
-=======
-import NoteInfo from '../modals/note_info';
-import StyleButton from './style_button';
-import { BlockStyleControls, InlineStyleControls } from './format_bar';
->>>>>>> 8ac865d67eca65c704c8e0891b5bdf6a40a0625b
 
 
 class NoteDetail extends React.Component {
@@ -219,8 +209,3 @@ class NoteDetail extends React.Component {
 reactMixin(NoteDetail.prototype, TimerMixin);
 
 export default NoteDetail;
-
-// <NoteInfo
-//   id={this.state.id}
-//   title={this.state.title}
-// />

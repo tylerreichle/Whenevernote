@@ -1,10 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import {
-  AuthRoute,
-  ProtectedRoute,
-  ProtectedExactRoute
-} from '../../util/route_util';
+import { AuthRoute, ProtectedRoute, } from '../../util/route_util';
 
 import SplashPage from './splash_page';
 import Notes from '../notes/notes';
