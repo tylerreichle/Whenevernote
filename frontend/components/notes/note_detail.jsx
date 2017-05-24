@@ -1,4 +1,5 @@
 import React from 'react';
+import { Editor, EditorState, RichUtils } from 'draft-js';
 import reactMixin from 'react-mixin';
 import TimerMixin from 'react-timer-mixin';
 
@@ -9,9 +10,17 @@ class NoteDetail extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { id: '', title: '', body: '', notebook_id: ''};
+    this.state = {
+      id: '',
+      title: '',
+      body: '',
+      notebook_id: '',
+      editorState: EditorState.createEmpty()
+    };
 
     this.update = this.update.bind(this);
+    this.onChange = (editorState) => this.setState({ editorState });
+    this.handleKeyCommand = this.handleKeyCommand.bind(this);
   }
 
   componentWillMount() {
@@ -45,6 +54,16 @@ class NoteDetail extends React.Component {
     } else if (this.state.body !== this.props.note.body) {
       const note = Object.assign({}, this.state);
       this.props.updateNote(note);
+    }
+  }
+
+  handleKeyCommand(command) {
+    const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
+    if (newState) {
+      this.onChange(newState);
+      return 'handled';
+    } else {
+      return 'not-handled';
     }
   }
 
@@ -88,12 +107,11 @@ class NoteDetail extends React.Component {
             value={this.state.title}
             onChange={this.update('title')}/>
 
-          <textarea
-            id="body"
-            rows="10"
-            cols="50"
-            value={this.state.body}
-            onChange={this.update('body')}/>
+          <Editor
+            editorState={this.state.editorState}
+            handleKeyCommand={this.handleKeyCommand}
+            onChange={this.onChange} />
+          
         </form>
       </section>
     );
