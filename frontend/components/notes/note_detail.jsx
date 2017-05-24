@@ -75,7 +75,6 @@ class NoteDetail extends React.Component {
   autoSave() {
     if (this.state.title !== this.props.note.title) {
       const body = convertToRaw(this.state.editorState.getCurrentContent());
-
       const note = {
         id: this.state.id,
         title: this.state.title,
@@ -83,11 +82,17 @@ class NoteDetail extends React.Component {
         notebook_id: this.state.notebook_id,
       };
       this.props.updateNote(note);
-
-    } else if (this.state.body !== this.props.note.body) {
-      const note = Object.assign({}, this.state);
-      this.props.updateNote(note);
     }
+    // else if (this.state.body !== this.props.note.body) {
+    //     const body = convertToRaw(this.state.editorState.getCurrentContent());
+    //     const note = {
+    //       id: this.state.id,
+    //       title: this.state.title,
+    //       body: JSON.stringify(body),
+    //       notebook_id: this.state.notebook_id,
+    //     };
+    //     this.props.updateNote(note);
+    // }
   }
 
   _handleKeyCommand(command) {
