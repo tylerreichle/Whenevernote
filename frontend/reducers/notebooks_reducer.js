@@ -11,7 +11,6 @@ const NotebooksReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_NOTEBOOKS:
-    console.log(action.notebooks);
       return action.notebooks;
 
     case RECEIVE_SINGLE_NOTEBOOK:

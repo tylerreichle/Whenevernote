@@ -14,10 +14,10 @@ User.create(username: 'treichle', email: 'treichle@aa.io', password: 'password')
 User.create(username: 'thegraceann', email: 'grace@aa.io', password: 'password')
 
 nb_titles = []
-20.times { nb_titles << Faker::StarWars.planet }
+5.times { nb_titles << Faker::StarWars.planet }
 
 descriptions = []
-20.times { descriptions << Faker::ChuckNorris.fact }
+5.times { descriptions << Faker::ChuckNorris.fact }
 
 Notebook.create(
   author_id: 2,
@@ -31,7 +31,7 @@ Notebook.create(
   description: 'Notes from Work'
 )
 
-(0..19).each do |idx|
+(0..4).each do |idx|
   Notebook.create(
     author_id: 2,
     title: nb_titles[idx],

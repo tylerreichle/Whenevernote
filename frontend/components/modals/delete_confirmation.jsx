@@ -46,13 +46,13 @@ class DeleteConfirmation extends React.Component {
         >
 
         <div className="delete-confirm">
-          <img src="http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495221055/trash.png"/>
+          <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495221055/trash.png"/>
           <h4>DELETE NOTE</h4>
           <h3>Are you sure you want to delete <strong>{title}</strong>?</h3>
 
           <div className="delete-buttons">
             <button
-              id="delete-cancel"
+              className="delete-cancel"
               onClick={this.closeModal}>Cancel</button>
 
             <button
