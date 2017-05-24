@@ -5,7 +5,7 @@
   margin-left: 160px;
 }
 
-.new-cancel {
+.new-buttons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -15,7 +15,7 @@
   margin-top: 10px;
 }
 
-.new-cancel button {
+.new-buttons button {
   height: 28px;
   width: 78px;
   font-size: 14px;
@@ -29,6 +29,11 @@
   color: $white-smoke;
   border-radius: 5px;
   border-style: none;
+}
+
+button#new-cancel {
+  background-color: $white-smoke;
+  color: $dark-slate-gray;
 }
 
 .new-toolbar {
@@ -47,10 +52,6 @@
 
   margin-top: 10px;
   margin-right: 160px;
-}
-
-.new-note button {
-
 }
 
 #new-title {

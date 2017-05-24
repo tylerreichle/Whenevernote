@@ -31,10 +31,13 @@ class NewNote extends React.Component {
     return (
       <section className="new-note">
 
-        <div className="new-cancel">
-          <button onClick={this.handleSubmit}>Create</button>
-          <Link id="cancel" to="/notes">
-            <button>Cancel</button>
+        <div className="new-buttons">
+          <button
+            id="new-create"
+            onClick={this.handleSubmit}>Create</button>
+
+          <Link to="/notes">
+            <button id="new-cancel">Cancel</button>
           </Link>
         </div>
         <div className="new-toolbar">
