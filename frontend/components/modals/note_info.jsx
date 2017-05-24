@@ -23,10 +23,18 @@ class NoteInfo extends React.Component {
   }
 
   render() {
-      const id = this.props.id;
-      const title = this.props.title;
-      const createdAt = this.props.createdAt;
-      const updatedAt = this.props.updatedAt;
+    const id = this.props.id;
+    const title = this.props.title;
+
+    const options = {
+      weekday: "long", year: "numeric", month: "short",
+      day: "numeric", hour: "2-digit", minute: "2-digit"
+    };
+
+    const createdAt = new Date(this.props.createdAt)
+      .toLocaleString('en-us', options);
+    const updatedAt = new Date(this.props.updatedAt)
+      .toLocaleString('en-us', options);
 
     return (
       <div>
@@ -47,18 +55,22 @@ class NoteInfo extends React.Component {
         <div className="note-info">
           <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495221055/info.png"/>
 
-          <h3>NOTE INFO</h3>
-          <h2>{title}</h2>
+          <h2>NOTE INFO</h2>
+          <h3>{title}</h3>
 
-          <h4>Overview</h4>
-          <ul className="note-details">
-            <li>
-              <p>CREATED: {createdAt}</p>
-            </li>
-            <li>
-              <p>UPDATED: {updatedAt}</p>
-            </li>
-          </ul>
+          <div className="note-details">
+            <h4>Overview</h4>
+            <ul>
+              <li>
+                <label>CREATED:</label>
+                <p>{createdAt}</p>
+              </li>
+              <li>
+                <label>UPDATED:</label>
+                <p>{updatedAt}</p>
+              </li>
+            </ul>
+          </div>
 
           <div className="info-buttons">
             <button

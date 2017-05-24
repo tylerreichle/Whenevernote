@@ -5,7 +5,6 @@
 
   font-family: $serif-2;
   color: $white;
-  border: 1px solid blue;
 }
 
 .detail-button#info:focus {
@@ -19,38 +18,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  border: 1px solid red;
 }
 
 .note-info img {
-  height: 50px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   margin: 20px;
 }
 
-.note-info h4 {
-  font-size: 16px;
-  font-family: sans-serif;
+.note-info h2 {
+  font-size: 14px;
+  font-family: $sans-serif;
+  letter-spacing: 1px;
+  margin: 25px;
   color: $ii-body;
-  letter-spacing: 1.4px;
-  margin-bottom: 80px;
 }
 
 .note-info h3 {
   font-size: 30px;
-  margin-bottom: 75px;
+  color: $dark-slate-gray;
+  margin: 40px;
+}
+
+.note-info h4 {
+  font-size: 16px;
+  font-family: $sans-serif;
+  color: $dark-slate-gray;
+
+
+  margin: 10px 5px;;
 }
 
 .note-details {
   width: 400px;
   color: $dark-slate-gray;
-  border: 1px solid green
 }
 
 .note-details li {
+  height: 25px;
   width: 100%;
-  border: 1px solid purple;
+
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.note-details label {
+  font-size: 14px;
+  font-family: sans-serif;
+  color: $ii-body;
+  margin: 5px;
+}
+
+.info-buttons {
+  margin: 70px;
 }
 
 .note-info button {
@@ -61,8 +82,9 @@
   font-family: $sans-serif;
   letter-spacing: 1px;
   line-height: 25px;
-  margin: 5px;
 
+  margin: 5px;
+  border-style: none;
   border-radius: 5px;
 }
 
