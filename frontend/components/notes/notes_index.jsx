@@ -3,9 +3,9 @@ import NotesIndexItem from './notes_index_item_container';
 
 class NotesIndex extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchNotes().then(() => {
-      this.props.history.push(`notes/${this.props.notes[0].id}`);
+      this.props.history.push(`/notes/${this.props.notes[0].id}`);
     });
   }
 
