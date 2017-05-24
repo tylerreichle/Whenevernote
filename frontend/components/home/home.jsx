@@ -24,5 +24,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-// inside home. switch to show note/nb index
