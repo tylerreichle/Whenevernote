@@ -1,16 +1,15 @@
 import React from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
+import { styleMap, blocksStyleFn } from './format_bar';
 import reactMixin from 'react-mixin';
 import TimerMixin from 'react-timer-mixin';
 
 import NotebookHeader from '../notebooks/notebook_header_container';
 import DeleteConfirmation from '../modals/delete_confirmation';
-import NoteInfo from '../modals/note_info';
-import {
-  StyleButton,
-  BlockStyleControls,
-  InlineStyleControls
-} from './style_button';
+// import NoteInfo from '../modals/note_info';
+import StyleButton from './style_button';
+import { BlockStyleControls, InlineStyleControls } from './format_bar';
+
 
 class NoteDetail extends React.Component {
   constructor(props) {
@@ -101,6 +100,23 @@ class NoteDetail extends React.Component {
     );
   }
 
+  richTextToolbar() {
+    const { editorState } = this.state;
+    return (
+      <div className="richtext-toolbar">
+        <BlockStyleControls
+          editorState={editorState}
+          onToggle={this.toggleBlockType}
+        />
+
+        <InlineStyleControls
+          editorState={editorState}
+          onToggle={this.toggleInlineStyle}
+        />
+      </div>
+      );
+    }
+
   richTextEditor() {
     const { editorState } = this.state;
 
@@ -113,30 +129,18 @@ class NoteDetail extends React.Component {
     }
 
     return (
-      <div className="RichEditor-root">
-        <BlockStyleControls
-          editorState={editorState}
-          onToggle={this.toggleBlockType}
-        />
-
-        <InlineStyleControls
-          editorState={editorState}
-          onToggle={this.toggleInlineStyle}
-        />
-
       <div className={className} onClick={this.focus}>
-          <Editor
-            blocksStyleFn={getBlockStyle}
-            customStyleMap={styleMap}
-            editorState={editorState}
-            handleKeyCommand={this.handleKeyCommand}
-            onChange={this.onChange}
-            onTab={this.onTab}
-            placeholder="Just start typing..."
-            spellCheck={true}
-            ref="editor"
-          />
-        </div>
+        <Editor
+          blocksStyleFn={blocksStyleFn}
+          customStyleMap={styleMap}
+          editorState={editorState}
+          handleKeyCommand={this.handleKeyCommand}
+          onChange={this.onChange}
+          onTab={this.onTab}
+          placeholder="Just start typing..."
+          spellCheck={true}
+          ref="editor"
+        />
       </div>
     );
   }
@@ -150,10 +154,7 @@ class NoteDetail extends React.Component {
         <span className="detail-toolbar">
 
           <div className="detail-buttons">
-            <NoteInfo
-              id={this.state.id}
-              title={this.state.title}
-            />
+
 
             <DeleteConfirmation
               deleteNote={this.props.deleteNote}
@@ -173,6 +174,7 @@ class NoteDetail extends React.Component {
               <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
             </div>
 
+            {this.richTextToolbar()}
           </div>
         </span>
 
@@ -195,19 +197,7 @@ reactMixin(NoteDetail.prototype, TimerMixin);
 
 export default NoteDetail;
 
-
-const styleMap = {
-  CODE: {
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-    fontFamily: "'Antic Slab', serif",
-    fontSize: 16,
-    padding: 2
-  }
-};
-
-const getBlockStyle = (block) => {
-  switch (block.getType()) {
-    case 'blockquote': return 'RichEditor-blockquote';
-    default: return null;
-  }
-};
+// <NoteInfo
+//   id={this.state.id}
+//   title={this.state.title}
+// />
