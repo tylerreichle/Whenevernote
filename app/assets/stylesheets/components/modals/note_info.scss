@@ -1,0 +1,80 @@
+.info-modal {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  font-family: $serif-2;
+  color: $white;
+  border: 1px solid blue;
+}
+
+.detail-button#info:focus {
+  outline: none;
+}
+
+.note-info {
+  height: 100%;
+  width: 620px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid red;
+}
+
+.note-info img {
+  height: 50px;
+  width: 45px;
+  margin: 20px;
+}
+
+.note-info h4 {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: $ii-body;
+  letter-spacing: 1.4px;
+  margin-bottom: 80px;
+}
+
+.note-info h3 {
+  font-size: 30px;
+  margin-bottom: 75px;
+}
+
+.note-details {
+  width: 400px;
+  color: $dark-slate-gray;
+  border: 1px solid green
+}
+
+.note-details li {
+  width: 100%;
+  border: 1px solid purple;
+}
+
+.note-info button {
+  height: 35px;
+  width: 190px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: $sans-serif;
+  letter-spacing: 1px;
+  line-height: 25px;
+  margin: 5px;
+
+  border-radius: 5px;
+}
+
+button#modal-cancel {
+  background-color: $white-smoke;
+  color: $dark-slate-gray;
+  border-color: $index-border;
+  line-height: 23px;
+}
+
+button#info-save {
+  border-style: none;
+  background-color: $medium-sea-green;
+  color: $white-smoke;
+}

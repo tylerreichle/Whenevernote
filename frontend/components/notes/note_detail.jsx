@@ -3,13 +3,21 @@ import reactMixin from 'react-mixin';
 import TimerMixin from 'react-timer-mixin';
 
 import NotebookHeader from '../notebooks/notebook_header_container';
+import NoteInfo from '../modals/note_info';
 import DeleteConfirmation from '../modals/delete_confirmation';
 
 class NoteDetail extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { id: '', title: '', body: '', notebook_id: ''};
+    this.state = {
+      id: '',
+      title: '',
+      body: '',
+      notebook_id: '',
+      created_at: '',
+      updated_at: ''
+    };
 
     this.update = this.update.bind(this);
   }
@@ -49,18 +57,26 @@ class NoteDetail extends React.Component {
   }
 
   render() {
-    const { title, body } = this.state;
+    const {
+      id,
+      title,
+      body,
+    } = this.state;
     const notebookId = this.state.notebook_id;
+    const createdAt = this.state.created_at;
+    const updatedAt = this.state.updated_at;
 
     return (
       <section className="note-detail">
         <span className="detail-toolbar">
 
           <div className="detail-buttons">
-            <button
-              title="Note Detail"
-              id="info"
-              className="detail-button" />
+            <NoteInfo
+              id={id}
+              title={title}
+              updatedAt={updatedAt}
+              createdAt={createdAt}
+            />
 
             <DeleteConfirmation
               deleteNote={this.props.deleteNote}
