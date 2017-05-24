@@ -16,6 +16,7 @@ export const styleMap = {
 };
 
 const INLINE_STYLES = [
+<<<<<<< HEAD
   {title: 'Bold', style: 'BOLD'},
   {title: 'Italic', style: 'ITALIC'},
   {title: 'Underline', style: 'UNDERLINE'},
@@ -27,6 +28,19 @@ const BLOCK_TYPES = [
   {title: 'UL', style: 'unordered-list-item'},
   {title: 'OL', style: 'ordered-list-item'},
   {title: 'Code Block', style: 'code-block'},
+=======
+  {label: 'Bold', style: 'BOLD'},
+  {label: 'Italic', style: 'ITALIC'},
+  {label: 'Underline', style: 'UNDERLINE'},
+  {label: 'Strikethrough', style: 'STRIKETHROUGH'},
+  {label: 'Monospace', style: 'CODE'},
+];
+
+const BLOCK_TYPES = [
+  {label: 'UL', style: 'unordered-list-item'},
+  {label: 'OL', style: 'ordered-list-item'},
+  {label: 'Code Block', style: 'code-block'},
+>>>>>>> 8ac865d67eca65c704c8e0891b5bdf6a40a0625b
 ];
 
 export const blocksStyleFn = (block) => {
@@ -48,9 +62,15 @@ export const BlockStyleControls = ({ editorState, onToggle }) => {
     <div className="blockType-controls">
       { BLOCK_TYPES.map(type =>
         <StyleButton
+<<<<<<< HEAD
           key={type.title}
           active={type.style === blockType}
           title={type.title}
+=======
+          key={type.style}
+          active={type.style === blockType}
+          label={type.label}
+>>>>>>> 8ac865d67eca65c704c8e0891b5bdf6a40a0625b
           onToggle={onToggle}
           style={type.style}
         />
@@ -65,9 +85,15 @@ export const InlineStyleControls = (props) => {
     <div className="RichEditor-controls">
       { INLINE_STYLES.map(type =>
         <StyleButton
+<<<<<<< HEAD
           key={type.title}
           active={currentStyle.has(type.style)}
           title={type.title}
+=======
+          key={type.label}
+          active={currentStyle.has(type.style)}
+          label={type.label}
+>>>>>>> 8ac865d67eca65c704c8e0891b5bdf6a40a0625b
           onToggle={props.onToggle}
           style={type.style}
         />
