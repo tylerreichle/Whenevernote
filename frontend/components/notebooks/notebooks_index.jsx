@@ -11,7 +11,6 @@ class NotebooksIndex extends React.Component {
     const notebooks = this.props.notebooks;
     const notesCount = this.props.notesCount;
 
-    console.log(notebooks);
     return (
       <div className="notebooks-index">
         <ul>

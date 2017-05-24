@@ -1,0 +1,64 @@
+.delete-modal {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: $serif-2;
+}
+
+.delete-confirm {
+  height: 370px;
+  width: 620px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-confirm img {
+  height: 50px;
+  width: 45px;
+  margin: 20px;
+}
+
+
+.delete-confirm h4 {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: $ii-body;
+  letter-spacing: 1.4px;
+  margin-bottom: 80px;
+}
+
+.delete-confirm h3 {
+  font-size: 30px;
+  margin-bottom: 75px;
+}
+
+.delete-buttons button {
+  height: 35px;
+  width: 190px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: $sans-serif;
+  letter-spacing: 1px;
+  line-height: 25px;
+  margin: 5px;
+
+  border-radius: 5px;
+}
+
+button#delete-cancel {
+  background-color: $white-smoke;
+  color: $dark-slate-gray;
+  border-color: $index-border;
+  line-height: 23px;
+}
+
+button#delete-delete {
+  border-style: none;
+  background-color: $medium-sea-green;
+  color: $white-smoke;
+}

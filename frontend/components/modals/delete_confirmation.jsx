@@ -50,13 +50,16 @@ class DeleteConfirmation extends React.Component {
           <h4>DELETE NOTE</h4>
           <h3>Are you sure you want to delete <strong>{title}</strong>?</h3>
 
-          <button
-            className="delete-cancel"
-            onClick={this.closeModal}>Cancel</button>
+          <div className="delete-buttons">
+            <button
+              id="delete-cancel"
+              onClick={this.closeModal}>Cancel</button>
 
-          <button
-            className="delete-delete"
-            onClick={this.handleDelete}>Delete</button>
+            <button
+              id="delete-delete"
+              onClick={this.handleDelete}>Delete</button>
+          </div>
+
         </div>
 
         </ReactModal>

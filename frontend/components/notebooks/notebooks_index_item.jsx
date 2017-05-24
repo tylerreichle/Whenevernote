@@ -11,7 +11,6 @@ class NotebooksIndexItem extends React.Component {
 
   notesCount() {
     let noteCount = 0;
-    console.log(this.props);
     if (this.props.notesCount) {
       if (this.props.notebook.notes) {
         noteCount = this.props.notebook.notes.length;
