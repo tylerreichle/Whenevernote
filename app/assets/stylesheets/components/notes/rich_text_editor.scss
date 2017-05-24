@@ -1,24 +1,29 @@
-.RichEditor-root {
+.RichEditor-root .RichEditor-editor .DraftEditor-root .DraftEditor-editorContainer {
   height: 100%;
   width: 100%;
 }
 
-.RichEditor-root {
-  height: 100%;
-  width: 100%;
+.richtext-toolbar {
+  display: flex;
+  width: auto;
 }
 
-.RichEditor-editor {
-  height: 100%;
-  width: 100%;
+.blocktype-controls {
+  display: flex;
 }
 
-.DraftEditor-root {
-  height: 100%;
-  width: 100%;
+.inline-controls {
+  display: flex;
 }
 
-.DraftEditor-editorContainer {
-  height: 100%;
-  width: 100%;
+.fa {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+
+  fill: #4a4a4a;
+  margin: 5px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
 }

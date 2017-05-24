@@ -16,23 +16,23 @@ export const styleMap = {
 };
 
 const INLINE_STYLES = [
-  {title: 'Bold', style: 'BOLD'},
-  {title: 'Italic', style: 'ITALIC'},
-  {title: 'Underline', style: 'UNDERLINE'},
-  {title: 'Strikethrough', style: 'STRIKETHROUGH'},
-  {title: 'Monospace', style: 'CODE'},
+  { className: 'fa fa-bold', title: 'Bold', style: 'BOLD'},
+  { className: 'fa fa-italic', title: 'Italic', style: 'ITALIC'},
+  { className: 'fa fa-underline', title: 'Underline', style: 'UNDERLINE'},
+  { className: 'fa fa-strikethrough', title: 'Strikethrough', style: 'STRIKETHROUGH'},
 ];
 
 const BLOCK_TYPES = [
-  {title: 'UL', style: 'unordered-list-item'},
-  {title: 'OL', style: 'ordered-list-item'},
-  {title: 'Code Block', style: 'code-block'}
+  { className: 'fa fa-list-ul', title: 'UL', style: 'unordered-list-item'},
+  { className: 'fa fa-list-ol', title: 'OL', style: 'ordered-list-item'},
+  { className: 'fa fa-code', title: 'Code Block', style: 'code-block'}
 ];
 
 export const blocksStyleFn = (block) => {
   switch (block.getType()) {
     case 'unordered-list-item': return "ul-block-style";
     case 'ordered-list-item': return "ol-block-style";
+    case 'blockquote': return 'RichEditor-blockquote';
     default: return null;
   }
 };
@@ -45,11 +45,12 @@ export const BlockStyleControls = ({ editorState, onToggle }) => {
     .getType();
 
   return (
-    <div className="blockType-controls">
+    <div className="blocktype-controls">
       { BLOCK_TYPES.map(type =>
         <StyleButton
           key={type.title}
           active={type.style === blockType}
+          className={type.className}
           title={type.title}
           onToggle={onToggle}
           style={type.style}
@@ -62,11 +63,12 @@ export const BlockStyleControls = ({ editorState, onToggle }) => {
 export const InlineStyleControls = (props) => {
   const currentStyle = props.editorState.getCurrentInlineStyle();
   return (
-    <div className="RichEditor-controls">
+    <div className="inline-controls">
       { INLINE_STYLES.map(type =>
         <StyleButton
           key={type.title}
           active={currentStyle.has(type.style)}
+          className={type.className}
           title={type.title}
           onToggle={props.onToggle}
           style={type.style}
@@ -75,3 +77,16 @@ export const InlineStyleControls = (props) => {
     </div>
   );
 };
+
+
+// class FormatBar extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//
+//   render() {
+//     return (
+//
+//     );
+//   }
+// }
