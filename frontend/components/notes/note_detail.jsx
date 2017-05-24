@@ -5,6 +5,7 @@ import TimerMixin from 'react-timer-mixin';
 
 import NotebookHeader from '../notebooks/notebook_header_container';
 import DeleteConfirmation from '../modals/delete_confirmation';
+import NoteInfo from '../modals/note_info';
 import {
   StyleButton,
   BlockStyleControls,
@@ -149,22 +150,24 @@ class NoteDetail extends React.Component {
         <span className="detail-toolbar">
 
           <div className="detail-buttons">
-            <button
-              title="Note Detail"
-              id="info"
-              className="detail-button" />
+            <NoteInfo
+              id={this.state.id}
+              title={this.state.title}
+            />
 
             <DeleteConfirmation
               deleteNote={this.props.deleteNote}
               id={this.state.id}
-              title={this.state.title} />
+              title={this.state.title}
+            />
 
           </div>
 
           <div className="note-options">
               <NotebookHeader
                 updateNote={this.props.updateNote}
-                notebookId={notebookId}/>
+                notebookId={notebookId}
+              />
 
             <div className="detail-tag">
               <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
