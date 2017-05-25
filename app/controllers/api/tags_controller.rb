@@ -5,7 +5,7 @@ class Api::TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find_by(id: params[:id]).includes(:notes)
+    @tag = Tag.find_by(id: params[:id])
     render 'api/tags/show'
   end
 
@@ -24,7 +24,7 @@ class Api::TagsController < ApplicationController
 
     if @tag.author.id == current_user.id
       @tag.delete
-      render 'api/notes/show'
+      render 'api/tags/show'
     else
       render json: ["Cannot delete another user's tag"], status: 403
     end
