@@ -16,7 +16,7 @@ class TagsHeader extends React.Component {
       return (
         <div className="tags-header-dropdown">
 
-          <Link to="/tags/new">
+          <Link to="/tag/new">
             <div className="new-tag-item">
 
                 <div id="new-tag-img" className="new-tag-child"></div>
