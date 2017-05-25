@@ -11,7 +11,7 @@ const NotesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_NOTES:
-      return merge({}, action.notes);
+      return action.notes;
 
     case RECEIVE_SINGLE_NOTE:
       newState = merge({}, state);
