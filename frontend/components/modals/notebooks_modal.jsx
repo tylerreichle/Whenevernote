@@ -9,7 +9,6 @@ class NotebooksModal extends React.Component {
     super();
 
     this.state = { modalIsOpen: false };
-
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
@@ -39,7 +38,7 @@ class NotebooksModal extends React.Component {
           onRequestClose={this.closeModal}
           contentLabel="Notebooks"
           className="nb-modal"
-          overlayClassName="overlay"
+          overlayClassName="clear-overlay"
         >
 
         <div className="nb-modal-header">

@@ -1,4 +1,4 @@
-.nb-modal {
+.tags-panel {
   position: absolute;
   top: 0;
   left: 73px;
@@ -11,11 +11,11 @@
   z-index: 11;
 }
 
-.nb-modal:focus {
+.tags-panel:focus {
   outline-style: none;
 }
 
-.nb-modal-header {
+.tags-panel-header {
   display: flex;
   justify-content: space-between;
 
@@ -23,7 +23,7 @@
   border-bottom: 1px solid $index-border;
 }
 
-.nb-modal-header h3 {
+.tags-panel-header h3 {
   font-family: $sans-serif;
   font-size: 21px;
   letter-spacing: 2.1px;
@@ -34,10 +34,10 @@
   margin: 20px;
 }
 
-.nb-modal-header button {
+.tags-panel-header button {
   height: 25px;
   width: 25px;
-  background: url(http://res.cloudinary.com/dkuqs8yz1/image/upload/v1495419507/new-notebook.png);
+  background: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495746550/toolbar/new-tag.png);
   background-size: 25px 25px;
 
   border: none;

@@ -58,8 +58,8 @@ img#dropdown-arrow {
   color: $medium-sea-green;
 }
 
-.new-tag-item:hover div#new-nb-img {
-  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495510528/new-notebook-hover.png);
+.new-tag-item:hover div#new-tag-img {
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495746919/toolbar/new-tag-hover.png);
 }
 
 .tags-header-dropdown button {
@@ -72,7 +72,7 @@ img#dropdown-arrow {
 }
 
 div#new-tag-img {
-  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495419507/new-notebook.png);
+  background-image: url(https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495746550/toolbar/new-tag.png);
   background-size: 23px;
   width: 23px;
   height: 23px;
