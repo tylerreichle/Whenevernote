@@ -1,4 +1,7 @@
 import React from 'react';
+import reactMixin from 'react-mixin';
+import TimerMixin from 'react-timer-mixin';
+
 import {
   Editor,
   EditorState,
@@ -6,14 +9,6 @@ import {
   convertFromRaw,
   convertToRaw
 } from 'draft-js';
-import reactMixin from 'react-mixin';
-import TimerMixin from 'react-timer-mixin';
-
-import NotebookHeader from '../notebooks/notebook_header_container';
-import TagsHeader from '../tags/tags_header';
-import NoteInfo from '../modals/note_info';
-import DeleteConfirmation from '../modals/delete_confirmation';
-import StyleButton from './style_button';
 
 import {
   BlockStyleControls,
@@ -22,6 +17,11 @@ import {
   blocksStyleFn
 } from './format_bar';
 
+import NotebookHeader from '../notebooks/notebook_header_container';
+import TagsHeader from '../tags/tags_header';
+import NoteInfo from '../modals/note_info';
+import DeleteConfirmation from '../modals/delete_confirmation';
+import StyleButton from './style_button';
 
 class NoteDetail extends React.Component {
   constructor(props) {

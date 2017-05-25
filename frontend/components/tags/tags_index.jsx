@@ -3,10 +3,6 @@ import TagsIndexItem from './tags_index_item';
 
 class TagsIndex extends React.Component {
 
-  componentWillMount() {
-    this.props.fetchTags();
-  }
-
   render() {
     const { tags, iiCallback } = this.props;
 

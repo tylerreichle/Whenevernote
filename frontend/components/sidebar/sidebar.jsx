@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NotebooksModal from '../modals/notebooks_modal';
+import TagsSidebar from '../tags/tags_sidebar_container';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -43,11 +44,7 @@ class Sidebar extends React.Component {
 
           <NotebooksModal />
 
-          <Link
-            to="/notes"
-            title="TAGS"
-            id="tags"
-            className="circle-button"></Link>
+          <TagsSidebar />
         </div>
 
         <div className="sidebar-bot">

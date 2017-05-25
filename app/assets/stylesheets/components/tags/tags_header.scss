@@ -1,11 +1,20 @@
 .tags-header {
   width: auto;
   height: 30px;
+  margin-right: 5px;
 
   display: flex;
   align-items: center;
   cursor: pointer;
   z-index: 10;
+}
+
+.tags-header h3 {
+  font-family: $sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: $ii-title;
+  margin: 5px;
 }
 
 img#tiny-tag {

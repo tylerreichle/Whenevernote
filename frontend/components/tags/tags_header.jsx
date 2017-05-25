@@ -44,19 +44,13 @@ class TagsHeader extends React.Component {
   }
 
   render() {
-    if (this.props.tags.length > 0) {
-      const name = this.props.tags[0].name;
-    } else {
-      const name = '';
-    }
-
     return (
       <div className="tags-header" onClick={this.toggleMenu}>
         <img
           id="tiny-tag"
           src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
 
-        <h3>{name}</h3>
+        <h3>Tags</h3>
 
         <img
           id="dropdown-arrow"
