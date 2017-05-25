@@ -30,6 +30,7 @@ class NoteDetail extends React.Component {
       id: '',
       title: '',
       notebook_id: '',
+      body: '',
       editorState: EditorState.createEmpty(),
       created_at: '',
       updated_at: ''
@@ -73,26 +74,26 @@ class NoteDetail extends React.Component {
   }
 
   autoSave() {
+    const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
+    const body = JSON.stringify(noteBody);
+
     if (this.state.title !== this.props.note.title) {
-      const body = convertToRaw(this.state.editorState.getCurrentContent());
       const note = {
         id: this.state.id,
         title: this.state.title,
-        body: JSON.stringify(body),
+        body: body,
         notebook_id: this.state.notebook_id,
       };
       this.props.updateNote(note);
+    } else if (body !== this.props.note.body) {
+        const note = {
+          id: this.state.id,
+          title: this.state.title,
+          body: body,
+          notebook_id: this.state.notebook_id,
+        };
+        this.props.updateNote(note);
     }
-    // else if (this.state.body !== this.props.note.body) {
-    //     const body = convertToRaw(this.state.editorState.getCurrentContent());
-    //     const note = {
-    //       id: this.state.id,
-    //       title: this.state.title,
-    //       body: JSON.stringify(body),
-    //       notebook_id: this.state.notebook_id,
-    //     };
-    //     this.props.updateNote(note);
-    // }
   }
 
   _handleKeyCommand(command) {
@@ -139,15 +140,20 @@ class NoteDetail extends React.Component {
     const { editorState } = this.state;
     return (
       <div className="richtext-toolbar">
+        <div className="toolbar-divider"></div>
+
         <InlineStyleControls
           editorState={editorState}
           onToggle={this.toggleInlineStyle}
           />
 
+        <div className="toolbar-divider"></div>
+
         <BlockStyleControls
           editorState={editorState}
           onToggle={this.toggleBlockType}
         />
+
       </div>
     );
   }
