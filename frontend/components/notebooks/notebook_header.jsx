@@ -8,7 +8,6 @@ class NotebookHeader extends React.Component {
     super(props);
 
     this.state = { dropdownOpen: false };
-
     this.toggleMenu = this.toggleMenu.bind(this);
   }
 

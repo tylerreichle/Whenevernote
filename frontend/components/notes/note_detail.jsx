@@ -10,6 +10,7 @@ import reactMixin from 'react-mixin';
 import TimerMixin from 'react-timer-mixin';
 
 import NotebookHeader from '../notebooks/notebook_header_container';
+import TagsHeader from '../tags/tags_header';
 import NoteInfo from '../modals/note_info';
 import DeleteConfirmation from '../modals/delete_confirmation';
 import StyleButton from './style_button';
@@ -30,6 +31,7 @@ class NoteDetail extends React.Component {
       id: '',
       title: '',
       notebook_id: '',
+      tags: [],
       body: '',
       editorState: EditorState.createEmpty(),
       created_at: '',
@@ -187,7 +189,7 @@ class NoteDetail extends React.Component {
   }
 
   render() {
-    const { id, title, body } = this.state;
+    const { id, title, body, tags } = this.state;
     const notebookId = this.state.notebook_id;
     const createdAt = this.state.created_at;
     const updatedAt = this.state.updated_at;
@@ -218,9 +220,10 @@ class NoteDetail extends React.Component {
                 notebookId={notebookId}
               />
 
-            <div className="detail-tag">
-              <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
-            </div>
+            <TagsHeader
+                iiCallback={'link'}
+                tags={tags}
+              />
 
             {this.richTextToolbar()}
           </div>

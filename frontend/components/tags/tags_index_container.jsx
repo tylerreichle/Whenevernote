@@ -5,7 +5,7 @@ import { selectAllTags } from '../../reducers/selectors';
 
 
 const mapStateToProps = state => ({
-  notebooks: selectAllTags(state)
+  tags: selectAllTags(state)
 });
 
 const mapDispatchToProps = dispatch => ({

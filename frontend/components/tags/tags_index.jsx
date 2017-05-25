@@ -4,7 +4,7 @@ import TagsIndexItem from './tags_index_item';
 class TagsIndex extends React.Component {
 
   componentWillMount() {
-    this.props.fetchNotebooks();
+    this.props.fetchTags();
   }
 
   render() {
