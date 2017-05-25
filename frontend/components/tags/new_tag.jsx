@@ -27,16 +27,7 @@ class NewTag extends React.Component {
   }
 
   handleChange(e) {
-    // TODO: fix this shitty check
     const name = e.target.value;
-    //
-    // if (name.length > 0) {
-    //   $('#nn-create').attr('disabled', false);
-    // } else if (name === "") {
-    //   $('nn-create').attr('disabled', true);
-    // } else {
-    //   $('#nn-create').attr('diabled', true);
-    // }
     this.setState({ name });
   }
 

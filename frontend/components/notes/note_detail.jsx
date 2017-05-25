@@ -48,14 +48,12 @@ class NoteDetail extends React.Component {
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchSingleNote(this.props.match.params.noteId).then(() => {
       this.props.fetchSingleNotebook(this.props.note.notebook_id);
       this.convertFromDB(this.props.note);
     });
-  }
 
-  componentDidMount() {
     this.setInterval( () => {
       this.autoSave();
     }, 5000 );

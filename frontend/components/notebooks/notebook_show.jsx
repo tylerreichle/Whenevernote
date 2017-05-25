@@ -4,7 +4,7 @@ import NotesIndexItem from '../notes/notes_index_item_container';
 
 class NotebookShow extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchSingleNotebook(this.props.match.params.notebookId)
       .then(() => {
         this.props.history.push(`/notebook/${this.props.notebook.id}/notes/${this.props.notebook.notes[0].id}`);

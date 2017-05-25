@@ -15,6 +15,9 @@ class TagsSidebar extends React.Component {
 
   componentWillMount() {
     ReactModal.setAppElement('body');
+  }
+
+  componentDidMount() {
     this.props.fetchTags();
   }
 

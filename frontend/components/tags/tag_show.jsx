@@ -4,7 +4,7 @@ import NotesIndexItem from '../notes/notes_index_item_container';
 
 class TagShow extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchSingleTag(this.props.match.params.tagId)
       .then(() => {
         this.props.history.push(`/tag/${this.props.tag.id}/notes/${this.props.tag.notes[0].id}`);

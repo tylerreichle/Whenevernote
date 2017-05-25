@@ -12,10 +12,16 @@ class NoteInfo extends React.Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  componentWillMount() { ReactModal.setAppElement('body'); }
+  componentWillMount() {
+    ReactModal.setAppElement('body');
+  }
 
-  openModal() { this.setState({ modalIsOpen: true }); }
-  closeModal() { this.setState({ modalIsOpen: false }); }
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+   }
 
   handleSave(e) {
     e.preventDefault();

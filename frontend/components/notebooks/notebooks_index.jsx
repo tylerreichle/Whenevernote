@@ -3,7 +3,7 @@ import NotebooksIndexItem from './notebooks_index_item';
 
 class NotebooksIndex extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchNotebooks();
   }
 

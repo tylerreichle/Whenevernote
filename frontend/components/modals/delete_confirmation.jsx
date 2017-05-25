@@ -13,10 +13,17 @@ class DeleteConfirmation extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  componentWillMount() { ReactModal.setAppElement('body'); }
+  componentWillMount() {
+    ReactModal.setAppElement('body');
+  }
 
-  openModal() { this.setState({ modalIsOpen: true }); }
-  closeModal() { this.setState({ modalIsOpen: false }); }
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
 
   handleDelete(e) {
     e.preventDefault();
