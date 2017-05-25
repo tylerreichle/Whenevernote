@@ -1,4 +1,4 @@
-.new-notebook {
+.new-tag {
   width: 100%;
   height: 100%;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.nn-main-content {
+.nt-main-content {
   height: 330px;
   width: 420px;
 
@@ -17,12 +17,12 @@
   align-items: center;
 }
 
-.nn-main-content img {
+.nt-main-content img {
   height: 33px;
-  width: 38px;
+  width: 36px;
 }
 
-.nn-main-content h4 {
+.nt-main-content h4 {
   font-family: $sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -31,7 +31,7 @@
   margin-bottom: 50px;
 }
 
-.nn-form {
+.nt-form {
   width: 100%;
 
   display: flex;
@@ -39,7 +39,7 @@
   justify-content: center;
 }
 
-.nn-form input {
+.nt-form input {
   font-size: 34px;
   letter-spacing: 1px;
   height: 40px;
@@ -47,23 +47,23 @@
   border-style: none;
 }
 
-.nn-form input::placeholder {
+.nt-form input::placeholder {
   text-align: center;
   color: $title-placeholder
 }
 
-.nn-form input:focus {
+.nt-form input:focus {
   outline: none
 }
 
-.nn-buttons {
+.nt-buttons {
   height: 35px;
 
   display: flex;
   justify-content: space-between;
 }
 
-.nn-buttons button {
+.nt-buttons button {
   width: 49%;
   height: 100%;
 
@@ -75,18 +75,18 @@
   border-radius: 5px;
 }
 
-#nn-cancel {
+#nt-cancel {
   background-color: $index-border;
   color: $dark-slate-gray;
 }
 
-#nn-create:disabled {
+#nt-create:disabled {
   background-color: $locked-create;
   color: $white;
   cursor: default;
 }
 
-#nn-create {
+#nt-create {
   background-color: $medium-sea-green;
   color: $white;
 }

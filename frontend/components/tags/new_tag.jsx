@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-class NewNotebook extends React.Component {
+class NewTag extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { title: '' };
+    this.state = { name: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -13,11 +13,11 @@ class NewNotebook extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const notebook = {
-      title: this.state.title,
+    const tag = {
+      name: this.state.name,
       author_id: this.props.currentUser.id
     };
-    this.props.createNotebook(notebook);
+    this.props.createTag(tag);
     this.props.history.push('/notes');
   }
 
@@ -28,40 +28,40 @@ class NewNotebook extends React.Component {
 
   handleChange(e) {
     // TODO: fix this shitty check
-    const title = e.target.value;
+    const name = e.target.value;
     //
-    // if (title.length > 0) {
+    // if (name.length > 0) {
     //   $('#nn-create').attr('disabled', false);
-    // } else if (title === "") {
+    // } else if (name === "") {
     //   $('nn-create').attr('disabled', true);
     // } else {
     //   $('#nn-create').attr('diabled', true);
     // }
-    this.setState({ title });
+    this.setState({ name });
   }
 
   render() {
     return (
-      <section className="new-notebook">
-        <section className="nn-main-content">
-          <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495419507/new-notebook.png"></img>
-          <h4>CREATE NOTEBOOK</h4>
+      <section className="new-tag">
+        <section className="nt-main-content">
+          <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495746550/toolbar/new-tag.png"></img>
+          <h4>CREATE TAG</h4>
 
-          <form className="nn-form">
+          <form className="nt-form">
             <input
               type="text"
-              placeholder="Title your notebook"
+              placeholder="Name your tag"
               value={this.state.title}
               onChange={this.handleChange}/>
 
             <div className="nn-buttons">
               <button
-                id="nn-cancel"
+                id="nt-cancel"
                 onClick={this.handleCancel}>Cancel</button>
 
               <button
-                id="nn-create"
-                onClick={this.handleSubmit}>Create notebook</button>
+                id="nt-create"
+                onClick={this.handleSubmit}>Create tag</button>
             </div>
           </form>
         </section>
@@ -70,4 +70,4 @@ class NewNotebook extends React.Component {
   }
 }
 
-export default withRouter(NewNotebook);
+export default withRouter(NewTag);

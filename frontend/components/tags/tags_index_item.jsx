@@ -20,7 +20,7 @@ class NotebooksIndexItem extends React.Component {
 
   callbackAction() {
     if (this.props.iiCallback === 'link') {
-      this.props.history.push(`/tags/${this.props.tag.id}/notes`);
+      this.props.history.push(`/tag/${this.props.tag.id}/notes`);
 
     } else if (this.props.iiCallback === 'assign') {
       const taggedNote = {
