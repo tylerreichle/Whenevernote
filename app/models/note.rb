@@ -14,10 +14,14 @@
 class Note < ApplicationRecord
   validates :title, :body, :author, :notebook, presence: true
 
+  belongs_to :notebook
   belongs_to :author,
              primary_key: :id,
              foreign_key: :author_id,
              class_name: :User
 
-  belongs_to :notebook
+  has_many :tagged_note
+  has_many :tags,
+           through: :tagged_note,
+           source: :tag
 end
