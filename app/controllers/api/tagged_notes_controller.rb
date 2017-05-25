@@ -3,8 +3,9 @@ class Api::TaggedNotesController < ApplicationController
     @tagged_note = TaggedNote.new(tagged_notes_params)
 
     if @tagged_note.save
+      render 'api/tagged_notes/show'
     else
-      render json: @tagged_note.error.full_messages, status: 422
+      render json: @tagged_note.errors.full_messages, status: 422
     end
   end
 
@@ -13,6 +14,7 @@ class Api::TaggedNotesController < ApplicationController
 
     if @tagged_note.note.author.id == current_user.id
       @tagged_note.delete
+      render 'api/tagged_notes/show'
     else
       render json: ["Cannot remove another user's tag"]
     end
