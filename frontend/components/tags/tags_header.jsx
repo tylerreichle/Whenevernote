@@ -26,6 +26,7 @@ class TagsHeader extends React.Component {
 
           <TagsIndex
             tags={this.props.tags}
+            noteId={this.props.noteId}
             iiCallback={'assign'}
           />
         </div>

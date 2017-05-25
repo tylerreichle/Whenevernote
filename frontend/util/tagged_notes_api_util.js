@@ -1,8 +1,8 @@
-export const createTaggedNote = taggedNote => (
+export const createTaggedNote = tagged_note => (
   $.ajax({
     method: 'POST',
     url: '/api/tagged_notes',
-    data: { taggedNote }
+    data: { tagged_note }
   })
 );
 

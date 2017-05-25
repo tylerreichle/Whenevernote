@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import merge from 'lodash/merge';
 
 class NotebooksIndexItem extends React.Component {
   constructor(props) {
@@ -24,10 +23,11 @@ class NotebooksIndexItem extends React.Component {
       this.props.history.push(`/tags/${this.props.tag.id}/notes`);
 
     } else if (this.props.iiCallback === 'assign') {
-      // const newNotebook = { notebook_id : this.props.notebook.id };
-      // const updatedNote = merge({}, this.props.note, newNotebook);
-      //
-      // this.props.updateNote(updatedNote);
+      const taggedNote = {
+          note_id: this.props.noteId,
+          tag_id: this.props.tag.id
+      };
+      this.props.createTaggedNote(taggedNote);
     }
   }
 

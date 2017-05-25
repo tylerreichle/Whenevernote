@@ -115,26 +115,22 @@ class NoteDetail extends React.Component {
 
   _toggleBlockType(blockType) {
     this.onChange(
-      RichUtils.toggleBlockType(
-        this.state.editorState,
-        blockType
-      )
+      RichUtils.toggleBlockType(this.state.editorState, blockType)
     );
   }
 
   _toggleInlineStyle(inlineStyle) {
     this.onChange(
-      RichUtils.toggleInlineStyle(
-        this.state.editorState,
-        inlineStyle
-      )
+      RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle)
     );
   }
 
   convertFromDB(note) {
     if (note.body) {
       const contentState = convertFromRaw(JSON.parse(note.body));
-      this.setState({ editorState: EditorState.createWithContent(contentState) });
+      this.setState(
+        { editorState: EditorState.createWithContent(contentState) }
+      );
     }
   }
 
@@ -221,8 +217,9 @@ class NoteDetail extends React.Component {
               />
 
             <TagsHeader
-                iiCallback={'link'}
+                iiCallback={'assign'}
                 tags={tags}
+                noteId={id}
               />
 
             {this.richTextToolbar()}
