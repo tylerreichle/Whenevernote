@@ -52,8 +52,6 @@ button#new-cancel {
 
   margin-top: 10px;
   margin-right: 160px;
-
-  border: 1px solid red;
 }
 
 #new-title {
@@ -61,8 +59,6 @@ button#new-cancel {
   height: 35px;
   border: none;
   color: $note-title;
-
-  border: 1px solid blue;
 }
 
 #new-title::placeholder {

@@ -43,6 +43,7 @@ class NewNote extends React.Component {
       title: this.state.title,
       body: body,
       notebook_id: this.state.notebook_id,
+      author_id: this.props.currentUser.id
     };
     this.props.createNote(note);
     this.props.history.push("/notes");
