@@ -8,7 +8,7 @@ class NotebooksIndexItem extends React.Component {
     this.callbackAction = this.callbackAction.bind(this);
   }
 
-  // notesCount() {
+  // tagsCount() {
   //   let noteCount = 0;
   //   if (this.props.notesCount) {
   //     if (this.props.notebook.notes) {

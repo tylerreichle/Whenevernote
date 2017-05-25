@@ -55,7 +55,7 @@ class TagsSidebar extends React.Component {
         <TagsIndex
           tags={this.props.tags}
           noteId={this.props.noteId}
-          iiCallback={'assign'}
+          iiCallback={'link'}
         />
 
         </ReactModal>
