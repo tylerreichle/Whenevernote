@@ -6,7 +6,7 @@ class Api::TagsController < ApplicationController
 
   def show
     @tag = Tag.find_by(id: params[:id]).includes(:notes)
-
+    render 'api/tags/show'
   end
 
   def create
