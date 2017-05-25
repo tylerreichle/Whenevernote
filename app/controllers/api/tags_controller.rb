@@ -4,6 +4,11 @@ class Api::TagsController < ApplicationController
     render 'api/tags/index'
   end
 
+  def show
+    @tag = Tag.find_by(id: params[:id]).includes(:notes)
+
+  end
+
   def create
     @tag = Tag.new(tag_params)
 
@@ -17,7 +22,7 @@ class Api::TagsController < ApplicationController
   def destroy
     @tag = Tag.find_by(id: params[:id])
 
-    if @tag && @tag.author.id == current_user.id
+    if @tag.author.id == current_user.id
       @tag.delete
       render 'api/notes/show'
     else
