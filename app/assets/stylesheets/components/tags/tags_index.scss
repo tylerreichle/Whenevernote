@@ -41,5 +41,9 @@
 }
 
 .tagged {
-  border: 1px solid red;
+  background-color: $medium-sea-green;
+}
+
+.tagged .tag-ii-child {
+  color: $white-smoke;
 }

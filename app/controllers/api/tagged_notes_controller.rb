@@ -17,7 +17,7 @@ class Api::TaggedNotesController < ApplicationController
 
     if @tagged_note && @tagged_note.note.author.id == current_user.id
       @tagged_note.delete
-      render json: 'api/tagged_notes/show'
+      render 'api/tagged_notes/show'
     else
       render json: ['Something went wrong :(']
     end

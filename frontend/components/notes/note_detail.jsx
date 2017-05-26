@@ -77,7 +77,9 @@ class NoteDetail extends React.Component {
     const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
     const body = JSON.stringify(noteBody);
 
-    if (this.state.title !== this.props.note.title) {
+    if ((this.state.title !== this.props.note.title) ||
+        (body !== this.props.note.body)) {
+
       const note = {
         id: this.state.id,
         title: this.state.title,
@@ -85,14 +87,6 @@ class NoteDetail extends React.Component {
         notebook_id: this.state.notebook_id,
       };
       this.props.updateNote(note);
-    } else if (body !== this.props.note.body) {
-        const note = {
-          id: this.state.id,
-          title: this.state.title,
-          body: body,
-          notebook_id: this.state.notebook_id,
-        };
-        this.props.updateNote(note);
     }
   }
 

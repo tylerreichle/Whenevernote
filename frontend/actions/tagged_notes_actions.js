@@ -4,18 +4,12 @@ import { fetchSingleNote } from './notes_actions';
 
 export const createTaggedNote = taggedNote => dispatch => (
   TaggedNotesAPI.createTaggedNote(taggedNote)
-    .then(newTaggedNote =>  {
-      dispatch(fetchSingleNote(newTaggedNote.note_id));
-      dispatch(clearErrors());
-    },
-    (errors => dispatch(receiveErrors(errors.responseJSON))))
+    .then(newTaggedNote =>
+      dispatch(fetchSingleNote(newTaggedNote.note_id)))
 );
 
-export const deleteTaggedNote = tagggingInfo => dispatch => (
-  TaggedNotesAPI.deleteTaggedNote(tagggingInfo)
-    .then(deletedTaggedNote =>  {
-      dispatch(fetchSingleNote(deletedTaggedNote.note_id));
-      dispatch(clearErrors());
-    },
-    (errors => dispatch(receiveErrors(errors.responseJSON))))
-);
+export const deleteTaggedNote = taggingInfo => dispatch => (
+  TaggedNotesAPI.deleteTaggedNote(taggingInfo)
+    .then(deletedTaggedNote =>
+      dispatch(fetchSingleNote(deletedTaggedNote.note_id))
+));

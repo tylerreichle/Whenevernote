@@ -9,7 +9,6 @@ class TagsIndex extends React.Component {
     this.state = { noteTags: [] };
   }
 
-
   componentDidMount() {
     this.props.fetchTags();
   }
@@ -38,7 +37,7 @@ class TagsIndex extends React.Component {
                 key={idx}
                 iiCallback={iiCallback}
                 noteId={this.props.noteId}
-                tagged={tagged}
+                fetchSingleNote={this.props.fetchSingleNote}
                 deleteTaggedNote={this.props.deleteTaggedNote}
                 createTaggedNote={this.props.createTaggedNote}
               />;
