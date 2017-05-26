@@ -3,14 +3,25 @@ import TagsIndexItem from './tags_index_item';
 import { selectTagIds } from '../../reducers/selectors';
 
 class TagsIndex extends React.Component {
+  constructor(props) {
+    super(props);
 
-  componentWillMount() {
+    this.state = { noteTags: [] };
+  }
+
+
+  componentDidMount() {
     this.props.fetchTags();
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.noteTags.length !== newProps.noteTags.length) {
+      this.setState(newProps.noteTags);
+    }
+  }
+
   render() {
-    const { iiCallback } = this.props;
-    const tags = this.props.tags || [];
+    const { iiCallback, tags } = this.props;
     const noteTags = selectTagIds(this.props.noteTags);
 
     return (

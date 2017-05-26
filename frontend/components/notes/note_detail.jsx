@@ -61,10 +61,9 @@ class NoteDetail extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.state.id !== newProps.note.id) {
-      this.setState(newProps.note);
-      this.convertFromDB(newProps.note);
-    } else if (this.state.notebook_id !== newProps.note.notebook_id) {
+    if ((this.state.id !== newProps.note.id) ||
+        (this.state.notebook_id !== newProps.note.notebook_id) ||
+        (this.state.tags.length !== newProps.note.tags.length)) {
       this.setState(newProps.note);
       this.convertFromDB(newProps.note);
     }
