@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactModal from 'react-modal';
 
-import TagsIndex from './tags_index';
+import TagsIndex from './tags_index_container';
 
 class TagsSidebar extends React.Component {
   constructor(props) {
@@ -59,6 +59,7 @@ class TagsSidebar extends React.Component {
           tags={this.props.tags}
           noteId={this.props.noteId}
           iiCallback={'link'}
+          sidebar={'true'}
         />
 
         </ReactModal>

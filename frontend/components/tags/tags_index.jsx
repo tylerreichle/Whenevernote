@@ -14,14 +14,24 @@ class TagsIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.noteTags.length !== newProps.noteTags.length) {
-      this.setState(newProps.noteTags);
+    if (this.props.sidebar) {
+
+    } else {
+      if (this.props.noteTags.length !== newProps.noteTags.length) {
+        this.setState(newProps.noteTags);
+      }
     }
   }
 
   render() {
     const { iiCallback, tags } = this.props;
-    const noteTags = selectTagIds(this.props.noteTags);
+    let noteTags;
+
+    if (this.props.sidebar) {
+      noteTags = [];
+    } else {
+      noteTags = selectTagIds(this.props.noteTags);
+    }
 
     return (
       <div className="tags-index">

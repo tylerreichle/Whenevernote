@@ -3,10 +3,10 @@ import TagsIndex from './tags_index';
 import {
   createTaggedNote,
   deleteTaggedNote
-} from '../../actions/tagged_notes_actions';
+ } from '../../actions/tagged_notes_actions';
+ 
 import { fetchTags } from '../../actions/tags_actions';
 import { selectAllTags } from '../../reducers/selectors';
-import { fetchSingleNote } from '../../actions/notes_actions';
 
 const mapStateToProps = (state) => ({
   tags: selectAllTags(state)

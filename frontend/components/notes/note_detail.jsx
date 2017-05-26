@@ -199,14 +199,13 @@ class NoteDetail extends React.Component {
               id={this.state.id}
               title={this.state.title}
             />
-
           </div>
 
           <div className="note-options">
-              <NotebookHeader
-                updateNote={this.props.updateNote}
-                notebookId={notebookId}
-              />
+            <NotebookHeader
+              updateNote={this.props.updateNote}
+              notebookId={notebookId}
+            />
 
             <TagsHeader
                 iiCallback={'assign'}
