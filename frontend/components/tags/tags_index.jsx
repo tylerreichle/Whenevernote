@@ -16,6 +16,7 @@ class TagsIndex extends React.Component {
                 key={idx}
                 iiCallback={iiCallback}
                 noteId={this.props.noteId}
+                deleteTaggedNote={this.props.deleteTaggedNote}
                 createTaggedNote={this.props.createTaggedNote}
               />
             ))

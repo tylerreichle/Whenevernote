@@ -7,7 +7,7 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createTag: (tag) => dispatch(createTag(tag))
+  createTag: (tag) => dispatch(createTag(tag)),
 });
 
 export default connect(

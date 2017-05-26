@@ -10,11 +10,13 @@ class Api::TaggedNotesController < ApplicationController
   end
 
   def destroy
-    @tagged_note = TaggedNote.find_by(id: params[:id])
+    @tagged_note = TaggedNote.find_by(
+      note_id: params[:tagged_note][:noteId],
+      tag_id: params[:tagged_note][:tagId]
+    )
 
     if @tagged_note.note.author.id == current_user.id
       @tagged_note.delete
-      render 'api/tagged_notes/show'
     else
       render json: ["Cannot remove another user's tag"]
     end

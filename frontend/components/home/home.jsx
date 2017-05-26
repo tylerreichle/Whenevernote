@@ -7,7 +7,6 @@ import Notes from '../notes/notes';
 import Notebooks from '../notebooks/notebooks';
 import Tags from '../tags/tags';
 
-
 class Home extends React.Component {
   render() {
     return (

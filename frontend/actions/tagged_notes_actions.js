@@ -11,8 +11,8 @@ export const createTaggedNote = taggedNote => dispatch => (
     (errors => dispatch(receiveErrors(errors.responseJSON))))
 );
 
-export const deleteTaggedNote = taggedNoteId => dispatch => (
-  TaggedNotesAPI.deleteTag(taggedNoteId)
+export const deleteTaggedNote = tagggingInfo => dispatch => (
+  TaggedNotesAPI.deleteTaggedNote(tagggingInfo)
     .then(deletedTaggedNote =>  {
       dispatch(fetchSingleNote(deletedTaggedNote));
       dispatch(clearErrors());

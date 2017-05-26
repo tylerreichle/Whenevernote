@@ -23,11 +23,11 @@ class NotebooksIndexItem extends React.Component {
       this.props.history.push(`/tag/${this.props.tag.id}/notes`);
 
     } else if (this.props.iiCallback === 'assign') {
-      const taggedNote = {
-          note_id: this.props.noteId,
-          tag_id: this.props.tag.id
+      const tagggingInfo = {
+        tagId: this.props.tag.id,
+        noteId: this.props.noteId
       };
-      this.props.createTaggedNote(taggedNote);
+      this.props.deleteTaggedNote(tagggingInfo);
     }
   }
 
@@ -43,3 +43,18 @@ class NotebooksIndexItem extends React.Component {
 }
 
 export default withRouter(NotebooksIndexItem);
+
+// create tagging
+//
+// callbackAction() {
+//   if (this.props.iiCallback === 'link') {
+//     this.props.history.push(`/tag/${this.props.tag.id}/notes`);
+//
+//   } else if (this.props.iiCallback === 'assign') {
+//     const taggedNote = {
+//         note_id: this.props.noteId,
+//         tag_id: this.props.tag.id
+//     };
+//     this.props.createTaggedNote(taggedNote);
+//   }
+// }
