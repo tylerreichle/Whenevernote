@@ -23,19 +23,28 @@ class NotebooksIndexItem extends React.Component {
       this.props.history.push(`/tag/${this.props.tag.id}/notes`);
 
     } else if (this.props.iiCallback === 'assign') {
-      const tagggingInfo = {
-        tagId: this.props.tag.id,
-        noteId: this.props.noteId
+      const taggedNote = {
+        note_id: this.props.noteId,
+        tag_id: this.props.tag.id
       };
-      this.props.deleteTaggedNote(tagggingInfo);
+      if (this.props.tagged) {
+        this.props.deleteTaggedNote(taggedNote);
+      } else {
+        this.props.createTaggedNote(taggedNote);
+      }
     }
   }
 
   render() {
     const { name } = this.props.tag;
+    let className = 'tags-ii';
+
+    if (this.props.tagged) {
+      className += ' tagged';
+    }
 
     return (
-      <li onClick={this.callbackAction} className="tags-ii">
+      <li onClick={this.callbackAction} className={className}>
         <h4 className="tag-ii-child">{name}</h4>
       </li>
     );
@@ -43,18 +52,3 @@ class NotebooksIndexItem extends React.Component {
 }
 
 export default withRouter(NotebooksIndexItem);
-
-// create tagging
-//
-// callbackAction() {
-//   if (this.props.iiCallback === 'link') {
-//     this.props.history.push(`/tag/${this.props.tag.id}/notes`);
-//
-//   } else if (this.props.iiCallback === 'assign') {
-//     const taggedNote = {
-//         note_id: this.props.noteId,
-//         tag_id: this.props.tag.id
-//     };
-//     this.props.createTaggedNote(taggedNote);
-//   }
-// }

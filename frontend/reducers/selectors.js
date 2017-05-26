@@ -4,6 +4,10 @@ export const selectAllNotes = ({ notes }) => values(notes);
 export const selectAllNotebooks = ({ notebooks }) => values(notebooks);
 export const selectAllTags = ({ tags }) => values(tags);
 
+export const selectTagIds = tags => {
+  return tags.map(tag => tag.id);
+};
+
 export const notesByUpdated = ({ notes }) => {
   const allNotes = values(notes);
   return allNotes.sort((a, b) => (

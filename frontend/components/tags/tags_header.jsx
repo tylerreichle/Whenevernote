@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import TagsIndex from './tags_index_container';
+import { selectTagIds } from '../../reducers/selectors';
 
 class TagsHeader extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class TagsHeader extends React.Component {
           </Link>
 
           <TagsIndex
-            tags={this.props.tags}
+            noteTags={this.props.tags}
             noteId={this.props.noteId}
             iiCallback={'assign'}
           />
