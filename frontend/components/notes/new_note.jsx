@@ -28,6 +28,10 @@ class NewNote extends React.Component {
     this.focus = () => this.refs.editor.focus();
   }
 
+  componentDidMount() {
+    this.focus();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
 
