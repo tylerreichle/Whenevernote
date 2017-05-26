@@ -57,6 +57,9 @@ class NoteDetail extends React.Component {
 
     this.toggleBlockType = (type) => this._toggleBlockType(type);
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
+    this.blockRendererFn = this.blockRendererFn.bind(this);
+
+    this.seedCreate = this.seedCreate.bind(this);
   }
 
 
@@ -82,6 +85,12 @@ class NoteDetail extends React.Component {
 
   update(property) {
     return e => this.setState({ [property]: e.target.value });
+  }
+
+  seedCreate() {
+    const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
+    const body = JSON.stringify(noteBody);
+    console.log(body);
   }
 
   autoSave() {
@@ -196,7 +205,6 @@ class NoteDetail extends React.Component {
           onChange={this.onChange}
           onTab={this.onTab}
           placeholder="Just start typing..."
-          spellCheck={true}
           ref="editor"
         />
       </div>
@@ -226,6 +234,8 @@ class NoteDetail extends React.Component {
               id={this.state.id}
               title={this.state.title}
             />
+
+          <button onClick={this.seedCreate}>seeds</button>
           </div>
 
           <div className="note-options">
