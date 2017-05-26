@@ -1,7 +1,7 @@
 .nb-header {
   width: auto;
   height: 30px;
-  margin-right: 5px; 
+  margin-right: 5px;
 
   display: flex;
   align-items: center;
@@ -30,6 +30,7 @@ img#dropdown-arrow {
 
 .nb-header-dropdown {
   position: absolute;
+  left: 470px;
   top: 83px;
 
   align-content: center;
@@ -43,6 +44,10 @@ img#dropdown-arrow {
 
     box-shadow: 0 14px 28px rgba(0,0,0,0.25),
       0 10px 10px rgba(0,0,0,0.22);
+}
+
+.nb-header-dropdown:focus {
+  outline-style: none;
 }
 
 .new-nb-item {

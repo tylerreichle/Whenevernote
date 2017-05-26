@@ -30,6 +30,7 @@ img#dropdown-arrow {
 
 .tags-header-dropdown {
   position: absolute;
+  left: 565px;
   top: 83px;
 
   align-content: center;
@@ -45,6 +46,10 @@ img#dropdown-arrow {
 
     box-shadow: 0 14px 28px rgba(0,0,0,0.25),
       0 10px 10px rgba(0,0,0,0.22);
+}
+
+.tags-header-dropdown:focus {
+  outline: none;
 }
 
 .new-tag-item {
