@@ -37,7 +37,7 @@ class TagsIndex extends React.Component {
                 key={idx}
                 iiCallback={iiCallback}
                 noteId={this.props.noteId}
-                fetchSingleNote={this.props.fetchSingleNote}
+                tagged={tagged}
                 deleteTaggedNote={this.props.deleteTaggedNote}
                 createTaggedNote={this.props.createTaggedNote}
               />;
