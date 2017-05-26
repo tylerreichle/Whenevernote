@@ -7,8 +7,19 @@ import {
   EditorState,
   RichUtils,
   convertFromRaw,
-  convertToRaw
+  convertToRaw,
+  ContentBlock,
+  DefaultDraftBlockRenderMap
 } from 'draft-js';
+
+
+import {
+  blockRenderMap,
+  CheckableListItem,
+  CheckableListItemBlock,
+  CheckableListItemUtils,
+  CHECKABLE_LIST_ITEM
+} from 'draft-js-checkable-list-item';
 
 import {
   BlockStyleControls,
@@ -100,6 +111,20 @@ class NoteDetail extends React.Component {
     }
   }
 
+  blockRendererFn(contentBlock) {
+    if (contentBlock.getType() === CHECKABLE_LIST_ITEM) {
+      return {
+        component: CheckableListItem,
+        props: {
+          onChangeChecked: () => this.onChange(
+            CheckableListItemUtils.toggleChecked(this.state.editorState, contentBlock)
+          ),
+          checked: Boolean(contentBlock.getData().get('checked')),
+        },
+      };
+    }
+  }
+
   _onTab(e) {
     const maxDepth = 4;
     this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
@@ -163,6 +188,8 @@ class NoteDetail extends React.Component {
       <div className={className} onClick={this.focus}>
         <Editor
           blocksStyleFn={blocksStyleFn}
+          blockRendererFn={this.blockRendererFn}
+          blockRenderMap={DefaultDraftBlockRenderMap.merge(blockRenderMap)}
           customStyleMap={styleMap}
           editorState={editorState}
           handleKeyCommand={this.handleKeyCommand}
