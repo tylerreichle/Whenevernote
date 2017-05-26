@@ -34,8 +34,10 @@ img#dropdown-arrow {
 
   align-content: center;
   width: 200px;
-  height: 100%;
+  height: auto;
   max-height: 238px;
+
+  padding: 5px;
   border: 1px solid $index-border;
   background-color: $white;
 

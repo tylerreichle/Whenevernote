@@ -4,7 +4,7 @@
   align-items: center;
 
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .tags-index ul {
@@ -24,7 +24,6 @@
   cursor: pointer;
   font-family: $sans-serif;
   border: 1px solid $tag-ii-border;
-
 }
 
 .tags-ii:hover {

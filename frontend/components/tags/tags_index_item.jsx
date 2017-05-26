@@ -27,24 +27,16 @@ class NotebooksIndexItem extends React.Component {
 
   render() {
     const { name } = this.props.tag;
-    let className;
-
-    if (this.props.iiCallback === 'assign') {
-      className = 'th-ii';
-    } else {
-      className = 'tags-ii';
-    }
+    let className = 'tags-ii';
 
     if (this.props.tagged) {
       className += ' tagged';
     }
 
     return (
-      <div>        
-        <li onClick={this.callbackAction} className={className}>
-          <h4 className="tag-ii-child">{name}</h4>
-        </li>
-      </div>
+      <li onClick={this.callbackAction} className={className}>
+        <h4 className="tag-ii-child">{name}</h4>
+      </li>
     );
   }
 }
