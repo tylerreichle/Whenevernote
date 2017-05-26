@@ -77,16 +77,3 @@ export const InlineStyleControls = (props) => {
     </div>
   );
 };
-
-
-// class FormatBar extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-//
-//   render() {
-//     return (
-//
-//     );
-//   }
-// }

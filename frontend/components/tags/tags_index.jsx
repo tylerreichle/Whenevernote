@@ -14,9 +14,7 @@ class TagsIndex extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.sidebar) {
-
-    } else {
+    if (!this.props.sidebar) {
       if (this.props.noteTags.length !== newProps.noteTags.length) {
         this.setState(newProps.noteTags);
       }
