@@ -8,16 +8,6 @@ class NotebooksIndexItem extends React.Component {
     this.callbackAction = this.callbackAction.bind(this);
   }
 
-  // tagsCount() {
-  //   let noteCount = 0;
-  //   if (this.props.notesCount) {
-  //     if (this.props.notebook.notes) {
-  //       noteCount = this.props.notebook.notes.length;
-  //     }
-  //     return <h5 className="nb-ii-child">{noteCount} notes</h5>;
-  //   }
-  // }
-
   callbackAction() {
     if (this.props.iiCallback === 'link') {
       this.props.history.push(`/tag/${this.props.tag.id}/notes`);
@@ -37,16 +27,24 @@ class NotebooksIndexItem extends React.Component {
 
   render() {
     const { name } = this.props.tag;
-    let className = 'tags-ii';
+    let className;
+
+    if (this.props.iiCallback === 'assign') {
+      className = 'th-ii';
+    } else {
+      className = 'tags-ii';
+    }
 
     if (this.props.tagged) {
       className += ' tagged';
     }
 
     return (
-      <li onClick={this.callbackAction} className={className}>
-        <h4 className="tag-ii-child">{name}</h4>
-      </li>
+      <div>        
+        <li onClick={this.callbackAction} className={className}>
+          <h4 className="tag-ii-child">{name}</h4>
+        </li>
+      </div>
     );
   }
 }

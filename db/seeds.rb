@@ -46,13 +46,11 @@ Note.create(
   notebook_id: 1
 )
 
-Tag.create(name: 'To Do', author_id: 2)
-Tag.create(name: 'Misc', author_id: 2)
-Tag.create(name: 'Shopping', author_id: 2)
+Tag.create(name: 'to do', author_id: 2)
+Tag.create(name: 'misc', author_id: 2)
+Tag.create(name: 'shopping', author_id: 2)
 
-TaggedNote.create(note_id: 1, tag_id: 1)
 TaggedNote.create(note_id: 1, tag_id: 2)
-TaggedNote.create(note_id: 1, tag_id: 3)
 
 # titles = []
 # 25.times { titles << Faker::Zelda.character }

@@ -6,13 +6,16 @@ import StyleButton from './style_button';
 export const styleMap = {
   CODE: {
     backgroundColor: 'rgba(0, 0, 0, 0.05)',
-    fontFamily: "'Antic Slab', serif",
-    fontSize: 16,
+    fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
+    fontSize: 12,
     padding: 5
   },
   STRIKETHROUGH: {
-    textDecoration: 'line-through',
+    textDecoration: 'line-through'
   },
+  HIGHLIGHT: {
+    backgroundColor: 'rgba(255, 230, 0, 0.5)'
+  }
 };
 
 const INLINE_STYLES = [
@@ -25,7 +28,7 @@ const INLINE_STYLES = [
 const BLOCK_TYPES = [
   { className: 'fa fa-list-ul', title: 'UL', style: 'unordered-list-item'},
   { className: 'fa fa-list-ol', title: 'OL', style: 'ordered-list-item'},
-  { className: 'fa fa-code', title: 'Code Block', style: 'code-block'}
+  { className: 'fa fa-code', title: 'Code Block', style: 'CODE'}
 ];
 
 export const blocksStyleFn = (block) => {
@@ -77,3 +80,13 @@ export const InlineStyleControls = (props) => {
     </div>
   );
 };
+
+// small: {
+//   fontSize: '8px',
+// },
+// medium: {
+//   fontSize: '12px',
+// },
+// large: {
+//   fontSize: '16px',
+// },

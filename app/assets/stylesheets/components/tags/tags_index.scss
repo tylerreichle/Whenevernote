@@ -10,20 +10,21 @@
 .tags-index ul {
   width: 95%;
   overflow-y: auto;
+
+  border-top: 1px solid $index-border;
 }
 
 .tags-ii {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  width: 97%;
-  height: 60px;
-  padding-left: 10px;
+  font-weight: bold;
+  width: 100px;
+  margin: 10px;
+  background-color: $tag-ii-bg;
+  border-radius: 5px;
 
   cursor: pointer;
-  font-family: $serif-2;
-  border-bottom: 1px solid $index-border;
+  font-family: $sans-serif;
+  border: 1px solid $tag-ii-border;
+
 }
 
 .tags-ii:hover {
@@ -35,9 +36,9 @@
 }
 
 .tags-ii h4 {
-  width: 75%;
+  font-size: 14px;
   color: $dark-slate-gray;
-  letter-spacing: .8px;
+  margin: 5px 10px;
 }
 
 .tagged {
