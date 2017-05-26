@@ -1,5 +1,6 @@
 import React from 'react';
 import { Editor, EditorState, ContentState, RichUtils } from 'draft-js';
+import { CHECKABLE_LIST_ITEM } from 'draft-js-checkable-list-item';
 
 import StyleButton from './style_button';
 
@@ -19,23 +20,27 @@ export const styleMap = {
 };
 
 const INLINE_STYLES = [
-  { className: 'fa fa-bold', title: 'Bold', style: 'BOLD'},
-  { className: 'fa fa-italic', title: 'Italic', style: 'ITALIC'},
-  { className: 'fa fa-underline', title: 'Underline', style: 'UNDERLINE'},
-  { className: 'fa fa-strikethrough', title: 'Strikethrough', style: 'STRIKETHROUGH'},
+  { className: 'fa fa-bold', title: 'Bold', style: 'BOLD' },
+  { className: 'fa fa-italic', title: 'Italic', style: 'ITALIC' },
+  { className: 'fa fa-underline', title: 'Underline', style: 'UNDERLINE' },
+  { className: 'fa fa-strikethrough', title: 'Strikethrough', style: 'STRIKETHROUGH' },
+  { className: 'fa fa-pencil', title: 'Highlight', style: 'HIGHLIGHT' },
 ];
 
 const BLOCK_TYPES = [
-  { className: 'fa fa-list-ul', title: 'UL', style: 'unordered-list-item'},
-  { className: 'fa fa-list-ol', title: 'OL', style: 'ordered-list-item'},
-  { className: 'fa fa-code', title: 'Code Block', style: 'CODE'}
+  { className: 'fa fa-list-ul', title: 'Unordered List', style: 'unordered-list-item' },
+  { className: 'fa fa-list-ol', title: 'Ordered List', style: 'ordered-list-item' },
+  { className: 'fa fa-check-square-o', title: 'Checkbox', style: CHECKABLE_LIST_ITEM },
 ];
+
+// { className: 'fa fa-code', title: 'Code Block', style: 'CODE'}
 
 export const blocksStyleFn = (block) => {
   switch (block.getType()) {
     case 'unordered-list-item': return "ul-block-style";
     case 'ordered-list-item': return "ol-block-style";
     case 'blockquote': return 'RichEditor-blockquote';
+    case CHECKABLE_LIST_ITEM: return CHECKABLE_LIST_ITEM;
     default: return null;
   }
 };
