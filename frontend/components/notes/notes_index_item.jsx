@@ -25,7 +25,13 @@ class NotesIndexItem extends React.Component {
   }
 
   render() {
-    const { id, title, updated_at } = this.props.initialNote;
+    let { id, title, updated_at } = this.props.initialNote;
+
+    if (title.length > 30) {
+      const trimmedTitle = title.slice(0, 29) + '..';
+      title = trimmedTitle;
+    }
+
     let body = convertFromRaw( JSON.parse(this.props.initialNote.body) );
     body = body.getPlainText();
     const linkPath = this.props.linkPath;

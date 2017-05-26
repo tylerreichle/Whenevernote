@@ -87,11 +87,12 @@ class NoteDetail extends React.Component {
     return e => this.setState({ [property]: e.target.value });
   }
 
-  seedCreate() {
-    const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
-    const body = JSON.stringify(noteBody);
-    console.log(body);
-  }
+  // seedCreate() {
+  //   const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
+  //   const body = JSON.stringify(noteBody);
+  //   console.log(body);
+  // }
+  // <button onClick={this.seedCreate}>seeds</button>
 
   autoSave() {
     const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
@@ -235,7 +236,6 @@ class NoteDetail extends React.Component {
               title={this.state.title}
             />
 
-          <button onClick={this.seedCreate}>seeds</button>
           </div>
 
           <div className="note-options">
