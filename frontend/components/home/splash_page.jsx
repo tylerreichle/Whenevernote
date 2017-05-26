@@ -58,11 +58,11 @@ class SplashPage extends React.Component {
           <source
             className="webm"
             type="video/webm"
-            src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video.webm" />
+            src="https://s3-us-west-1.amazonaws.com/whenevernote/splash.webm" />
           <source
             className="mp4"
             type="video/mp4"
-            src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video.mp4" />
+            src="https://s3-us-west-1.amazonaws.com/whenevernote/splash.mp4" />
         </video>
       </div>
     );
