@@ -59,7 +59,7 @@ class NoteDetail extends React.Component {
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
     this.blockRendererFn = this.blockRendererFn.bind(this);
 
-    this.seedCreate = this.seedCreate.bind(this);
+    // this.seedCreate = this.seedCreate.bind(this);
   }
 
 
