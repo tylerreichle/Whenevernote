@@ -62,7 +62,6 @@ class NoteDetail extends React.Component {
     // this.seedCreate = this.seedCreate.bind(this);
   }
 
-
   componentDidMount() {
     this.props.fetchSingleNote(this.props.match.params.noteId).then(() => {
       this.props.fetchSingleNotebook(this.props.note.notebook_id);
@@ -113,6 +112,7 @@ class NoteDetail extends React.Component {
 
   _handleKeyCommand(command) {
     const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
+
     if (newState) {
       this.onChange(newState);
       return 'handled';
@@ -165,6 +165,7 @@ class NoteDetail extends React.Component {
     const { editorState } = this.state;
     return (
       <div className="richtext-toolbar">
+
         <div className="toolbar-divider"></div>
 
         <InlineStyleControls
