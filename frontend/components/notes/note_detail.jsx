@@ -59,7 +59,7 @@ class NoteDetail extends React.Component {
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
     this.blockRendererFn = this.blockRendererFn.bind(this);
 
-    // this.seedCreate = this.seedCreate.bind(this);
+    this.seedCreate = this.seedCreate.bind(this);
   }
 
   componentDidMount() {
@@ -86,12 +86,12 @@ class NoteDetail extends React.Component {
     return e => this.setState({ [property]: e.target.value });
   }
 
-  // seedCreate() {
-  //   const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
-  //   const body = JSON.stringify(noteBody);
-  //   console.log(body);
-  // }
-  // <button onClick={this.seedCreate}>seeds</button>
+  seedCreate() {
+    const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
+    const body = JSON.stringify(noteBody);
+    console.log(body);
+  }
+
 
   autoSave() {
     const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
@@ -165,7 +165,7 @@ class NoteDetail extends React.Component {
     const { editorState } = this.state;
     return (
       <div className="richtext-toolbar">
-
+        <button onClick={this.seedCreate}>seeds</button>
         <div className="toolbar-divider"></div>
 
         <InlineStyleControls
