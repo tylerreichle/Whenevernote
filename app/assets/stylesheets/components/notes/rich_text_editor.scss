@@ -29,11 +29,15 @@
   height: 20px;
   font-size: 12px;
 
-  fill: #4a4a4a;
+  color: #4a4a4a;
   margin: 5px;
   text-align: center;
   line-height: 20px;
   cursor: pointer;
+}
+
+.fa:hover {
+  color: $medium-sea-green;
 }
 
 .RichEditor-activeButton {
