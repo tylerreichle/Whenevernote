@@ -10,15 +10,16 @@ Whenevernote is a full-stack web application inspired by Evernote built using Ru
 
 ### Features
 - User accounts with secure authentication
-- Create, edit, and delete an unlimited number of notes in your virtual notebook
-- Personalize notes by adding lists, checkboxes, highlighting and
+- Create, edit, and delete an unlimited number of notes within your virtual notebook
+- Personalize notes by adding lists, checkboxes, highlighting and using code blocks
 - Organize notes by placing them into personal notebooks
 - Categorize notes by tagging them with multiple tags
 - View all notes in a notebook and all notes with a certain tag
+- Notes are auto-saved upon edits so users have less to worry about
 
 ### Project Design
 
-Whenevernote was designed and build in two weeks. A [proposal](./docs/README.md) was drafted to help build a timeline and guide through the app's development. The proposal included [wireframes](./docs/wireframes) for all views, a front-end [sample state](./docs/sample_state.md), and [database schema](./docs/schema.md).
+Whenevernote was designed and built over the course of two weeks. A [proposal](./docs/README.md) was drafted to help form a timeline and guide through the app's development. The proposal included [wireframes](./docs/wireframes) for all views, a front-end [sample state](./docs/sample_state.md), and [database schema](./docs/schema.md).
 
 ### Technology
 
@@ -37,7 +38,7 @@ Whenevernote was built using Ruby on Rails and is hosted on Heroku. The differen
 
 #### Frontend
 
-Whenevernote's frontend was build using the React framework and Flux/Redux cycle. These design choices were made so there would be an unidirectional data flow and all necessary data is stored in one source.
+Whenevernote's frontend was built using the React framework and Flux/Redux cycle. These design choices were made so there would be an unidirectional data flow and all necessary data is stored in one source.
 
 - Node package manager (npm) was used to install and save frontend dependencies.
 - jQuery is used to make AJAX requests to the backend Rails API.

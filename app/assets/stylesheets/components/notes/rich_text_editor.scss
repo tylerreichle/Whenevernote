@@ -36,7 +36,12 @@
   cursor: pointer;
 }
 
+.RichEditor-activeButton {
+  color: $medium-sea-green;
+}
+
+
 .toolbar-divider {
-     border-left: 1px solid $index-border;
-     height: 20px;
+   border-left: 1px solid $index-border;
+   height: 20px;
 }

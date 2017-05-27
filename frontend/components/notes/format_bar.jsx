@@ -7,9 +7,9 @@ import StyleButton from './style_button';
 export const styleMap = {
   CODE: {
     backgroundColor: 'rgba(0, 0, 0, 0.05)',
-    fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
+    fontFamily: 'Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace',
     fontSize: 12,
-    padding: 5
+    whiteSpace: 'pre'
   },
   STRIKETHROUGH: {
     textDecoration: 'line-through'
@@ -25,15 +25,15 @@ const INLINE_STYLES = [
   { className: 'fa fa-underline', title: 'Underline', style: 'UNDERLINE' },
   { className: 'fa fa-strikethrough', title: 'Strikethrough', style: 'STRIKETHROUGH' },
   { className: 'fa fa-pencil', title: 'Highlight', style: 'HIGHLIGHT' },
+  { className: 'fa fa-code', title: 'Code Block', style: 'CODE'}
 ];
 
 const BLOCK_TYPES = [
+  { className: 'fa fa-check-square-o', title: 'Checkbox', style: CHECKABLE_LIST_ITEM },
   { className: 'fa fa-list-ul', title: 'Unordered List', style: 'unordered-list-item' },
   { className: 'fa fa-list-ol', title: 'Ordered List', style: 'ordered-list-item' },
-  { className: 'fa fa-check-square-o', title: 'Checkbox', style: CHECKABLE_LIST_ITEM },
 ];
 
-// { className: 'fa fa-code', title: 'Code Block', style: 'CODE'}
 
 export const blocksStyleFn = (block) => {
   switch (block.getType()) {
