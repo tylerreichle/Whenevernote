@@ -55,6 +55,7 @@ button#new-cancel {
 
 #new-title {
   font-size: 28px;
+  font-weight: 200;
   height: 35px;
   border: none;
   color: $note-title;
@@ -62,6 +63,7 @@ button#new-cancel {
 
 #new-title::placeholder {
   color: $note-title;
+  font-weight: 200;
 }
 
 #new-title:focus {

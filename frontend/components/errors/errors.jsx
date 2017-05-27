@@ -1,20 +1,31 @@
 import React from 'react';
 
 class Errors extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.dismissError = this.dismissError.bind(this);
+  }
+
+  dismissError(e) {
+    console.log(e.target);
+    $(`${e.target.classname}`).addclass('hidden');
+  }
 
   render() {
     const errors = this.props.errors;
-    let classname;
-    if (errors.length === 0) {
-      classname = 'hidden';
-    } else {
-      classname = 'validation';
-    }
 
     return (
-      <ul className={classname}>
+      <ul className="error-messages">
         { errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+          <div
+            key={idx}
+            onClick={this.dismissError}
+            className="error-message"
+          >
+            <i className="fa fa-times-circle"/>
+            <li>{error}</li>
+          </div>
         ))}
       </ul>
     );

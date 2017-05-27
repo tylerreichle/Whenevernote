@@ -236,7 +236,6 @@ class NoteDetail extends React.Component {
               id={this.state.id}
               title={this.state.title}
             />
-
           </div>
 
           <div className="note-options">

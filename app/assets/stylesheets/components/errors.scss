@@ -1,12 +1,22 @@
-.info, .success, .warning, .error, .validation {
-  border: 1px solid;
-  padding:15px 10px 15px 10px;
-  background-repeat: no-repeat;
-  background-position: 10px center;
+.error-message {
+  display: flex;
+  align-items: center;
+
   border-radius: 5px;
+  font-family: $sans-serif;
+  color: #D8000C;
+  background-color: #FFBABA;
+  opacity: .8;
+  padding-right: 5px;
+  margin: 5px;
 }
 
-.validation {
-  color: #D63301;
-  background-color: #FFCCBA;
+.error-message i {
+  font: 16px;
+  color: #D8000C;
+  opacity: 1;
+}
+
+.error-message i:hover {
+  color: $dark-slate-gray;
 }

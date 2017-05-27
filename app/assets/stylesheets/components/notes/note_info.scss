@@ -36,6 +36,7 @@
 
 .note-info h3 {
   font-size: 30px;
+  text-align: center;
   color: $dark-slate-gray;
   margin: 40px;
 }
@@ -44,7 +45,6 @@
   font-size: 16px;
   font-family: $sans-serif;
   color: $dark-slate-gray;
-
 
   margin: 10px 5px;;
 }
@@ -78,7 +78,6 @@
   height: 35px;
   width: 190px;
   font-size: 14px;
-  font-weight: bold;
   font-family: $sans-serif;
   letter-spacing: 1px;
   line-height: 25px;
@@ -89,8 +88,6 @@
 }
 
 .modal-close {
-  // background-color: $white-smoke;
-  // color: $dark-slate-gray;
   background-color: $medium-sea-green;
   color: $white-smoke;
   border-color: $index-border;

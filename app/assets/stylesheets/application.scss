@@ -22,20 +22,24 @@
  @import "components/notebooks/*";
  @import "components/tags/*";
 
+* {
+  font-family: $serif;
+}
+
 body, html {
   height: 100%;
-  font-weight: 300;
 }
 
 main#root {
   height: 100%;
 }
 
-* {
-  font-family: $serif;
-}
 button {
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 // text field effects
