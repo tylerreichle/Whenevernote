@@ -23,11 +23,6 @@ class NoteInfo extends React.Component {
     this.setState({ modalIsOpen: false });
    }
 
-  handleSave(e) {
-    e.preventDefault();
-    // note update
-  }
-
   render() {
     const id = this.props.id;
     const title = this.props.title;
@@ -93,9 +88,3 @@ class NoteInfo extends React.Component {
 }
 
 export default NoteInfo;
-
-// TODO: update note?
-
-// <button
-//   id="info-save"
-//   onClick={this.handleSave}>Save</button>
