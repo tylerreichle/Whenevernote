@@ -1,5 +1,5 @@
 import React from 'react';
-import SessionForm from '../session_form/session_form_container';
+import SessionForm from './session_form_container';
 import { Link, Route } from 'react-router-dom';
 
 class SplashPage extends React.Component {
@@ -10,7 +10,7 @@ class SplashPage extends React.Component {
         {this.header()}
 
         <section className="main-content">
-          <Route path="/signin/" component={SessionForm} />
+          <Route path="/signup/" component={SessionForm} />
           <Route exact path="/" component={SessionForm} />
         </section>
 

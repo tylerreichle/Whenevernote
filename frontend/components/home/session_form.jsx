@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user;
-    if (this.props.formType === '/signin/') {
+    if (this.props.formType === '/signup/') {
       user = {
         user_sign_in: this.state.username,
         password: this.state.password
@@ -45,10 +45,10 @@ class SessionForm extends React.Component {
     e.preventDefault();
     this.props.clearErrors();
 
-    if (this.props.formType === '/signin/') {
+    if (this.props.formType === '/signup/') {
       this.props.history.push('/');
     } else {
-      this.props.history.push('/signin/');
+      this.props.history.push('/signup/');
     }
   }
 
@@ -57,16 +57,7 @@ class SessionForm extends React.Component {
   }
 
   navLink() {
-    if (this.props.formType === '/signin/') {
-      return (
-        <div className="form-nav-link">
-          <h4>Don't have an account?</h4>
-          <div>
-            <button onClick={this.handleClick}>Create account</button>
-          </div>
-        </div>
-      );
-    } else {
+    if (this.props.formType === '/signup/') {
       return (
         <div className="form-nav-link">
           <h4>Already registered?</h4>
@@ -75,32 +66,20 @@ class SessionForm extends React.Component {
           </div>
         </div>
       );
-    }
-  }
-
-  emailInput() {
-    if (this.props.formType === '/') {
+    } else {
       return (
-        <label>Email:
-          <input
-            id="email"
-            type="text"
-            value={this.state.email}
-            onChange={this.update('email')} />
-        </label>
+        <div className="form-nav-link">
+          <h4>Don't have an account?</h4>
+          <div>
+            <button onClick={this.handleClick}>Create account</button>
+          </div>
+        </div>
       );
     }
   }
 
   submitButtons() {
-    if (this.props.formType === '/signin/') {
-      return (
-        <div className="submit-buttons">
-          <button onClick={this.handleDemo}>DEMO SIGN IN</button>
-          <button onClick={this.handleSubmit}>SIGN IN</button>
-        </div>
-      );
-    } else {
+    if (this.props.formType === '/signup/') {
       return (
         <div className="submit-buttons">
           <button
@@ -108,14 +87,18 @@ class SessionForm extends React.Component {
             onClick={this.handleSubmit}>SIGN UP FOR FREE</button>
         </div>
       );
+
+    } else {
+      return (
+        <div className="submit-buttons">
+          <button onClick={this.handleDemo}>DEMO SIGN IN</button>
+          <button onClick={this.handleSubmit}>SIGN IN</button>
+        </div>
+      );
     }
   }
 
   render() {
-    const { loggedIn, formType } = this.props;
-    const headerType = (formType === '/signin/') ? 'Sign In' : 'Sign Up';
-    const linkToType = (formType === '/signin/') ? 'Sign Up' : 'Log In';
-
     return (
       <section className="auth-comp">
         <h2>Remember Everything</h2>

@@ -9,7 +9,6 @@ class NoteInfo extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.handleSave = this.handleSave.bind(this);
   }
 
   componentWillMount() {
