@@ -32,13 +32,29 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
+    let username = 'demo';
+    let password = 'password';
+
+    for (let i = 0; i < username.length; i++) {
+      setTimeout(() => this.setState(
+        { username: username.slice(0, i + 1) }), (i * 100)
+      );
+    }
+
+    for (let j = 0; j < password.length; j++) {
+      setTimeout(() => this.setState({password: password.slice(0, j + 1)}), ((j + 5) * 100));
+    }
+
     const user = {
-      user_sign_in: 'demo',
-      password: 'password'
+      user_sign_in: username,
+      password: password
     };
-    this.props.processForm(user).then(() => {
-      this.props.history.push('/notes');
-    });
+
+    setTimeout(() => {
+      this.props.processForm(user).then(() => {
+        this.props.history.push('/notes');
+      });
+    }, 1500);
   }
 
   handleClick(e) {

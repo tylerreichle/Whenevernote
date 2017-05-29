@@ -10,7 +10,7 @@ class SplashPage extends React.Component {
         {this.header()}
 
         <section className="main-content">
-          <Route path="/signup/" component={SessionForm} />
+          <Route exact path="/signup/" component={SessionForm} />
           <Route exact path="/" component={SessionForm} />
         </section>
 
@@ -31,7 +31,7 @@ class SplashPage extends React.Component {
         </div>
 
         <div className="header-nav-links">
-          <Link to="/signin/">Sign In</Link>
+          <Link to="/">Sign In</Link>
           <a
             target="_blank"
             href="https://github.com/tylerreichle/Whenevernote">Github</a>
@@ -58,11 +58,11 @@ class SplashPage extends React.Component {
           <source
             className="webm"
             type="video/webm"
-            src="https://s3-us-west-1.amazonaws.com/whenevernote/splash.webm" />
+            src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video.webm" />
           <source
             className="mp4"
             type="video/mp4"
-            src="https://s3-us-west-1.amazonaws.com/whenevernote/splash.mp4" />
+            src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video.mp4" />
         </video>
       </div>
     );
