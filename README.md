@@ -7,6 +7,8 @@ Whenevernote is a full-stack web application inspired by Evernote built using Ru
 
 ![Splash Page](./docs/screenshots/splash.png)
 
+Splash Page with Session Form component and Webm video background
+
 
 ### Features
 - User accounts with secure authentication
@@ -35,6 +37,8 @@ Whenevernote was built using Ruby on Rails and is hosted on Heroku. The differen
 
 ![Rich Text Editing](./docs/screenshots/rich-text.png)
 
+Rich Text Editing in the Note Detail view
+
 
 #### Frontend
 
@@ -48,6 +52,8 @@ Whenevernote's frontend was built using the React framework and Flux/Redux cycle
 
 
 ![Notebook View](./docs/screenshots/notebook.png)
+
+Notebook view page lists all notes contained in selected notebook
 
 
 #### Future Implementations
