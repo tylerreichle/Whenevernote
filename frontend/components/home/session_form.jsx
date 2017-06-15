@@ -1,12 +1,16 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import Errors from '../errors/errors_container';
 
-class SessionForm extends React.Component {
+export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { username: '', email: '', password: '' };
+    this.state = {
+      username: '',
+      email: '',
+      password: '',
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
@@ -19,7 +23,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === '/signup/') {
       user = {
         user_sign_in: this.state.username,
-        password: this.state.password
+        password: this.state.password,
       };
     } else {
       user = Object.assign({}, this.state);
@@ -32,22 +36,20 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    let username = 'demo';
-    let password = 'password';
+    const username = 'demo';
+    const password = 'password';
 
     for (let i = 0; i < username.length; i++) {
-      setTimeout(() => this.setState(
-        { username: username.slice(0, i + 1) }), (i * 100)
-      );
+      setTimeout(() => this.setState({ username: username.slice(0, i + 1) }), (i * 100));
     }
 
-    for (let j = 0; j < password.length; j++) {
-      setTimeout(() => this.setState({password: password.slice(0, j + 1)}), ((j + 5) * 100));
+    for (let i = 0; i < password.length; i++) {
+      setTimeout(() => this.setState({ password: password.slice(0, i + 1) }), ((i + 5) * 100));
     }
 
     const user = {
       user_sign_in: username,
-      password: password
+      password,
     };
 
     setTimeout(() => {
@@ -100,10 +102,10 @@ class SessionForm extends React.Component {
         <div className="submit-buttons">
           <button
             id="signup"
-            onClick={this.handleSubmit}>SIGN UP FOR FREE</button>
+            onClick={this.handleSubmit}
+          >SIGN UP FOR FREE</button>
         </div>
       );
-
     } else {
       return (
         <div className="submit-buttons">
@@ -127,14 +129,16 @@ class SessionForm extends React.Component {
               type="text"
               placeholder="Username"
               value={this.state.username}
-              onChange={this.update('username')} />
+              onChange={this.update('username')}
+            />
 
             <input
               id="password"
               type="password"
               placeholder="Password"
               value={this.state.password}
-              onChange={this.update('password')} />
+              onChange={this.update('password')}
+            />
           </div>
 
           {this.submitButtons()}
@@ -146,11 +150,3 @@ class SessionForm extends React.Component {
     );
   }
 }
-
-export default SessionForm;
-
-// <div className="or-divider">
-//   <span className="divider"></span>
-//   <span>or</span>
-//   <span className="divider"></span>
-// </div>

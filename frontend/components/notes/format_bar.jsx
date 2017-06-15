@@ -1,5 +1,4 @@
 import React from 'react';
-import { Editor, EditorState, ContentState, RichUtils } from 'draft-js';
 import { CHECKABLE_LIST_ITEM } from 'draft-js-checkable-list-item';
 
 import StyleButton from './style_button';
@@ -9,14 +8,14 @@ export const styleMap = {
     backgroundColor: 'rgba(0, 0, 0, 0.05)',
     fontFamily: 'Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace',
     fontSize: 12,
-    whiteSpace: 'pre'
+    whiteSpace: 'pre',
   },
   STRIKETHROUGH: {
-    textDecoration: 'line-through'
+    textDecoration: 'line-through',
   },
   HIGHLIGHT: {
-    backgroundColor: 'rgba(255, 230, 0, 0.5)'
-  }
+    backgroundColor: 'rgba(255, 230, 0, 0.5)',
+  },
 };
 
 const INLINE_STYLES = [
@@ -25,7 +24,7 @@ const INLINE_STYLES = [
   { className: 'fa fa-underline', title: 'Underline', style: 'UNDERLINE' },
   { className: 'fa fa-strikethrough', title: 'Strikethrough', style: 'STRIKETHROUGH' },
   { className: 'fa fa-pencil', title: 'Highlight', style: 'HIGHLIGHT' },
-  { className: 'fa fa-code', title: 'Code Block', style: 'CODE'}
+  { className: 'fa fa-code', title: 'Code Block', style: 'CODE' },
 ];
 
 const BLOCK_TYPES = [
@@ -37,8 +36,8 @@ const BLOCK_TYPES = [
 
 export const blocksStyleFn = (block) => {
   switch (block.getType()) {
-    case 'unordered-list-item': return "ul-block-style";
-    case 'ordered-list-item': return "ol-block-style";
+    case 'unordered-list-item': return 'ul-block-style';
+    case 'ordered-list-item': return 'ol-block-style';
     case 'blockquote': return 'RichEditor-blockquote';
     case CHECKABLE_LIST_ITEM: return CHECKABLE_LIST_ITEM;
     default: return null;
@@ -55,14 +54,14 @@ export const BlockStyleControls = ({ editorState, onToggle }) => {
   return (
     <div className="blocktype-controls">
       { BLOCK_TYPES.map(type =>
-        <StyleButton
+        (<StyleButton
           key={type.title}
           active={type.style === blockType}
           className={type.className}
           title={type.title}
           onToggle={onToggle}
           style={type.style}
-        />
+        />),
       )}
     </div>
   );
@@ -73,14 +72,14 @@ export const InlineStyleControls = (props) => {
   return (
     <div className="inline-controls">
       { INLINE_STYLES.map(type =>
-        <StyleButton
+        (<StyleButton
           key={type.title}
           active={currentStyle.has(type.style)}
           className={type.className}
           title={type.title}
           onToggle={props.onToggle}
           style={type.style}
-        />
+        />),
       )}
     </div>
   );

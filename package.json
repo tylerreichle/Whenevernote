@@ -30,6 +30,7 @@
     "babel-preset-react": "^6.24.1",
     "draft-js": "^0.10.1",
     "draft-js-checkable-list-item": "^2.0.5",
+    "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-mixin": "^2.0.2",
