@@ -1,32 +1,16 @@
 import React from 'react';
-import SessionForm from './session_form_container';
 import { Link, Route } from 'react-router-dom';
+import SessionForm from './session_form_container';
 
-class SplashPage extends React.Component {
-
-  render() {
-    return (
-      <div className="splash-container">
-        {this.header()}
-
-        <section className="main-content">
-          <Route exact path="/signup/" component={SessionForm} />
-          <Route exact path="/" component={SessionForm} />
-        </section>
-
-        {this.footer()}
-        {this.splashVid()}
-      </div>
-    );
-  }
-
+export default class SplashPage extends React.Component {
   header() {
     return (
       <header>
         <div className="left-nav">
           <img
             src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495083594/header-logo.png"
-            alt="Whenevernote logo" />
+            alt="Whenevernote logo"
+          />
           <h1>WHENEVERNOTE</h1>
         </div>
 
@@ -34,7 +18,9 @@ class SplashPage extends React.Component {
           <Link to="/">Sign In</Link>
           <a
             target="_blank"
-            href="https://github.com/tylerreichle/Whenevernote">Github</a>
+            rel="noopener noreferrer"
+            href="https://github.com/tylerreichle/Whenevernote"
+          >Github</a>
         </div>
       </header>
     );
@@ -43,7 +29,7 @@ class SplashPage extends React.Component {
   footer() {
     return (
       <footer>
-        <h3>Join <span className="green">tens</span> of people who rely on Whenevernote to more things done every day.</h3>
+        <h3>Join <span className="green">tens</span> of people who rely on Whenevernote to get more things done every day.</h3>
       </footer>
     );
   }
@@ -67,10 +53,23 @@ class SplashPage extends React.Component {
       </div>
     );
   }
+
+  render() {
+    return (
+      <div className="splash-container">
+        {this.header()}
+
+        <section className="main-content">
+          <Route exact path="/signup/" component={SessionForm} />
+          <Route exact path="/" component={SessionForm} />
+        </section>
+
+        {this.footer()}
+        {this.splashVid()}
+      </div>
+    );
+  }
 }
-
-export default SplashPage;
-
 // aws links
 // https://s3-us-west-1.amazonaws.com/whenevernote/splash.mp4
 // https://s3-us-west-1.amazonaws.com/whenevernote/splash.webm
