@@ -54,7 +54,8 @@
   border-radius: 5px;
 }
 
-button#modal-cancel {
+button#delete-cancel {
+  border-style: none;
   background-color: $white-smoke;
   color: $dark-slate-gray;
   line-height: 23px;
