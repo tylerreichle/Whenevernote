@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-class NoteInfo extends React.Component {
+export default class NoteInfo extends React.Component {
   constructor(props) {
     super(props);
 
@@ -20,21 +20,22 @@ class NoteInfo extends React.Component {
   }
   closeModal() {
     this.setState({ modalIsOpen: false });
-   }
+  }
 
   render() {
-    const id = this.props.id;
     const title = this.props.title;
 
     const options = {
-      weekday: "long", year: "numeric", month: "short",
-      day: "numeric", hour: "2-digit", minute: "2-digit"
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
     };
 
-    const createdAt = new Date(this.props.createdAt)
-      .toLocaleString('en-us', options);
-    const updatedAt = new Date(this.props.updatedAt)
-      .toLocaleString('en-us', options);
+    const createdAt = new Date(this.props.createdAt).toLocaleString('en-us', options);
+    const updatedAt = new Date(this.props.updatedAt).toLocaleString('en-us', options);
 
     return (
       <div>
@@ -42,7 +43,8 @@ class NoteInfo extends React.Component {
           title="Note Info"
           id="info"
           className="detail-button"
-          onClick={this.openModal}></button>
+          onClick={this.openModal}
+        />
 
         <ReactModal
           isOpen={this.state.modalIsOpen}
@@ -52,38 +54,41 @@ class NoteInfo extends React.Component {
           overlayClassName="overlay"
         >
 
-        <div className="note-info">
-          <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495221055/info.png"/>
+          <div className="note-info">
+            <img alt="note info" src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495221055/info.png" />
 
-          <h2>NOTE INFO</h2>
-          <h3>{title}</h3>
+            <h2>NOTE INFO</h2>
+            <h3>{title}</h3>
 
-          <div className="note-details">
-            <h4>Overview</h4>
-            <ul>
-              <li>
-                <label>CREATED:</label>
-                <p>{createdAt}</p>
-              </li>
-              <li>
-                <label>UPDATED:</label>
-                <p>{updatedAt}</p>
-              </li>
-            </ul>
+            <div className="note-details">
+              <h4>Overview</h4>
+              <ul>
+                <li>
+                  <label
+                    htmlFor="created-at"
+                  >CREATED:</label>
+                  <p id="created-at">{createdAt}</p>
+                </li>
+                <li>
+                  <label
+                    htmlFor="updated-at"
+                  >UPDATED:</label>
+                  <p id="updated-at">{updatedAt}</p>
+                </li>
+              </ul>
+            </div>
+
+            <div className="info-buttons">
+              <button
+                className="modal-close"
+                onClick={this.closeModal}
+              >Close</button>
+
+            </div>
           </div>
-
-          <div className="info-buttons">
-            <button
-              className="modal-close"
-              onClick={this.closeModal}>Close</button>
-
-          </div>
-        </div>
 
         </ReactModal>
       </div>
     );
   }
 }
-
-export default NoteInfo;

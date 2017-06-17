@@ -6,7 +6,7 @@ import NotebookShow from '../notebooks/notebook_show_container';
 import NoteDetail from '../notes/note_detail_container';
 import NewNotebook from '../notebooks/new_notebook_container';
 
-class Notebooks extends React.Component {
+export default class Notebooks extends React.Component {
   render() {
     if (this.props.location.pathname === '/notebook/new') {
       return <NewNotebook />;
@@ -21,5 +21,3 @@ class Notebooks extends React.Component {
     }
   }
 }
-
-export default Notebooks;

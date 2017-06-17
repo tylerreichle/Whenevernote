@@ -1,14 +1,14 @@
 export const fetchNotebooks = () => (
   $.ajax({
     method: 'GET',
-    url: 'api/notebooks'
+    url: 'api/notebooks',
   })
 );
 
 export const fetchSingleNotebook = notebookId => (
   $.ajax({
     method: 'GET',
-    url: `api/notebooks/${notebookId}`
+    url: `api/notebooks/${notebookId}`,
   })
 );
 
@@ -16,7 +16,7 @@ export const createNotebook = notebook => (
   $.ajax({
     method: 'POST',
     url: 'api/notebooks/',
-    data: { notebook }
+    data: { notebook },
   })
 );
 
@@ -24,7 +24,7 @@ export const updateNotebook = notebook => (
   $.ajax({
     method: 'PATCH',
     url: `api/notebooks/${notebook.id}`,
-    data: { notebook }
+    data: { notebook },
   })
 );
 

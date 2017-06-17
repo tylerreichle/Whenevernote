@@ -1,7 +1,7 @@
 import React from 'react';
 import NotesIndexItem from './notes_index_item_container';
 
-class NotesIndex extends React.Component {
+export default class NotesIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchNotes().then(() => {
@@ -22,12 +22,13 @@ class NotesIndex extends React.Component {
 
         <ul className="notes-index-scroll">
           {
-            notes.map((note, idx) => (
+            notes.map(note => (
               <NotesIndexItem
                 linkPath={`/notes/${note.id}`}
                 notePath={this.props.location.pathname}
-                key={idx}
-                initialNote={note} />
+                key={note.id}
+                initialNote={note}
+              />
             ))
           }
         </ul>
@@ -35,5 +36,3 @@ class NotesIndex extends React.Component {
     );
   }
 }
-
-export default NotesIndex;

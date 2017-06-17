@@ -5,14 +5,14 @@ import { selectAllNotebooks } from '../../reducers/selectors';
 
 
 const mapStateToProps = state => ({
-  notebooks: selectAllNotebooks(state)
+  notebooks: selectAllNotebooks(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchNotebooks: () => dispatch(fetchNotebooks())
+  fetchNotebooks: () => dispatch(fetchNotebooks()),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(NotebooksIndex);

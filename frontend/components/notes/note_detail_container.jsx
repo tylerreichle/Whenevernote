@@ -1,28 +1,23 @@
 import { connect } from 'react-redux';
 import NoteDetail from './note_detail';
-import {
-  fetchNotes,
-  fetchSingleNote,
-  updateNote,
-  deleteNote
-} from '../../actions/notes_actions';
+import { fetchNotes, fetchSingleNote, updateNote, deleteNote } from '../../actions/notes_actions';
 
 import { fetchSingleNotebook } from '../../actions/notebooks_actions';
 
-const mapStateToProps = state => ({
-    note: state.note,
-    notebook: state.notebook
+const mapStateToProps = ({ note, notebook }) => ({
+  note,
+  notebook,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchNotes: () => dispatch(fetchNotes()),
-  fetchSingleNote: (noteId) => dispatch(fetchSingleNote(noteId)),
-  fetchSingleNotebook: (notebookId) => dispatch(fetchSingleNotebook(notebookId)),
-  updateNote: (note) => dispatch(updateNote(note)),
-  deleteNote: (noteId) => dispatch(deleteNote(noteId))
+  fetchSingleNote: noteId => dispatch(fetchSingleNote(noteId)),
+  fetchSingleNotebook: notebookId => dispatch(fetchSingleNotebook(notebookId)),
+  updateNote: note => dispatch(updateNote(note)),
+  deleteNote: noteId => dispatch(deleteNote(noteId)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(NoteDetail);

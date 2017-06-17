@@ -1,17 +1,6 @@
 import React from 'react';
 
-class Errors extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.dismissError = this.dismissError.bind(this);
-  }
-
-  dismissError(e) {
-    console.log(e.target);
-    $(`${e.target.classname}`).addclass('hidden');
-  }
-
+export default class Errors extends React.Component {
   render() {
     const errors = this.props.errors;
 
@@ -23,7 +12,7 @@ class Errors extends React.Component {
             onClick={this.dismissError}
             className="error-message"
           >
-            <i className="fa fa-times-circle"/>
+            <i className="fa fa-times-circle" />
             <li>{error}</li>
           </div>
         ))}
@@ -31,5 +20,3 @@ class Errors extends React.Component {
     );
   }
 }
-
-export default Errors;

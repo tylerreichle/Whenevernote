@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { convertFromRaw } from 'draft-js';
-import { timeSince } from '../../util/app_util.js';
+import timeSince from '../../util/app_util';
 
-class NotesIndexItem extends React.Component {
+export default class NotesIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,21 +18,21 @@ class NotesIndexItem extends React.Component {
 
   highlightedClass() {
     if (this.props.notePath === this.props.linkPath) {
-      return "notes-index-item highlighted";
+      return 'notes-index-item highlighted';
     } else {
-      return "notes-index-item";
+      return 'notes-index-item';
     }
   }
 
   render() {
-    let { id, title, updated_at } = this.props.initialNote;
+    let { title, updated_at } = this.props.initialNote;
 
     if (title.length > 30) {
       const trimmedTitle = title.slice(0, 29) + '..';
       title = trimmedTitle;
     }
 
-    let body = convertFromRaw( JSON.parse(this.props.initialNote.body) );
+    let body = convertFromRaw(JSON.parse(this.props.initialNote.body));
     body = body.getPlainText();
     const linkPath = this.props.linkPath;
     const lastUpdate = timeSince(new Date(updated_at));
@@ -50,5 +50,3 @@ class NotesIndexItem extends React.Component {
     );
   }
 }
-
-export default NotesIndexItem;

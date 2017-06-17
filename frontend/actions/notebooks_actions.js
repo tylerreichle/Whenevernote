@@ -7,17 +7,17 @@ export const REMOVE_NOTEBOOK = 'REMOVE_NOTEBOOK';
 
 export const receiveNotebooks = notebooks => ({
   type: RECEIVE_NOTEBOOKS,
-  notebooks
+  notebooks,
 });
 
 export const receiveSingleNotebook = notebook => ({
   type: RECEIVE_SINGLE_NOTEBOOK,
-  notebook
+  notebook,
 });
 
 export const removeNotebook = notebook => ({
   type: REMOVE_NOTEBOOK,
-  notebook
+  notebook,
 });
 
 export const fetchNotebooks = () => dispatch => (
@@ -27,7 +27,7 @@ export const fetchNotebooks = () => dispatch => (
 
 export const fetchSingleNotebook = notebookId => dispatch => (
   NotebooksAPI.fetchSingleNotebook(notebookId)
-    .then(notebook =>  {
+    .then((notebook) => {
       dispatch(receiveSingleNotebook(notebook));
       dispatch(clearErrors());
     },
@@ -36,7 +36,7 @@ export const fetchSingleNotebook = notebookId => dispatch => (
 
 export const createNotebook = notebook => dispatch => (
   NotebooksAPI.createNotebook(notebook)
-    .then(newNotebook => {
+    .then((newNotebook) => {
       dispatch(receiveSingleNotebook(newNotebook));
       dispatch(clearErrors());
     },
@@ -45,7 +45,7 @@ export const createNotebook = notebook => dispatch => (
 
 export const updateNotebook = notebook => dispatch => (
   NotebooksAPI.updateNotebook(notebook)
-    .then(updatedNotebook => {
+    .then((updatedNotebook) => {
       dispatch(receiveSingleNotebook(updatedNotebook));
       dispatch(clearErrors());
     },
@@ -54,7 +54,7 @@ export const updateNotebook = notebook => dispatch => (
 
 export const deleteNotebook = notebookId => dispatch => (
   NotebooksAPI.deleteNotebook(notebookId)
-    .then(deletedNotebook => {
+    .then((deletedNotebook) => {
       dispatch(removeNotebook(deletedNotebook));
       dispatch(clearErrors());
     },

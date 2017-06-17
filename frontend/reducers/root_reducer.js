@@ -17,7 +17,7 @@ const RootReducer = combineReducers({
   notebooks: NotebooksReducer,
   tag: TagDetailReducer,
   tags: TagsReducer,
-  errors: ErrorsReducer
+  errors: ErrorsReducer,
 });
 
 export default RootReducer;

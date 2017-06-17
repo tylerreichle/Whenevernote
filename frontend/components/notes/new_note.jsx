@@ -1,13 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
-import {
-  Editor,
-  EditorState,
-  RichUtils,
-  convertFromRaw,
-  convertToRaw
-} from 'draft-js';
+import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
 
 class NewNote extends React.Component {
   constructor(props) {
@@ -15,16 +8,15 @@ class NewNote extends React.Component {
 
     this.state = {
       title: '',
-       body: '',
-       notebook_id: 1,
-       editorState: EditorState.createEmpty()
+      body: '',
+      notebook_id: 1,
+      editorState: EditorState.createEmpty(),
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    this.onChange = (editorState) => this.setState({ editorState });
-    this.handleKeyCommand = (command) => this._handleKeyCommand.bind(command);
-    this.onTab = (e) => this._onTab(e);
+    this.onChange = editorState => this.setState({ editorState });
+    this.onTab = e => this._onTab(e);
     this.focus = () => this.refs.editor.focus();
   }
 
@@ -43,11 +35,11 @@ class NewNote extends React.Component {
     const body = JSON.stringify(noteBody);
 
     const note = {
+      body,
       id: this.state.id,
       title: this.state.title,
-      body: body,
       notebook_id: this.state.notebook_id,
-      author_id: this.props.currentUser.id
+      author_id: this.props.currentUser.id,
     };
     this.props.createNote(note);
     this.props.history.push("/notes");
@@ -55,16 +47,6 @@ class NewNote extends React.Component {
 
   update(property) {
     return e => this.setState({ [property]: e.target.value });
-  }
-
-  _handleKeyCommand(command) {
-    const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
-    if (newState) {
-      this.onChange(newState);
-      return 'handled';
-    } else {
-      return 'not-handled';
-    }
   }
 
   _onTab(e) {
@@ -81,15 +63,14 @@ class NewNote extends React.Component {
         <div className="new-buttons">
           <button
             id="new-create"
-            onClick={this.handleSubmit}>Create</button>
+            onClick={this.handleSubmit}
+          >Create</button>
 
           <Link to="/notes">
             <button id="new-cancel">Cancel</button>
           </Link>
         </div>
-        <div className="new-toolbar">
-
-        </div>
+        <div className="new-toolbar" />
 
         <form>
           <input
@@ -97,19 +78,19 @@ class NewNote extends React.Component {
             type="text"
             value={this.state.title}
             placeholder="Title your note"
-            onChange={this.update('title')}/>
+            onChange={this.update('title')}
+          />
 
           <div className="RichEditor-editor" onClick={this.focus}>
-              <Editor
-                editorState={editorState}
-                handleKeyCommand={this.handleKeyCommand}
-                onChange={this.onChange}
-                onTab={this.onTab}
-                placeholder="Just start typing..."
-                spellCheck={true}
-                ref="editor"
-              />
-            </div>
+            <Editor
+              editorState={editorState}
+              onChange={this.onChange}
+              onTab={this.onTab}
+              placeholder="Just start typing..."
+              spellCheck
+              ref="editor"
+            />
+          </div>
 
         </form>
       </section>
