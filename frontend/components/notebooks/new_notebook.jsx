@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class NewNotebook extends React.Component {
   constructor(props) {
@@ -27,16 +27,7 @@ class NewNotebook extends React.Component {
   }
 
   handleChange(e) {
-    // TODO: fix this shitty check
     const title = e.target.value;
-    //
-    // if (title.length > 0) {
-    //   $('#nn-create').attr('disabled', false);
-    // } else if (title === "") {
-    //   $('nn-create').attr('disabled', true);
-    // } else {
-    //   $('#nn-create').attr('diabled', true);
-    // }
     this.setState({ title });
   }
 
@@ -44,7 +35,7 @@ class NewNotebook extends React.Component {
     return (
       <section className="new-notebook">
         <section className="nn-main-content">
-          <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495419507/new-notebook.png"></img>
+          <img alt="" src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495419507/new-notebook.png" />
           <h4>CREATE NOTEBOOK</h4>
 
           <form className="nn-form">
@@ -52,16 +43,19 @@ class NewNotebook extends React.Component {
               type="text"
               placeholder="Title your notebook"
               value={this.state.title}
-              onChange={this.handleChange}/>
+              onChange={this.handleChange}
+            />
 
             <div className="nn-buttons">
               <button
                 id="nn-cancel"
-                onClick={this.handleCancel}>Cancel</button>
+                onClick={this.handleCancel}
+              >Cancel</button>
 
               <button
                 id="nn-create"
-                onClick={this.handleSubmit}>Create notebook</button>
+                onClick={this.handleSubmit}
+              >Create notebook</button>
             </div>
           </form>
         </section>

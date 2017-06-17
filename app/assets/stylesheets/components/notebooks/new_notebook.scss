@@ -67,7 +67,6 @@
   height: 100%;
 
   font-size: 14px;
-  font-weight: bold;
   font-family: $sans-serif;
   letter-spacing: 1px;
   border-style: none;
@@ -77,12 +76,6 @@
 #nn-cancel {
   background-color: $index-border;
   color: $dark-slate-gray;
-}
-
-#nn-create:disabled {
-  background-color: $locked-create;
-  color: $white;
-  cursor: default;
 }
 
 #nn-create {

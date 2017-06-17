@@ -34,7 +34,7 @@ import NoteInfo from '../modals/note_info';
 import DeleteConfirmation from '../modals/delete_confirmation';
 import StyleButton from './style_button';
 
-class NoteDetail extends React.Component {
+export default class NoteDetail extends React.Component {
   constructor(props) {
     super(props);
 
@@ -70,16 +70,21 @@ class NoteDetail extends React.Component {
 
     this.setInterval( () => {
       this.autoSave();
-    }, 5000 );
+    }, 5000);
   }
 
   componentWillReceiveProps(newProps) {
     if ((this.state.id !== newProps.note.id) ||
         (this.state.notebook_id !== newProps.note.notebook_id) ||
         (this.state.tags.length !== newProps.note.tags.length)) {
+      this.autoSave();
       this.setState(newProps.note);
       this.convertFromDB(newProps.note);
     }
+  }
+
+  componentWillUnmount() {
+    this.autoSave();
   }
 
   update(property) {
@@ -270,5 +275,3 @@ class NoteDetail extends React.Component {
 }
 
 reactMixin(NoteDetail.prototype, TimerMixin);
-
-export default NoteDetail;
