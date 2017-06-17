@@ -19,7 +19,7 @@ const timeSince = (date) => {
   }
   interval = Math.floor(seconds / 60);
   if (interval > 1) {
-    return `${interval} SECONDS AGO`;
+    return `${interval} MINUTES AGO`;
   }
   return 'MOMENTS AGO';
 };
