@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 class NotebooksIndexItem extends React.Component {
@@ -22,7 +22,6 @@ class NotebooksIndexItem extends React.Component {
   callbackAction() {
     if (this.props.iiCallback === 'link') {
       this.props.history.push(`/notebook/${this.props.notebook.id}/notes`);
-
     } else if (this.props.iiCallback === 'assign') {
       const newNotebook = { notebook_id : this.props.notebook.id };
       const updatedNote = merge({}, this.props.note, newNotebook);
