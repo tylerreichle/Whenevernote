@@ -4,7 +4,7 @@ import ReactModal from 'react-modal';
 
 import NotebooksIndex from '../notebooks/notebooks_index_container';
 
-class NotebooksModal extends React.Component {
+export default class NotebooksModal extends React.Component {
   constructor() {
     super();
 
@@ -31,7 +31,8 @@ class NotebooksModal extends React.Component {
         <button
           className="circle-button"
           id="notebooks"
-          onClick={this.openModal}></button>
+          onClick={this.openModal}
+        />
 
         <ReactModal
           isOpen={this.state.modalIsOpen}
@@ -41,20 +42,18 @@ class NotebooksModal extends React.Component {
           overlayClassName="clear-overlay"
         >
 
-        <div className="nb-modal-header">
-          <h3>NOTEBOOKS</h3>
+          <div className="nb-modal-header">
+            <h3>NOTEBOOKS</h3>
 
-          <Link to="/notebook/new">
-            <button></button>
-          </Link>
-        </div>
+            <Link to="/notebook/new">
+              <button />
+            </Link>
+          </div>
 
-        <NotebooksIndex notesCount={false} iiCallback={'link'} />
+          <NotebooksIndex notesCount={false} iiCallback={'link'} />
 
-      </ReactModal>
+        </ReactModal>
       </div>
     );
   }
 }
-
-export default NotebooksModal;

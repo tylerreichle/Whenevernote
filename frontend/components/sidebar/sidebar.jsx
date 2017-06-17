@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import NotebooksModal from '../modals/notebooks_modal';
 import TagsSidebar from '../tags/tags_sidebar_container';
 
-class Sidebar extends React.Component {
+export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
 
@@ -19,19 +19,19 @@ class Sidebar extends React.Component {
     return (
       <aside className="sidebar">
         <div className="sidebar-top">
-          <Link
-            to="/notes"
-            title="HOME">
+          <Link to="/notes" title="HOME">
             <img
               src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424859/sidebar/logo-small.png"
-              alt="Whenevernote logo" />
+              alt="Whenevernote logo"
+            />
           </Link>
 
           <Link
             to="/notes/new"
             title="NEW NOTE"
             id="new-note"
-            className="circle-button"></Link>
+            className="circle-button"
+          />
 
         </div>
 
@@ -40,7 +40,8 @@ class Sidebar extends React.Component {
             to="/notes"
             title="NOTES"
             id="notes"
-            className="circle-button"></Link>
+            className="circle-button"
+          />
 
           <NotebooksModal />
 
@@ -48,16 +49,15 @@ class Sidebar extends React.Component {
         </div>
 
         <div className="sidebar-bot">
-        <Link
-          to="/"
-          title="SIGN OUT"
-          id="signout"
-          className="circle-button"
-          onClick={this.handleClick}></Link>
-      </div>
+          <Link
+            to="/"
+            title="SIGN OUT"
+            id="signout"
+            className="circle-button"
+            onClick={this.handleClick}
+          />
+        </div>
       </aside>
     );
   }
 }
-
-export default Sidebar;

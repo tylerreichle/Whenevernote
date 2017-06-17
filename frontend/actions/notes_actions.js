@@ -7,17 +7,17 @@ export const REMOVE_NOTE = 'REMOVE_NOTE';
 
 export const receiveNotes = notes => ({
   type: RECEIVE_NOTES,
-  notes
+  notes,
 });
 
 export const receiveSingleNote = note => ({
   type: RECEIVE_SINGLE_NOTE,
-  note
+  note,
 });
 
 export const removeNote = note => ({
   type: REMOVE_NOTE,
-  note
+  note,
 });
 
 export const fetchNotes = () => dispatch => (
@@ -27,7 +27,7 @@ export const fetchNotes = () => dispatch => (
 
 export const fetchSingleNote = noteId => dispatch => (
   NotesAPI.fetchSingleNote(noteId)
-    .then(note =>  {
+    .then((note) => {
       dispatch(receiveSingleNote(note));
       dispatch(clearErrors());
     },
@@ -36,7 +36,7 @@ export const fetchSingleNote = noteId => dispatch => (
 
 export const createNote = note => dispatch => (
   NotesAPI.createNote(note)
-    .then(newNote =>  {
+    .then((newNote) => {
       dispatch(receiveSingleNote(newNote));
       dispatch(clearErrors());
     },
@@ -45,7 +45,7 @@ export const createNote = note => dispatch => (
 
 export const updateNote = note => dispatch => (
   NotesAPI.updateNote(note)
-    .then(updatedNote =>  {
+    .then((updatedNote) => {
       dispatch(receiveSingleNote(updatedNote));
       dispatch(clearErrors());
     },
@@ -54,7 +54,7 @@ export const updateNote = note => dispatch => (
 
 export const deleteNote = noteId => dispatch => (
   NotesAPI.deleteNote(noteId)
-    .then(deletedNote =>  {
+    .then((deletedNote) => {
       dispatch(removeNote(deletedNote));
       dispatch(clearErrors());
     },

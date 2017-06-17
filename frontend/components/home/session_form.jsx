@@ -1,7 +1,7 @@
 import React from 'react';
 import Errors from '../errors/errors_container';
 
-class SessionForm extends React.Component {
+export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === '/signup/') {
       user = {
         user_sign_in: this.state.username,
-        password: this.state.password
+        password: this.state.password,
       };
     } else {
       user = Object.assign({}, this.state);
@@ -109,7 +109,7 @@ class SessionForm extends React.Component {
     } else {
       return (
         <div className="submit-buttons">
-          <button onClick={this.handleDemo}>DEMO SIGN IN</button>
+          <button onClick={this.handleDemo}>DEMO</button>
           <button onClick={this.handleSubmit}>SIGN IN</button>
         </div>
       );
@@ -151,5 +151,3 @@ class SessionForm extends React.Component {
     );
   }
 }
-
-export default SessionForm;

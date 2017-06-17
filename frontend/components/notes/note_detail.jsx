@@ -8,31 +8,28 @@ import {
   RichUtils,
   convertFromRaw,
   convertToRaw,
-  ContentBlock,
-  DefaultDraftBlockRenderMap
+  DefaultDraftBlockRenderMap,
 } from 'draft-js';
 
 
 import {
   blockRenderMap,
   CheckableListItem,
-  CheckableListItemBlock,
   CheckableListItemUtils,
-  CHECKABLE_LIST_ITEM
+  CHECKABLE_LIST_ITEM,
 } from 'draft-js-checkable-list-item';
 
 import {
   BlockStyleControls,
   InlineStyleControls,
   styleMap,
-  blocksStyleFn
+  blocksStyleFn,
 } from './format_bar';
 
 import NotebookHeader from '../notebooks/notebook_header_container';
 import TagsHeader from '../tags/tags_header';
 import NoteInfo from '../modals/note_info';
 import DeleteConfirmation from '../modals/delete_confirmation';
-import StyleButton from './style_button';
 
 export default class NoteDetail extends React.Component {
   constructor(props) {
@@ -46,17 +43,17 @@ export default class NoteDetail extends React.Component {
       body: '',
       editorState: EditorState.createEmpty(),
       created_at: '',
-      updated_at: ''
+      updated_at: '',
     };
 
     this.update = this.update.bind(this);
-    this.onChange = (editorState) => this.setState({ editorState });
-    this.handleKeyCommand = (command) => this._handleKeyCommand.bind(command);
-    this.onTab = (e) => this._onTab(e);
+    this.onChange = editorState => this.setState({ editorState });
+    this.handleKeyCommand = command => this._handleKeyCommand.bind(command);
+    this.onTab = e => this._onTab(e);
     this.focus = () => this.refs.editor.focus();
 
-    this.toggleBlockType = (type) => this._toggleBlockType(type);
-    this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
+    this.toggleBlockType = type => this._toggleBlockType(type);
+    this.toggleInlineStyle = style => this._toggleInlineStyle(style);
     this.blockRendererFn = this.blockRendererFn.bind(this);
 
     // this.seedCreate = this.seedCreate.bind(this);
@@ -68,7 +65,7 @@ export default class NoteDetail extends React.Component {
       this.convertFromDB(this.props.note);
     });
 
-    this.setInterval( () => {
+    this.setInterval(() => {
       this.autoSave();
     }, 5000);
   }
@@ -77,7 +74,9 @@ export default class NoteDetail extends React.Component {
     if ((this.state.id !== newProps.note.id) ||
         (this.state.notebook_id !== newProps.note.notebook_id) ||
         (this.state.tags.length !== newProps.note.tags.length)) {
-      this.autoSave();
+      if (this.state.id !== '') {
+        this.autoSave();
+      }
       this.setState(newProps.note);
       this.convertFromDB(newProps.note);
     }
@@ -103,13 +102,11 @@ export default class NoteDetail extends React.Component {
     const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
     const body = JSON.stringify(noteBody);
 
-    if ((this.state.title !== this.props.note.title) ||
-        (body !== this.props.note.body)) {
-
+    if ((this.state.title !== this.props.note.title) || (body !== this.props.note.body)) {
       const note = {
+        body,
         id: this.state.id,
         title: this.state.title,
-        body: body,
         notebook_id: this.state.notebook_id,
       };
       this.props.updateNote(note);
@@ -133,7 +130,7 @@ export default class NoteDetail extends React.Component {
         component: CheckableListItem,
         props: {
           onChangeChecked: () => this.onChange(
-            CheckableListItemUtils.toggleChecked(this.state.editorState, contentBlock)
+            CheckableListItemUtils.toggleChecked(this.state.editorState, contentBlock),
           ),
           checked: Boolean(contentBlock.getData().get('checked')),
         },
@@ -148,22 +145,20 @@ export default class NoteDetail extends React.Component {
 
   _toggleBlockType(blockType) {
     this.onChange(
-      RichUtils.toggleBlockType(this.state.editorState, blockType)
+      RichUtils.toggleBlockType(this.state.editorState, blockType),
     );
   }
 
   _toggleInlineStyle(inlineStyle) {
     this.onChange(
-      RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle)
+      RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle),
     );
   }
 
   convertFromDB(note) {
     if (note.body) {
       const contentState = convertFromRaw(JSON.parse(note.body));
-      this.setState(
-        { editorState: EditorState.createWithContent(contentState) }
-      );
+      this.setState({ editorState: EditorState.createWithContent(contentState) });
     }
   }
 
@@ -171,14 +166,14 @@ export default class NoteDetail extends React.Component {
     const { editorState } = this.state;
     return (
       <div className="richtext-toolbar">
-        <div className="toolbar-divider"></div>
+        <div className="toolbar-divider" />
 
         <InlineStyleControls
           editorState={editorState}
           onToggle={this.toggleInlineStyle}
-          />
+        />
 
-        <div className="toolbar-divider"></div>
+        <div className="toolbar-divider" />
 
         <BlockStyleControls
           editorState={editorState}
@@ -193,7 +188,7 @@ export default class NoteDetail extends React.Component {
     const { editorState } = this.state;
 
     let className = 'RichEditor-editor';
-    let contentState = editorState.getCurrentContent();
+    const contentState = editorState.getCurrentContent();
     if (!contentState.hasText()) {
       if (contentState.getBlockMap().first().getType() !== 'unstyled') {
         className += 'RichEditor-hidePlaceholder';
@@ -219,7 +214,7 @@ export default class NoteDetail extends React.Component {
   }
 
   render() {
-    const { id, title, body, tags } = this.state;
+    const { id, title, tags } = this.state;
     const notebookId = this.state.notebook_id;
     const createdAt = this.state.created_at;
     const updatedAt = this.state.updated_at;
@@ -250,10 +245,10 @@ export default class NoteDetail extends React.Component {
             />
 
             <TagsHeader
-                iiCallback={'assign'}
-                tags={tags}
-                noteId={id}
-              />
+              iiCallback={'assign'}
+              tags={tags}
+              noteId={id}
+            />
 
             {this.richTextToolbar()}
           </div>
@@ -264,7 +259,8 @@ export default class NoteDetail extends React.Component {
             id="title"
             type="text"
             value={this.state.title}
-            onChange={this.update('title')}/>
+            onChange={this.update('title')}
+          />
 
           {this.richTextEditor()}
 

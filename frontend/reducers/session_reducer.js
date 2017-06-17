@@ -3,15 +3,16 @@ import merge from 'lodash/merge';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 const nullUser = {
-  currentUser: null
+  currentUser: null,
 };
 
 const SessionReducer = (state = nullUser, action) => {
   Object.freeze(state);
+  let currentUser;
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      const currentUser = action.currentUser;
+      currentUser = action.currentUser;
       return merge({}, nullUser, { currentUser });
 
     default:

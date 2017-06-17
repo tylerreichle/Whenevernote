@@ -6,21 +6,21 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
-  currentUser
+  currentUser,
 });
 
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
-  errors
+  errors,
 });
 
 export const clearErrors = () => ({
-  type: CLEAR_ERRORS
+  type: CLEAR_ERRORS,
 });
 
 export const signup = user => dispatch => (
   SessionAPI.signup(user)
-    .then(newUser => {
+    .then((newUser) => {
       dispatch(receiveCurrentUser(newUser));
       dispatch(clearErrors());
     },
@@ -29,7 +29,7 @@ export const signup = user => dispatch => (
 
 export const signin = user => dispatch => (
   SessionAPI.signin(user)
-    .then(signedInUser => {
+    .then((signedInUser) => {
       dispatch(receiveCurrentUser(signedInUser));
       dispatch(clearErrors());
     },
@@ -38,7 +38,7 @@ export const signin = user => dispatch => (
 
 export const signout = () => dispatch => (
   SessionAPI.signout()
-    .then(signedOut => {
+    .then(() => {
       dispatch(receiveCurrentUser(null));
       dispatch(clearErrors());
     },

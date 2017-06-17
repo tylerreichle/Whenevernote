@@ -1,6 +1,6 @@
 import React from 'react';
 
-class StyleButton extends React.Component {
+export default class StyleButton extends React.Component {
   constructor() {
     super();
 
@@ -26,5 +26,3 @@ class StyleButton extends React.Component {
     );
   }
 }
-
-export default StyleButton;

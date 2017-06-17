@@ -7,17 +7,17 @@ export const REMOVE_TAG = 'REMOVE_TAG';
 
 export const receiveTags = tags => ({
   type: RECEIVE_TAGS,
-  tags
+  tags,
 });
 
 export const receiveSingleTag = tag => ({
   type: RECEIVE_SINGLE_TAG,
-  tag
+  tag,
 });
 
 export const removeTag = tag => ({
   type: REMOVE_TAG,
-  tag
+  tag,
 });
 
 export const fetchTags = () => dispatch => (
@@ -27,7 +27,7 @@ export const fetchTags = () => dispatch => (
 
 export const fetchSingleTag = tagId => dispatch => (
   TagsAPI.fetchSingleTag(tagId)
-    .then(tag =>  {
+    .then((tag) => {
       dispatch(receiveSingleTag(tag));
       dispatch(clearErrors());
     },
@@ -36,7 +36,7 @@ export const fetchSingleTag = tagId => dispatch => (
 
 export const createTag = tag => dispatch => (
   TagsAPI.createTag(tag)
-    .then(newTag =>  {
+    .then((newTag) => {
       dispatch(receiveSingleTag(newTag));
       dispatch(clearErrors());
     },
@@ -45,7 +45,7 @@ export const createTag = tag => dispatch => (
 
 export const deleteTag = tagId => dispatch => (
   TagsAPI.deleteTag(tagId)
-    .then(deletedTag =>  {
+    .then((deletedTag) => {
       dispatch(removeTag(deletedTag));
       dispatch(clearErrors());
     },

@@ -32,7 +32,7 @@ class NotebooksIndexItem extends React.Component {
   }
 
   render() {
-    const { id, title } = this.props.notebook;
+    const { title } = this.props.notebook;
 
     return (
       <li onClick={this.callbackAction} className="notebooks-ii">

@@ -15,7 +15,7 @@ class NewNotebook extends React.Component {
     e.preventDefault();
     const notebook = {
       title: this.state.title,
-      author_id: this.props.currentUser.id
+      author_id: this.props.currentUser.id,
     };
     this.props.createNotebook(notebook);
     this.props.history.push('/notes');

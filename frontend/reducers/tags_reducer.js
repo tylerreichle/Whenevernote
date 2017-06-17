@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_TAGS,
   REMOVE_TAG,
-  RECEIVE_SINGLE_TAG
+  RECEIVE_SINGLE_TAG,
 } from '../actions/tags_actions';
 
 const TagsReducer = (state = {}, action) => {
