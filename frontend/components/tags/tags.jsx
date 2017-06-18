@@ -6,7 +6,7 @@ import TagShow from '../tags/tag_show_container';
 import NoteDetail from '../notes/note_detail_container';
 import NewTag from '../tags/new_tag_container';
 
-class Tags extends React.Component {
+export default class Tags extends React.Component {
   render() {
     if (this.props.location.pathname === '/tag/new') {
       return <NewTag />;
@@ -21,5 +21,3 @@ class Tags extends React.Component {
     }
   }
 }
-
-export default Tags;

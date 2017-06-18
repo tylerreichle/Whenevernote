@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
 import NotesIndexItem from '../notes/notes_index_item_container';
 
-class TagShow extends React.Component {
-
+export default class TagShow extends React.Component {
   componentDidMount() {
     this.props.fetchSingleTag(this.props.match.params.tagId)
       .then(() => {
@@ -30,12 +28,13 @@ class TagShow extends React.Component {
 
         <ul className="notes-index-scroll">
           {
-            notes.map((note, idx) => (
+            notes.map(note => (
               <NotesIndexItem
                 linkPath={`/tag/${id}/notes/${note.id}`}
                 notePath={this.props.location.pathname}
-                key={idx}
-                initialNote={note} />
+                key={note.id}
+                initialNote={note}
+              />
             ))
           }
         </ul>
@@ -43,5 +42,3 @@ class TagShow extends React.Component {
     );
   }
 }
-
-export default TagShow;

@@ -11,7 +11,6 @@ import {
   DefaultDraftBlockRenderMap,
 } from 'draft-js';
 
-
 import {
   blockRenderMap,
   CheckableListItem,

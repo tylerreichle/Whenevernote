@@ -75,8 +75,6 @@ export default class NotebookHeader extends React.Component {
 
         </ReactModal>
       </div>
-
-
     );
   }
 }

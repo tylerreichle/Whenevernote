@@ -5,14 +5,14 @@ import { selectAllTags } from '../../reducers/selectors';
 
 
 const mapStateToProps = state => ({
-  tags: selectAllTags(state)
+  tags: selectAllTags(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTags: () => dispatch(fetchTags())
+  fetchTags: () => dispatch(fetchTags()),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(TagsSidebar);

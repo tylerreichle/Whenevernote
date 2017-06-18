@@ -4,7 +4,7 @@ import ReactModal from 'react-modal';
 
 import TagsIndex from './tags_index_container';
 
-class TagsSidebar extends React.Component {
+export default class TagsSidebar extends React.Component {
   constructor(props) {
     super(props);
 
@@ -47,25 +47,23 @@ class TagsSidebar extends React.Component {
           overlayClassName="clear-overlay"
         >
 
-        <div className="tags-panel-header">
-          <h3>TAGS</h3>
+          <div className="tags-panel-header">
+            <h3>TAGS</h3>
 
-          <Link to="/tag/new">
-            <button></button>
-          </Link>
-        </div>
+            <Link to="/tag/new">
+              <button />
+            </Link>
+          </div>
 
-        <TagsIndex
-          tags={this.props.tags}
-          noteId={this.props.noteId}
-          iiCallback={'link'}
-          sidebar={'true'}
-        />
+          <TagsIndex
+            tags={this.props.tags}
+            noteId={this.props.noteId}
+            iiCallback={'link'}
+            sidebar={'true'}
+          />
 
         </ReactModal>
       </div>
     );
   }
 }
-
-export default TagsSidebar;

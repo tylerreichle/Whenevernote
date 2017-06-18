@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class NotebooksIndexItem extends React.Component {
   constructor(props) {
@@ -11,11 +11,10 @@ class NotebooksIndexItem extends React.Component {
   callbackAction() {
     if (this.props.iiCallback === 'link') {
       this.props.history.push(`/tag/${this.props.tag.id}/notes`);
-
     } else if (this.props.iiCallback === 'assign') {
       const taggedNote = {
         note_id: this.props.noteId,
-        tag_id: this.props.tag.id
+        tag_id: this.props.tag.id,
       };
       if (this.props.tagged) {
         this.props.deleteTaggedNote(taggedNote);
