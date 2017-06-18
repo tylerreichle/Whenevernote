@@ -4,12 +4,6 @@
 
 Whenevernote is a full-stack web application inspired by Evernote built using Ruby on Rails and React/Redux with PostgreSQL. Whenevernote allows users to take notes, create to-do lists, and quickly write down their thoughts. These notes can be tagged and stored in notebooks for quick lookup whenever needed.
 
-
-![Splash Page](./docs/screenshots/splash.png)
-
-Splash Page with Session Form component and Webm video background
-
-
 ### Features
 - User accounts with secure authentication
 - Create, edit, and delete an unlimited number of notes within your virtual notebook
@@ -32,7 +26,37 @@ Whenevernote was built using Ruby on Rails and is hosted on Heroku. The differen
 ##### Dependencies
 
 - BCrypt for password salting and hashing to ensure user data remains secure and that plain text passwords are never stored.
-- The splash page video and images in the app are hosted through Amazon Web Services and Cloudinary to ensure a fast and seamless user experience.
+- The splash page video and images in the app are hosted through Amazon Web Services and Cloudinary to ensure a seamless and scalable user experience.
+- CSRF prevention by including a verification token in all forms protecting users from malicious attacks
+
+
+Password hashing and user authentication inside of the User model. Password input from the user validated to be at least 8 characters requiring a strong password from the user. User's password is then salted and hashed with 128-bit encryption before being commited to database and plain text passwords never stored.
+
+Sign in form allows for user authentication using either username or email input. Database is then queried for each parameter and verifies the user after unsalting the password digest stored in database.
+
+```ruby
+validates :password, length: { minimum: 8, allow_nil: true }
+
+def password=(password)
+  @password = password
+  self.password_digest = BCrypt::Password.create(password)
+end
+
+def is_password?(password)
+  BCrypt::Password.new(self.password_digest).is_password?(password)
+end
+
+def self.find_by_credentials(user_sign_in, password)
+  @user = User.find_by(username: user_sign_in)
+  @user = User.find_by(email: user_sign_in) if @user.nil?
+  return @user if @user && @user.is_password?(password)
+  nil
+end
+```
+
+![Splash Page](./docs/screenshots/splash.png)
+
+Splash Page with Session Form component and Webm video background
 
 
 ![Rich Text Editing](./docs/screenshots/rich-text.png)
@@ -50,23 +74,23 @@ Whenevernote's frontend was built using the React framework and Flux/Redux cycle
 - Draft.js is used in the notes editing component allowing rich text features.
 - Other frontend dependencies are React-DOM, React Router, Provider, React Mixin, and Babel for transpiling JSX into JavaScript for the browser.
 
-notes sorted by last updated. first note loaded into detail view after mount
+After the Notes index component mounts it fetches all notes belonging to the currently signed in user, achieved using associations in the Rails back end. Notes are sorted by last updated time using a selector before being returned to the component. Notes index will asynchronously wait for the return of successful promise then load the most recent note into the detail view.
 
 ```javascript
-// selectors
+// Sorting of notes into most recently updated
 export const notesByUpdated = ({ notes }) => {
   const allNotes = values(notes);
   return allNotes.sort((a, b) => (new Date(b.updated_at) - new Date(a.updated_at)));
 };
 
-// notes index
+// Notes Index fetches notes then loads the most recent
 componentDidMount() {
   this.props.fetchNotes().then(() => {
     this.props.history.push(`/notes/${this.props.notes[0].id}`);
   });
 }
 ```
-session submit action determined by current route/url
+Session form designed to be used for both signing in and signing up for site. Process form method determined by current route inside the component containter then called when submit button is clicked.
 
 ```javascript
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -79,11 +103,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 ```
 
-notebook ii's callback action on click passed down depending on where NB index is rendering
+Notebook Index component designed for use in multiple locations in the application. When in the sidebar modal, the click will cause a redirect to show all notes within selected notebook. Clicking an index item inside of the Note detail page will move the current note into the selected notebook.
+
+The component when created is assigned a callback 'type' passed down as a prop to each index item. This callback type determines the action performed when a user clicks on the element. Notes count is a boolean setting whether or not to display note count in index view.
 
 ```javascript
-
-// NotebookeIndex in note detail toolbar
+// Notebook Index created in Note detail toolbar
 <NotebooksIndex
   note={this.props.note}
   updateNote={this.props.updateNote}
@@ -91,7 +116,7 @@ notebook ii's callback action on click passed down depending on where NB index i
   notesCount={false}
 />
 
-// Callback action and render method of NB ii
+// Callback action called upon click either redirecting or updating of note
 callbackAction() {
   if (this.props.iiCallback === 'link') {
     this.props.history.push(`/notebook/${this.props.notebook.id}/notes`);
@@ -114,7 +139,8 @@ render() {
   );
 }
 ```
-When note detail mounts begins setInterval to call auto save method
+
+NoteDetail mounts then loads note to display based off the current route and sets interval calling the auto save method. Auto save checks the current note for any changes made by user to the title or body before sending PATCH request to save note, preventing the constant firing off of API requests.
 
 ```javascript
 componentDidMount() {
@@ -151,8 +177,8 @@ Notebook view page lists all notes contained in selected notebook
 
 #### Future Implementations
 
-I would like to return to development of Whenevernote soon and more features including:
+I would like to return to development of Whenevernote when time permits and implement more features including:
 
 - Searching of notes, notebooks, and tags
 - Multiple user sessions
-- Add reminders to notes
+- Add reminders and shortcuts to notes
