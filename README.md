@@ -8,7 +8,7 @@ Whenevernote is a full-stack web application inspired by Evernote built using Ru
 
 Splash Page with Session Form component and Webm video background
 
-### Features
+## Features
 - User accounts with secure authentication
 - Create, edit, and delete an unlimited number of notes within your virtual notebook
 - Personalize notes by adding lists, checkboxes, highlighting and using code blocks
@@ -17,17 +17,17 @@ Splash Page with Session Form component and Webm video background
 - View all notes in a notebook and all notes with a certain tag
 - Notes are auto-saved upon edits so users have less to worry about
 
-### Project Design
+## Project Design
 
 Whenevernote was designed and built over the course of two weeks. A [proposal](./docs/README.md) was drafted to help form a timeline and guide through the app's development. The proposal included [wireframes](./docs/wireframes) for all views, a front-end [sample state](./docs/sample_state.md), and [database schema](./docs/schema.md). Project follows airbnb's JavaScript and React style guides to ensure clean and maintainable code.
 
-### Technology
+## Technology
 
-#### Backend
+### Backend
 
 Whenevernote was built using Ruby on Rails and is hosted on Heroku. The different rails controllers send back the proper JSON responses depending on which API route was hit. PostgreSQL is used to manage the database locally and remotely.
 
-##### Dependencies
+#### Dependencies
 
 - BCrypt for password salting and hashing to ensure user data remains secure and that plain text passwords are never stored.
 - The splash page video and images in the app are hosted through Amazon Web Services and Cloudinary to ensure a seamless and scalable user experience.
@@ -58,14 +58,11 @@ def self.find_by_credentials(user_sign_in, password)
 end
 ```
 
-![Rich Text Editing](./docs/screenshots/rich-text.gif)
-
-Rich Text Editing in the Note Detail view
-
-
-#### Frontend
+### Frontend
 
 Whenevernote's frontend was built using the React framework and Flux/Redux cycle. These design choices were made so there would be an unidirectional data flow and all necessary data is stored in one source.
+
+#### Dependencies
 
 - Node package manager (npm) was used to install and save frontend dependencies.
 - jQuery is used to make AJAX requests to the backend Rails API.
@@ -74,6 +71,11 @@ Whenevernote's frontend was built using the React framework and Flux/Redux cycle
 - Other frontend dependencies are React-DOM, React Router, Provider, React Mixin, and Babel for transpiling JSX into JavaScript for the browser.
 
 After the Notes index component mounts it fetches all notes belonging to the currently signed in user, achieved using associations in the Rails back end. Notes are sorted by last updated time using a selector before being returned to the component. Notes index will asynchronously wait for the return of successful promise then load the most recent note into the detail view.
+
+![Rich Text Editing](./docs/screenshots/rich-text.gif)
+
+Rich Text Editing in the Note Detail view
+
 
 ```javascript
 // Sorting of notes into most recently updated
@@ -174,7 +176,7 @@ autoSave() {
 Notebook view page lists all notes contained in selected notebook
 
 
-#### Future Implementations
+### Future Implementations
 
 I would like to return to development of Whenevernote when time permits and implement more features including:
 
