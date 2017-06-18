@@ -4,6 +4,10 @@
 
 Whenevernote is a full-stack web application inspired by Evernote built using Ruby on Rails and React/Redux with PostgreSQL. Whenevernote allows users to take notes, create to-do lists, and quickly write down their thoughts. These notes can be tagged and stored in notebooks for quick lookup whenever needed.
 
+![Splash Page](./docs/screenshots/splash.gif)
+
+Splash Page with Session Form component and Webm video background
+
 ### Features
 - User accounts with secure authentication
 - Create, edit, and delete an unlimited number of notes within your virtual notebook
@@ -54,12 +58,7 @@ def self.find_by_credentials(user_sign_in, password)
 end
 ```
 
-![Splash Page](./docs/screenshots/splash.png)
-
-Splash Page with Session Form component and Webm video background
-
-
-![Rich Text Editing](./docs/screenshots/rich-text.png)
+![Rich Text Editing](./docs/screenshots/rich-text.gif)
 
 Rich Text Editing in the Note Detail view
 
@@ -140,7 +139,7 @@ render() {
 }
 ```
 
-NoteDetail mounts then loads note to display based off the current route and sets interval calling the auto save method. Auto save checks the current note for any changes made by user to the title or body before sending PATCH request to save note, preventing the constant firing off of API requests.
+NoteDetail component mounts then loads note to display based off the current route and sets an interval that calls the auto save method. Auto save checks the current note for any changes made by user to the title or body before sending PATCH request to save note, preventing the constant firing off of API requests.
 
 ```javascript
 componentDidMount() {
