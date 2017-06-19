@@ -27,10 +27,6 @@ class NewNote extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    if (this.state.title.length < 1) {
-      this.setState({ title: 'Untitled' });
-    }
-
     const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
     const body = JSON.stringify(noteBody);
 
@@ -42,7 +38,7 @@ class NewNote extends React.Component {
       author_id: this.props.currentUser.id,
     };
     this.props.createNote(note);
-    this.props.history.push("/notes");
+    this.props.history.push('/notes');
   }
 
   update(property) {

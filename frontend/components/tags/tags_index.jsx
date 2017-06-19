@@ -2,7 +2,7 @@ import React from 'react';
 import TagsIndexItem from './tags_index_item';
 import { selectTagIds } from '../../reducers/selectors';
 
-class TagsIndex extends React.Component {
+export default class TagsIndex extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,27 +35,26 @@ class TagsIndex extends React.Component {
       <div className="tags-index">
         <ul>
           {
-            tags.map((tag, idx) => {
+            tags.map((tag) => {
               let tagged = false;
               if (noteTags.includes(tag.id)) {
                 tagged = true;
               }
-              return <TagsIndexItem
-                tag={tag}
-                key={idx}
-                iiCallback={iiCallback}
-                noteId={this.props.noteId}
-                tagged={tagged}
-                deleteTaggedNote={this.props.deleteTaggedNote}
-                createTaggedNote={this.props.createTaggedNote}
-              />;
-          })
+              return (
+                <TagsIndexItem
+                  tag={tag}
+                  key={tag.id}
+                  iiCallback={iiCallback}
+                  noteId={this.props.noteId}
+                  tagged={tagged}
+                  deleteTaggedNote={this.props.deleteTaggedNote}
+                  createTaggedNote={this.props.createTaggedNote}
+                />
+              );
+            })
           }
         </ul>
       </div>
     );
-
   }
 }
-
-export default TagsIndex;

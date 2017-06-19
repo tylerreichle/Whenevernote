@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class NewTag extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class NewTag extends React.Component {
     e.preventDefault();
     const tag = {
       name: this.state.name,
-      author_id: this.props.currentUser.id
+      author_id: this.props.currentUser.id,
     };
     this.props.createTag(tag);
     this.props.history.push('/notes');
@@ -35,7 +35,10 @@ class NewTag extends React.Component {
     return (
       <section className="new-tag">
         <section className="nt-main-content">
-          <img src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495746550/toolbar/new-tag.png"></img>
+          <img
+            alt=""
+            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495746550/toolbar/new-tag.png"
+          />
           <h4>CREATE TAG</h4>
 
           <form className="nt-form">
@@ -43,16 +46,20 @@ class NewTag extends React.Component {
               type="text"
               placeholder="Name your tag"
               value={this.state.title}
-              onChange={this.handleChange}/>
+              onChange={this.handleChange}
+            />
 
             <div className="nn-buttons">
               <button
                 id="nt-cancel"
-                onClick={this.handleCancel}>Cancel</button>
+                onClick={this.handleCancel}
+              >Cancel</button>
 
               <button
                 id="nt-create"
-                onClick={this.handleSubmit}>Create tag</button>
+                onClick={this.handleSubmit}
+              >Create tag</button>
+
             </div>
           </form>
         </section>

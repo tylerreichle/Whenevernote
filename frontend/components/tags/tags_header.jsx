@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import ReactModal from 'react-modal';
 
 import TagsIndex from './tags_index_container';
-import { selectTagIds } from '../../reducers/selectors';
 
-class TagsHeader extends React.Component {
+export default class TagsHeader extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,8 +33,8 @@ class TagsHeader extends React.Component {
           <Link to="/tag/new">
             <div className="new-tag-item">
 
-                <div id="new-tag-img" className="new-tag-child"></div>
-                <button className="new-tag-child">Create new tag</button>
+              <div id="new-tag-img" className="new-tag-child"></div>
+              <button className="new-tag-child">Create new tag</button>
             </div>
           </Link>
 
@@ -54,14 +53,18 @@ class TagsHeader extends React.Component {
       <div>
         <div className="tags-header" onClick={this.openModal}>
           <img
+            alt=""
             id="tiny-tag"
-            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"/>
+            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/tag.png"
+          />
 
           <h3>Tags</h3>
 
           <img
+            alt=""
             id="dropdown-arrow"
-            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495502846/dropdown.png"/>
+            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495502846/dropdown.png"
+          />
 
         </div>
 
@@ -70,13 +73,14 @@ class TagsHeader extends React.Component {
           onRequestClose={this.closeModal}
           contentLabel="Notebooks Header"
           className="tags-header-dropdown"
-          overlayClassName="clear-overlay">
+          overlayClassName="clear-overlay"
+        >
 
           <Link to="/tag/new">
             <div className="new-tag-item">
 
-                <div id="new-tag-img" className="new-tag-child"></div>
-                <button className="new-tag-child">Create new tag</button>
+              <div id="new-tag-img" className="new-tag-child" />
+              <button className="new-tag-child">Create new tag</button>
             </div>
           </Link>
 
@@ -91,5 +95,3 @@ class TagsHeader extends React.Component {
     );
   }
 }
-
-export default TagsHeader;

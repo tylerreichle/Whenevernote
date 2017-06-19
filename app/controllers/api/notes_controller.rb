@@ -1,6 +1,6 @@
 class Api::NotesController < ApplicationController
   def index
-    @notes = current_user.notes.order("updated_at DESC")
+    @notes = current_user.notes
     render 'api/notes/index'
   end
 
