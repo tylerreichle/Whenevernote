@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import SessionForm from './session_form_container';
 
 export default class SplashPage extends React.Component {
@@ -15,12 +15,17 @@ export default class SplashPage extends React.Component {
         </div>
 
         <div className="header-nav-links">
-          <Link to="/">Sign In</Link>
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/tylerreichle/Whenevernote"
           >Github</a>
+
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/tyler-reichle-36b379130/"
+          >LinkedIn</a>
         </div>
       </header>
     );
