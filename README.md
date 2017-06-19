@@ -171,10 +171,9 @@ autoSave() {
 }
 ```
 
-![Notebook View](./docs/screenshots/notebook.png)
+![Notebook View](./docs/screenshots/notebooks.gif)
 
-Notebook view page lists all notes contained in selected notebook
-
+Notebook creation and note filing
 
 ### Future Implementations
 
