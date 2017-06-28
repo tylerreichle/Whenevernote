@@ -21,7 +21,7 @@ export default class Sidebar extends React.Component {
         <div className="sidebar-top">
           <Link to="/notes" title="HOME">
             <img
-              src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495424859/sidebar/logo-small.png"
+              src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1498685204/logo.png"
               alt="Whenevernote logo"
             />
           </Link>
