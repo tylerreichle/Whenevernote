@@ -8,7 +8,7 @@ export default class SplashPage extends React.Component {
       <header>
         <div className="left-nav">
           <img
-            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495083594/header-logo.png"
+            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1498685204/logo.png"
             alt="Whenevernote logo"
           />
           <h1>WHENEVERNOTE</h1>
