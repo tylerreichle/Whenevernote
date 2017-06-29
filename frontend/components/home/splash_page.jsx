@@ -78,6 +78,4 @@ export default class SplashPage extends React.Component {
     );
   }
 }
-// aws links
-// https://s3-us-west-1.amazonaws.com/whenevernote/splash.mp4
-// https://s3-us-west-1.amazonaws.com/whenevernote/splash.webm
+
