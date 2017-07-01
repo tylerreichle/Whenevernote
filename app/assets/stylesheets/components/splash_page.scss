@@ -21,7 +21,7 @@
 
 header {
   width: 100%;
-  height: 88px;
+  height: 75px;
 
   display: flex;
   align-items: center;
@@ -88,7 +88,7 @@ footer {
 
 .bg-video video {
     position: fixed;
-    opacity: 200;
+    filter: saturate(50%) grayscale(75%);
     top: 50%;
     left: 50%;
     min-width: 100%;
