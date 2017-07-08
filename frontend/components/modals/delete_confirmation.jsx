@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class DeleteConfirmation extends React.Component {
   constructor(props) {
@@ -77,5 +78,12 @@ class DeleteConfirmation extends React.Component {
     );
   }
 }
+
+DeleteConfirmation.propTypes = {
+  history: PropTypes.objectOf(Object).isRequired,
+  deleteNote: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default withRouter(DeleteConfirmation);
