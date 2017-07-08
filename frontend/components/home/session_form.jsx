@@ -7,7 +7,6 @@ export default class SessionForm extends React.Component {
 
     this.state = {
       username: '',
-      email: '',
       password: '',
     };
 
@@ -22,7 +21,7 @@ export default class SessionForm extends React.Component {
     let user;
     if (this.props.formType === '/signup/') {
       user = {
-        user_sign_in: this.state.username,
+        username: this.state.username,
         password: this.state.password,
       };
     } else {
@@ -48,7 +47,7 @@ export default class SessionForm extends React.Component {
     }
 
     const user = {
-      user_sign_in: username,
+      username,
       password,
     };
 
