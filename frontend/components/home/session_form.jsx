@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Errors from '../errors/errors_container';
 
 export default class SessionForm extends React.Component {
@@ -150,3 +151,10 @@ export default class SessionForm extends React.Component {
     );
   }
 }
+
+SessionForm.propTypes = {
+  processForm: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(Object).isRequired,
+  formType: PropTypes.string.isRequired,
+};
