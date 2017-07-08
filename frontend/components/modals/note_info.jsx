@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import PropTypes from 'prop-types';
 
 export default class NoteInfo extends React.Component {
   constructor(props) {
@@ -92,3 +93,9 @@ export default class NoteInfo extends React.Component {
     );
   }
 }
+
+NoteInfo.propTypes = {
+  title: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  updatedAt: PropTypes.string.isRequired,
+};

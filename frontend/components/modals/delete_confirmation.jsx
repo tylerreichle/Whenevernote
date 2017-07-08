@@ -82,7 +82,7 @@ class DeleteConfirmation extends React.Component {
 DeleteConfirmation.propTypes = {
   history: PropTypes.objectOf(Object).isRequired,
   deleteNote: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
 };
 
