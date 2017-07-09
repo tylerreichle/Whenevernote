@@ -82,8 +82,8 @@ class DeleteConfirmation extends React.Component {
 DeleteConfirmation.propTypes = {
   history: PropTypes.objectOf(Object).isRequired,
   deleteNote: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default withRouter(DeleteConfirmation);

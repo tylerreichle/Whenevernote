@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class NewNotebook extends React.Component {
   constructor(props) {
@@ -63,5 +64,11 @@ class NewNotebook extends React.Component {
     );
   }
 }
+
+NewNotebook.propTypes = {
+  createNotebook: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(Object).isRequired,
+  currentUser: PropTypes.objectOf(Object).isRequired,
+};
 
 export default withRouter(NewNotebook);
