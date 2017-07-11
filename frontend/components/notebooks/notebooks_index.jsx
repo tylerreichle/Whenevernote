@@ -35,9 +35,23 @@ export default class NotebooksIndex extends React.Component {
 
 NotebooksIndex.propTypes = {
   fetchNotebooks: PropTypes.func.isRequired,
-  updateNote: PropTypes.func.isRequired,
+  updateNote: PropTypes.func,
   iiCallback: PropTypes.string.isRequired,
-  note: PropTypes.object.isRequired,
-  notebooks: PropTypes.arrayOf(PropTypes.object).isRequired,
   notesCount: PropTypes.bool.isRequired,
+  note: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.array,
+    ])),
+  notebooks: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.object,
+  ]).isRequired,
+};
+
+NotebooksIndex.defaultProps = {
+  note: {},
+  updateNote: null,
 };

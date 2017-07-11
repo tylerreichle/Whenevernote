@@ -44,12 +44,26 @@ class NotebooksIndexItem extends React.Component {
 }
 
 NotebooksIndexItem.propTypes = {
+  updateNote: PropTypes.func,
   history: PropTypes.object.isRequired,
-  updateNote: PropTypes.func.isRequired,
   notesCount: PropTypes.bool.isRequired,
-  note: PropTypes.object.isRequired,
-  notebook: PropTypes.object.isRequired,
   iiCallback: PropTypes.string.isRequired,
+  note: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.array,
+    ])).isRequired,
+  notebook: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+      PropTypes.number,
+    ])).isRequired,
+};
+
+NotebooksIndexItem.defaultProps = {
+  updateNote: null,
 };
 
 export default withRouter(NotebooksIndexItem);

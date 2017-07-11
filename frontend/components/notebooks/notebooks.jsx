@@ -10,19 +10,20 @@ import NewNotebook from '../notebooks/new_notebook_container';
 const Notebooks = (props) => {
   if (props.location.pathname === '/notebook/new') {
     return <NewNotebook />;
-  } else {
-    return (
-      <section className="notebooks">
-        <Route path="/notebook" component={Sidebar} />
-        <Route path="/notebook/:notebookId/notes" component={NotebookShow} />
-        <Route path="/notebook/:notebookId/notes/:noteId" component={NoteDetail} />
-      </section>
-    );
   }
+  return (
+    <section className="notebooks">
+      <Route path="/notebook" component={Sidebar} />
+      <Route path="/notebook/:notebookId/notes" component={NotebookShow} />
+      <Route path="/notebook/:notebookId/notes/:noteId" component={NoteDetail} />
+    </section>
+  );
 };
 
 Notebooks.propTypes = {
-  location: PropTypes.object,
+  location: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  ).isRequired,
 };
 
 export default Notebooks;
