@@ -69,6 +69,7 @@ export default class NoteDetail extends React.Component {
     }, 5000);
   }
 
+  // update on NB change and new note
   componentWillReceiveProps(newProps) {
     if ((this.state.id !== newProps.note.id) ||
         (this.state.notebook_id !== newProps.note.notebook_id) ||
@@ -96,7 +97,7 @@ export default class NoteDetail extends React.Component {
   // }
   // <button onClick={this.seedCreate}>seeds</button>
 
-
+  // auto save on body/title change
   autoSave() {
     const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
     const body = JSON.stringify(noteBody);

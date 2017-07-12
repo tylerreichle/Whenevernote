@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import NotebooksIndexItem from './notebooks_index_item';
 
 export default class NotebooksIndex extends React.Component {
@@ -31,3 +32,26 @@ export default class NotebooksIndex extends React.Component {
     );
   }
 }
+
+NotebooksIndex.propTypes = {
+  fetchNotebooks: PropTypes.func.isRequired,
+  updateNote: PropTypes.func,
+  iiCallback: PropTypes.string.isRequired,
+  notesCount: PropTypes.bool.isRequired,
+  note: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.array,
+    ])),
+  notebooks: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.object,
+  ]).isRequired,
+};
+
+NotebooksIndex.defaultProps = {
+  note: {},
+  updateNote: null,
+};

@@ -38,6 +38,7 @@ Password hashing and user authentication inside of the User model. Password inpu
 Sign in form allows for user authentication using either username or email input. Database is then queried for each parameter and verifies the user after unsalting the password digest stored in database.
 
 ```ruby
+# User model
 validates :password, length: { minimum: 8, allow_nil: true }
 
 def password=(password)
@@ -59,7 +60,7 @@ end
 
 ### Frontend
 
-Whenevernote's frontend was built using the React framework and Flux/Redux cycle. These design choices were made so there would be an unidirectional data flow and all necessary data is stored in one source.
+Whenevernote's frontend was built using the React framework and Redux cycle. These design choices were made so there would be an unidirectional data flow and all necessary data is stored in one source.
 
 #### Dependencies
 

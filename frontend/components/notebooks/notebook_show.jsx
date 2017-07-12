@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import NotesIndexItem from '../notes/notes_index_item_container';
 
 export default class NotebookShow extends React.Component {
@@ -43,3 +44,11 @@ export default class NotebookShow extends React.Component {
     );
   }
 }
+
+NotebookShow.propTypes = {
+  fetchSingleNotebook: PropTypes.func.isRequired,
+  match: PropTypes.object,
+  location: PropTypes.object,
+  history: PropTypes.object,
+  notebook: PropTypes.object,
+};

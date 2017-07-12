@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactModal from 'react-modal';
+import PropTypes from 'prop-types';
 
 import NotebooksIndex from './notebooks_index_container';
 
@@ -40,14 +41,16 @@ export default class NotebookHeader extends React.Component {
           <img
             alt=""
             id="tiny-notebook"
-            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/notebook.png" />
+            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495234906/notebook.png"
+          />
 
           <h3>{title}</h3>
 
           <img
             alt=""
             id="dropdown-arrow"
-            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495502846/dropdown.png" />
+            src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1495502846/dropdown.png"
+          />
         </div>
 
         <ReactModal
@@ -78,3 +81,15 @@ export default class NotebookHeader extends React.Component {
     );
   }
 }
+
+NotebookHeader.propTypes = {
+  fetchSingleNotebook: PropTypes.func.isRequired,
+  updateNote: PropTypes.func.isRequired,
+  note: PropTypes.object.isRequired,
+  notebook: PropTypes.object.isRequired,
+  notebookId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};
+
+NotebookHeader.defaultProps = {
+  notebookId: null,
+};
