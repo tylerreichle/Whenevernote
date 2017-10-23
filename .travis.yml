@@ -11,3 +11,7 @@ deploy:
   app: whenevernote
   on:
     repo: tylerreichle/Whenevernote
+  run:
+    - "pg:reset DATABASE --confirm whenevernote"
+    - "rake db:setup"
+    - restart
