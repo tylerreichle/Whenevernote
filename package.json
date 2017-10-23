@@ -14,7 +14,10 @@
   "scripts": {
     "test": "jest",
     "start": "webpack --watch",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "heroku:db:reset": "heroku pg:reset DATABASE --app whenevernote --confirm whenevernote",
+    "heroku:db:migrate": "heroku run rake db:migrate --app whenevernote",
+    "heroku:db:seed": "heroku run rake db:seed --app whenevernote"
   },
   "engines": {
     "node": "6.10.1",
