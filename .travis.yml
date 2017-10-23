@@ -1,9 +1,5 @@
 language: node_js
-node:
-  - 6.1
+node_js:
+  - "6.1"
 
-install:
-  - yarn install
-
-script:
-  - yarn test
+cache: yarn
