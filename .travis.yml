@@ -12,6 +12,5 @@ deploy:
   on:
     repo: tylerreichle/Whenevernote
   run:
-    - "heroku pg:reset DATABASE --confirm whenevernote"
     - "rake db:migrate"
-    - "rake db:seed"
+    - reset
