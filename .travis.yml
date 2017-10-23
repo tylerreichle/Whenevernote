@@ -13,4 +13,4 @@ deploy:
     repo: tylerreichle/Whenevernote
   run:
     - "rake db:migrate"
-    - reset
+    - restart
