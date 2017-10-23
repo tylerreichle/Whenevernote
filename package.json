@@ -1,7 +1,7 @@
 {
-  "name": "Whenevernote",
+  "name": "whenevernote",
   "version": "1.0.0",
-  "description": "Evernote Clone",
+  "description": "Full Stack Web Application inspired by Evernote. Built with React/Redux and Rails",
   "main": "index.js",
   "repository": {
     "type": "git",
