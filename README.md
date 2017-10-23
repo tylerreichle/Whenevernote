@@ -1,6 +1,6 @@
-# Whenevernote
+# [Whenevernote](https://whenevernote.herokuapp.com)
 
-## [Whenevernote Live](https://whenevernote.herokuapp.com)
+![travis status](https://travis-ci.org/tylerreichle/Whenevernote.svg?branch=master)
 
 Whenevernote is a full-stack web application inspired by Evernote built using Ruby on Rails and React/Redux with PostgreSQL. Whenevernote allows users to take notes, create to-do lists, and quickly write down their thoughts. These notes can be tagged and stored in notebooks for quick lookup whenever needed.
 
