@@ -1,11 +1,13 @@
 language: node_js
 node_js:
-- '6.1'
+  - '6.1'
+
 cache: yarn
+
 deploy:
   provider: heroku
   api_key:
     secure: XWpTKSk48LHMFyqrdkoUIKeI/nmWEvvdvBl+H6HNk2KIhU5RbzhMTMvEjatzYpOm6shFpjf1lKakKzIJ1t9yW9gkpT/11PMSz69nr56QV/kO+4seSDshoUVGgIm1OHjl1GGeEVwuOhXNlrSga42+hNQuf/Ck7ny1ld/duxZTGgRvmUiQEqEXV8HvkwXnIX/fUacWA1T31N8BTC2XaHB2DnJUFfXpuFqG8ElXctmBDLIa2VJrsuM6lccgx6IwZy88Ne7JKqaU2Bm4n0juRtpVXp7bMucYIFCwbnfKaQ4UVFtaWYMu+Bx3hs/jeKdTfltBmmy9PTe+QOVlviuBAwy6Em3tb5Y/jJYTHqmKE0KPvxUMeTLeEDqdNqqPU/Ah2QgmmMphqbvtjKQOHvLUMIRlybCaKreOIOiOXKunyiPihwVXRnuMbZDW+KhewyM1nQ9WLy74V+EWY59Nbs1zwyBDXEco5ziCTZr/oxNOWGLb8paPu13yjOewhXji6tjy/t+XmrUX9mL3heG0eliPHfpj2b7wbjSR6Uyt4BZPpeQLBK/18lNG086j4D9HMQTyYMllRyq5+7klNuQ9u50PbKFZJbOeW8P1MbzAGhy+WR3+bLZ3XgUFA/SJrQQc8WncQYt54UzykEZ3Mnrj9T6ZPUYJORku8YBkhUuwUTP45FZ4qZU=
-  app: Whenevernote
+  app: whenevernote
   on:
     repo: tylerreichle/Whenevernote
