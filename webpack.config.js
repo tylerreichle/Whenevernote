@@ -1,13 +1,13 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
-var plugins = [];
-var devPlugins = [];
+let plugins = []
+const devPlugins = []
 
-var prodPlugins = [
+const prodPlugins = [
   new webpack.DefinePlugin({
     'process.env': {
-      'NODE_ENV': JSON.stringify('production')
+      NODE_ENV: JSON.stringify('production')
     }
   }),
   new webpack.optimize.UglifyJsPlugin({
@@ -15,18 +15,18 @@ var prodPlugins = [
       warnings: true
     }
   })
-];
+]
 
 plugins = plugins.concat(
   process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
-);
+)
 
 module.exports = {
   entry: './frontend/whenevernote.jsx',
   output: {
-    filename: './app/assets/javascripts/bundle.js',
+    filename: './app/assets/javascripts/bundle.js'
   },
-  plugins: plugins,
+  plugins,
   module: {
     loaders: [
       {
@@ -43,4 +43,4 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '*']
   }
-};
+}
