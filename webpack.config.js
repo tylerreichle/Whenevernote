@@ -22,7 +22,7 @@ plugins = plugins.concat(
 )
 
 module.exports = {
-  entry: './frontend/whenevernote.jsx',
+  entry: './src/whenevernote.jsx',
   output: {
     filename: './app/assets/javascripts/bundle.js'
   },
