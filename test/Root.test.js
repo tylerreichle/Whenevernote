@@ -5,7 +5,7 @@ import Root from '../frontend/components/root'
 import configureStore from '../frontend/store/store'
 
 describe('<Root />', () => {
-  it('renders without crashing', () => {
+  it('should render without crashing', () => {
     const store = configureStore()
     shallow(<Root store={store} />)
   })

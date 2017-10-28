@@ -3,12 +3,12 @@ import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import App from './app'
+import Home from '../components/home/home'
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
-      <App />
+      <Home />
     </HashRouter>
   </Provider>
 )
