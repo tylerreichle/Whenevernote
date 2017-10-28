@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Header = () => (
   <header>
@@ -24,6 +24,6 @@ const Header = () => (
       >LinkedIn</a>
     </div>
   </header>
-);
+)
 
-export default Header;
+export default Header

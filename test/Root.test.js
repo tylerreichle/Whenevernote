@@ -1,11 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import Root from '../frontend/components/root'
-import configureStore from '../frontend/store/store'
+import { shallow } from 'enzyme'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  const store = configureStore()
+import Root from '../src/components/root'
+import configureStore from '../src/store/store'
 
-  ReactDOM.render(<Root store={store} />, div)
+describe('<Root />', () => {
+  it('renders without crashing', () => {
+    const store = configureStore()
+    shallow(<Root store={store} />)
+  })
 })
