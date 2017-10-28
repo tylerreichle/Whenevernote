@@ -1,10 +1,10 @@
-import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
+import React from 'react'
+import { AuthRoute, ProtectedRoute } from '../../util/route_util'
 
-import SplashPage from './splash_page';
-import Notes from '../notes/notes';
-import Notebooks from '../notebooks/notebooks';
-import Tags from '../tags/tags';
+import SplashPage from './splash_page'
+import Notes from '../notes/notes'
+import Notebooks from '../notebooks/notebooks'
+import Tags from '../tags/tags'
 
 const Home = () => (
   <div className="home-container">
@@ -13,6 +13,6 @@ const Home = () => (
     <ProtectedRoute path="/notebook" component={Notebooks} />
     <ProtectedRoute path="/tag" component={Tags} />
   </div>
-);
+)
 
-export default Home;
+export default Home
