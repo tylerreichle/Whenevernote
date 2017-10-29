@@ -1,5 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 const Errors = props => (
   <ul className="error-messages">
@@ -12,14 +13,23 @@ const Errors = props => (
       ))
     }
   </ul>
-);
+)
 
 Errors.propTypes = {
   errors: PropTypes.arrayOf(String),
-};
+}
 
 Errors.defaultProps = {
   errors: null,
-};
+}
 
-export default Errors;
+// Connect
+
+const mapStateToProps = ({ errors }) => ({
+  errors,
+})
+
+export default connect(
+  mapStateToProps,
+  null,
+)(Errors)

@@ -1,30 +1,33 @@
-import React from 'react';
-import ReactModal from 'react-modal';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import ReactModal from 'react-modal'
+import PropTypes from 'prop-types'
 
-export default class NoteInfo extends React.Component {
+export default class NoteInfo extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { modalIsOpen: false };
+    this.state = {
+      modalIsOpen: false
+    }
 
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
   componentWillMount() {
-    ReactModal.setAppElement('body');
+    ReactModal.setAppElement('body')
   }
 
   openModal() {
-    this.setState({ modalIsOpen: true });
+    this.setState({ modalIsOpen: true })
   }
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false })
   }
 
   render() {
-    const title = this.props.title;
+    const { title } = this.props
+    const { modalIsOpen} = this.state
 
     const options = {
       weekday: 'long',
@@ -33,10 +36,10 @@ export default class NoteInfo extends React.Component {
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
-    };
+    }
 
-    const createdAt = new Date(this.props.createdAt).toLocaleString('en-us', options);
-    const updatedAt = new Date(this.props.updatedAt).toLocaleString('en-us', options);
+    const createdAt = new Date(this.props.createdAt).toLocaleString('en-us', options)
+    const updatedAt = new Date(this.props.updatedAt).toLocaleString('en-us', options)
 
     return (
       <div>
@@ -48,7 +51,7 @@ export default class NoteInfo extends React.Component {
         />
 
         <ReactModal
-          isOpen={this.state.modalIsOpen}
+          isOpen={modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="Note Info"
           className="info-modal"
@@ -90,7 +93,7 @@ export default class NoteInfo extends React.Component {
 
         </ReactModal>
       </div>
-    );
+    )
   }
 }
 
@@ -98,4 +101,4 @@ NoteInfo.propTypes = {
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
   updatedAt: PropTypes.string.isRequired,
-};
+}

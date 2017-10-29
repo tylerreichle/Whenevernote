@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const SplashVid = () => (
   <div className="bg-video">
@@ -19,6 +19,6 @@ const SplashVid = () => (
       />
     </video>
   </div>
-);
+)
 
-export default SplashVid;
+export default SplashVid
