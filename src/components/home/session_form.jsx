@@ -1,77 +1,69 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Errors from '../errors/errors_container';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Errors from '../errors/errors_container'
 
 export default class SessionForm extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       username: '',
       password: '',
-    };
+    }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleDemo = this.handleDemo.bind(this);
-    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+    this.handleDemo = this.handleDemo.bind(this)
+    this.update = this.update.bind(this)
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    let user;
-    if (this.props.formType === '/signup/') {
-      user = {
-        username: this.state.username,
-        password: this.state.password,
-      };
-    } else {
-      user = Object.assign({}, this.state);
-    }
+    e.preventDefault()
+    const user = this.state
 
     this.props.processForm(user).then(() => {
-      this.props.history.push('/notes');
-    });
+      this.props.history.push('/notes')
+    })
   }
 
   handleDemo(e) {
-    e.preventDefault();
-    const username = 'demo';
-    const password = 'password';
+    e.preventDefault()
+    const username = 'demo'
+    const password = 'password'
 
     for (let i = 0; i < username.length; i++) {
-      setTimeout(() => this.setState({ username: username.slice(0, i + 1) }), (i * 100));
+      setTimeout(() => this.setState({ username: username.slice(0, i + 1) }), (i * 100))
     }
 
     for (let j = 0; j < password.length; j++) {
-      setTimeout(() => this.setState({ password: password.slice(0, j + 1) }), ((j + 5) * 100));
+      setTimeout(() => this.setState({ password: password.slice(0, j + 1) }), ((j + 5) * 100))
     }
 
     const user = {
       username,
       password,
-    };
+    }
 
     setTimeout(() => {
       this.props.processForm(user).then(() => {
-        this.props.history.push('/notes');
-      });
-    }, 1500);
+        this.props.history.push('/notes')
+      })
+    }, 1500)
   }
 
   handleClick(e) {
-    e.preventDefault();
-    this.props.clearErrors();
+    e.preventDefault()
+    this.props.clearErrors()
 
     if (this.props.formType === '/signup/') {
-      this.props.history.push('/');
+      this.props.history.push('/')
     } else {
-      this.props.history.push('/signup/');
+      this.props.history.push('/signup/')
     }
   }
 
   update(property) {
-    return e => this.setState({ [property]: e.target.value });
+    return e => this.setState({ [property]: e.target.value })
   }
 
   navLink() {
@@ -83,7 +75,7 @@ export default class SessionForm extends React.Component {
             <button onClick={this.handleClick}>Sign In</button>
           </div>
         </div>
-      );
+      )
     } else {
       return (
         <div className="form-nav-link">
@@ -92,7 +84,7 @@ export default class SessionForm extends React.Component {
             <button onClick={this.handleClick}>Create account</button>
           </div>
         </div>
-      );
+      )
     }
   }
 
@@ -105,14 +97,14 @@ export default class SessionForm extends React.Component {
             onClick={this.handleSubmit}
           >SIGN UP FOR FREE</button>
         </div>
-      );
+      )
     } else {
       return (
         <div className="submit-buttons">
           <button onClick={this.handleDemo}>DEMO</button>
           <button onClick={this.handleSubmit}>SIGN IN</button>
         </div>
-      );
+      )
     }
   }
 
@@ -148,7 +140,7 @@ export default class SessionForm extends React.Component {
         <Errors />
         {this.navLink()}
       </section>
-    );
+    )
   }
 }
 
@@ -157,4 +149,4 @@ SessionForm.propTypes = {
   clearErrors: PropTypes.func.isRequired,
   history: PropTypes.objectOf(Object).isRequired,
   formType: PropTypes.string.isRequired,
-};
+}
