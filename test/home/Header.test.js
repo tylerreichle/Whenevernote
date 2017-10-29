@@ -9,22 +9,28 @@ describe('<Header />', () => {
   })
 
   it('renders gitHub link', () => {
-    const wrapper = shallow(<Header />);
-    const gitHub = (<a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://github.com/tylerreichle/Whenevernote"
-                    >Github</a>)
-    expect(wrapper.contains(gitHub)).toEqual(true);
+    const wrapper = shallow(<Header />)
+    const gitHub = (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/tylerreichle/Whenevernote"
+      >Github
+      </a>
+    )
+    expect(wrapper.contains(gitHub)).toEqual(true)
   })
 
   it('renders linkedin link', () => {
-    const wrapper = shallow(<Header />);
-    const linkedin = (<a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://www.linkedin.com/in/tyler-reichle-36b379130/"
-                      >LinkedIn</a>)
-    expect(wrapper.contains(linkedin)).toEqual(true);
+    const wrapper = shallow(<Header />)
+    const linkedin = (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.linkedin.com/in/tyler-reichle-36b379130/"
+      >LinkedIn
+      </a>
+    )
+    expect(wrapper.contains(linkedin)).toEqual(true)
   })
 })

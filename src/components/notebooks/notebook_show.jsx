@@ -1,21 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import NotesIndexItem from '../notes/notes_index_item_container';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-export default class NotebookShow extends React.Component {
+import { fetchSingleNotebook } from '../../actions/notebooks_actions'
+
+import NotesIndexItem from '../notes/notes_index_item_container'
+
+class NotebookShow extends Component {
 
   componentDidMount() {
     this.props.fetchSingleNotebook(this.props.match.params.notebookId)
       .then(() => {
-        this.props.history.push(`/notebook/${this.props.notebook.id}/notes/${this.props.notebook.notes[0].id}`);
-      });
+        this.props.history.push(`/notebook/${this.props.notebook.id}/notes/${this.props.notebook.notes[0].id}`)
+      })
   }
 
   render() {
-    const id = this.props.notebook.id || '';
-    const title = this.props.notebook.title || '';
-    const notes = this.props.notebook.notes || [];
-    const notesCount = notes.length;
+    const {
+      location: { pathname },
+      notebook: {
+        id,
+        title,
+        notes
+      }
+    } = this.props
+
+    const notesCount = notes.length
 
     return (
       <section className="notebook-show">
@@ -33,7 +43,7 @@ export default class NotebookShow extends React.Component {
             notes.map(note => (
               <NotesIndexItem
                 linkPath={`/notebook/${id}/notes/${note.id}`}
-                notePath={this.props.location.pathname}
+                notePath={pathname}
                 key={note.id}
                 initialNote={note}
               />
@@ -41,14 +51,37 @@ export default class NotebookShow extends React.Component {
           }
         </ul>
       </section>
-    );
+    )
   }
 }
 
 NotebookShow.propTypes = {
   fetchSingleNotebook: PropTypes.func.isRequired,
-  match: PropTypes.object,
-  location: PropTypes.object,
-  history: PropTypes.object,
-  notebook: PropTypes.object,
-};
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  notebook: PropTypes.object
+}
+
+NotebookShow.defaultProps = {
+  notebook: {
+    id: '',
+    title: '',
+    notes: []
+  }
+}
+
+// Connect
+
+const mapStateToProps = ({ notebook }) => ({
+  notebook
+})
+
+const mapDispatchToProps = dispatch => ({
+  fetchSingleNotebook: notebookId => dispatch(fetchSingleNotebook(notebookId))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(NotebookShow)

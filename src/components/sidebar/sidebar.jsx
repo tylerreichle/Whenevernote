@@ -1,25 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import NotebooksModal from '../modals/notebooks_modal';
-import TagsSidebar from '../tags/tags_sidebar_container';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-export default class Sidebar extends React.Component {
+import { signout } from '../../actions/session_actions'
+
+import NotebooksModal from '../modals/notebooks_modal'
+import TagsSidebar from '../tags/tags_sidebar_container'
+
+class Sidebar extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(e) {
-    e.preventDefault();
-    this.props.signout();
+    e.preventDefault()
+    this.props.signout()
   }
 
   render() {
     return (
       <aside className="sidebar">
         <div className="sidebar-top">
-          <Link to="/notes" title="HOME">
+          <Link to="/notes" href="/notes" title="HOME">
             <img
               src="https://res.cloudinary.com/dkuqs8yz1/image/upload/v1498685204/logo.png"
               alt="Whenevernote logo"
@@ -27,9 +32,10 @@ export default class Sidebar extends React.Component {
           </Link>
 
           <Link
-            to="/notes/new"
-            title="NEW NOTE"
             id="new-note"
+            to="/notes/new"
+            href="/notes/new"
+            title="NEW NOTE"
             className="circle-button"
           />
 
@@ -37,9 +43,10 @@ export default class Sidebar extends React.Component {
 
         <div className="sidebar-mid">
           <Link
-            to="/notes"
-            title="NOTES"
             id="notes"
+            to="/notes"
+            href="/notes"
+            title="NOTES"
             className="circle-button"
           />
 
@@ -51,13 +58,33 @@ export default class Sidebar extends React.Component {
         <div className="sidebar-bot">
           <Link
             to="/"
-            title="SIGN OUT"
+            href="/"
             id="signout"
+            title="SIGN OUT"
             className="circle-button"
             onClick={this.handleClick}
           />
         </div>
       </aside>
-    );
+    )
   }
 }
+
+Sidebar.propTypes = {
+  signout: PropTypes.func.isRequired
+}
+
+// Connect
+
+const mapStateToProps = ({ session }) => ({
+  currentUser: session.currentUser
+})
+
+const mapDispatchToProps = dispatch => ({
+  signout: () => dispatch(signout())
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Sidebar)
