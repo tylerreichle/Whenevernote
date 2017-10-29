@@ -1,28 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ReactModal from 'react-modal';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import ReactModal from 'react-modal'
 
-import NotebooksIndex from '../notebooks/notebooks_index_container';
+import NotebooksIndex from '../notebooks/notebooks_index_container'
 
-export default class NotebooksModal extends React.Component {
-  constructor() {
-    super();
+export default class NotebooksModal extends Component {
+  constructor(props) {
+    super(props)
 
-    this.state = { modalIsOpen: false };
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.state = { modalIsOpen: false }
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
   componentWillMount() {
-    ReactModal.setAppElement('body');
+    ReactModal.setAppElement('body')
   }
 
   openModal() {
-    this.setState({ modalIsOpen: true });
+    this.setState({ modalIsOpen: true })
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false })
   }
 
   render() {
@@ -54,6 +54,6 @@ export default class NotebooksModal extends React.Component {
 
         </ReactModal>
       </div>
-    );
+    )
   }
 }

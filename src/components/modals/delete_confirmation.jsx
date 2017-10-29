@@ -1,41 +1,44 @@
-import React from 'react';
-import ReactModal from 'react-modal';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import ReactModal from 'react-modal'
+import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-class DeleteConfirmation extends React.Component {
+class DeleteConfirmation extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { modalIsOpen: false };
+    this.state = {
+      modalIsOpen: false
+    }
 
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentWillMount() {
-    ReactModal.setAppElement('body');
+    ReactModal.setAppElement('body')
   }
 
   openModal() {
-    this.setState({ modalIsOpen: true });
+    this.setState({ modalIsOpen: true })
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false })
   }
 
   handleDelete(e) {
-    e.preventDefault();
+    e.preventDefault()
     this.props.deleteNote(this.props.id).then(() => {
-      this.closeModal();
-      this.props.history.push('/notes');
-    });
+      this.closeModal()
+      this.props.history.push('/notes')
+    })
   }
 
   render() {
-    const title = this.props.title;
+    const { title } = this.props
+    const { modalIsOpen } = this.state
 
     return (
       <div>
@@ -47,7 +50,7 @@ class DeleteConfirmation extends React.Component {
         />
 
         <ReactModal
-          isOpen={this.state.modalIsOpen}
+          isOpen={modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="Confirm Delete"
           className="delete-modal"
@@ -75,7 +78,7 @@ class DeleteConfirmation extends React.Component {
 
         </ReactModal>
       </div>
-    );
+    )
   }
 }
 
@@ -84,6 +87,6 @@ DeleteConfirmation.propTypes = {
   deleteNote: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-};
+}
 
-export default withRouter(DeleteConfirmation);
+export default withRouter(DeleteConfirmation)
