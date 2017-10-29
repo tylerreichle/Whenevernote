@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Route } from 'react-router-dom'
 
 import Sidebar from '../sidebar/sidebar'
-import NotebookShow from '../notebooks/notebook_show_container'
+import NotebookShow from '../notebooks/notebook_show'
 import NoteDetail from '../notes/note_detail_container'
 import NewNotebook from '../notebooks/new_notebook_container'
 
