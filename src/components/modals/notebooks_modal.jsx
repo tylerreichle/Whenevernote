@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ReactModal from 'react-modal'
 
-import NotebooksIndex from '../notebooks/notebooks_index_container'
+import NotebooksIndex from '../notebooks/notebooks_index'
 
 export default class NotebooksModal extends Component {
   constructor(props) {

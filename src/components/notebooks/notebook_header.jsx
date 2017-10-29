@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import ReactModal from 'react-modal'
 import PropTypes from 'prop-types'
 
-import NotebooksIndex from './notebooks_index_container'
+import NotebooksIndex from './notebooks_index'
 
 export default class NotebookHeader extends Component {
   constructor(props) {

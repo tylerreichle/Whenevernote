@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+// actions
+import { fetchNotebooks } from '../../actions/notebooks_actions'
+import { selectAllNotebooks } from '../../reducers/selectors'
+
+// components
 import NotebooksIndexItem from './notebooks_index_item'
 
-export default class NotebooksIndex extends Component {
+class NotebooksIndex extends Component {
 
   componentDidMount() {
     this.props.fetchNotebooks()
@@ -10,6 +17,7 @@ export default class NotebooksIndex extends Component {
 
   render() {
     const {
+      note,
       notebooks,
       notesCount,
       updateNote,
@@ -22,12 +30,12 @@ export default class NotebooksIndex extends Component {
           {
             notebooks.map(notebook => (
               <NotebooksIndexItem
+                note={note}
+                key={notebook.id}
                 notebook={notebook}
-                note={this.props.note}
                 updateNote={updateNote}
                 iiCallback={iiCallback}
                 notesCount={notesCount}
-                key={notebook.id}
               />
             ))
           }
@@ -59,3 +67,18 @@ NotebooksIndex.defaultProps = {
   note: {},
   updateNote: null
 }
+
+// Connect
+
+const mapStateToProps = state => ({
+  notebooks: selectAllNotebooks(state)
+})
+
+const mapDispatchToProps = dispatch => ({
+  fetchNotebooks: () => dispatch(fetchNotebooks())
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(NotebooksIndex)
