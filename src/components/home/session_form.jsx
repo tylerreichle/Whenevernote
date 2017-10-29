@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Errors from '../errors/errors_container'
+import Errors from '../errors/errors'
 
 export default class SessionForm extends React.Component {
   constructor(props) {
