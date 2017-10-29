@@ -7,9 +7,9 @@ describe('<NoteInfo />', () => {
   it('renders without crashing', () => {
     shallow(
       <NoteInfo
-        title={'test'}
-        createdAt={'test'}
-        updatedAt={'test'}
+        title="test"
+        createdAt="test"
+        updatedAt="test"
       />
     )
   })

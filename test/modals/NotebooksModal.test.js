@@ -5,6 +5,6 @@ import NotebooksModal from '../../src/components/modals/notebooks_modal'
 
 describe('<NotebooksModal />', () => {
   it('renders without crashing', () => {
-    shallow(<NotebooksModal/>)
+    shallow(<NotebooksModal />)
   })
 })
