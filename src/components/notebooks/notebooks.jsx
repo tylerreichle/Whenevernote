@@ -11,6 +11,7 @@ const Notebooks = (props) => {
   if (props.location.pathname === '/notebook/new') {
     return <NewNotebook />
   }
+
   return (
     <section className="notebooks">
       <Route path="/notebook" component={Sidebar} />
