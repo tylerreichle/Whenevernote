@@ -1,39 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ReactModal from 'react-modal';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import ReactModal from 'react-modal'
+import PropTypes from 'prop-types'
 
-import NotebooksIndex from './notebooks_index_container';
+import NotebooksIndex from './notebooks_index_container'
 
-export default class NotebookHeader extends React.Component {
+export default class NotebookHeader extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { modalIsOpen: false };
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.state = { modalIsOpen: false }
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
   componentWillMount() {
-    ReactModal.setAppElement('body');
+    ReactModal.setAppElement('body')
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.notebookId !== newProps.notebookId) {
-      this.props.fetchSingleNotebook(newProps.notebookId);
+      this.props.fetchSingleNotebook(newProps.notebookId)
     }
   }
 
   openModal() {
-    this.setState({ modalIsOpen: true });
+    this.setState({ modalIsOpen: true })
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false })
   }
 
   render() {
-    const title = this.props.notebook.title || '';
+    const title = this.props.notebook.title || ''
 
     return (
       <div>
@@ -61,7 +61,7 @@ export default class NotebookHeader extends React.Component {
           overlayClassName="clear-overlay"
         >
 
-          <Link to="/notebook/new">
+          <Link to="/notebook/new" href="/notebook/new">
             <div className="new-nb-item">
 
               <div id="new-nb-img" className="new-nb-child" />
@@ -72,13 +72,13 @@ export default class NotebookHeader extends React.Component {
           <NotebooksIndex
             note={this.props.note}
             updateNote={this.props.updateNote}
-            iiCallback={'assign'}
+            iiCallback="assign"
             notesCount={false}
           />
 
         </ReactModal>
       </div>
-    );
+    )
   }
 }
 
@@ -87,9 +87,9 @@ NotebookHeader.propTypes = {
   updateNote: PropTypes.func.isRequired,
   note: PropTypes.object.isRequired,
   notebook: PropTypes.object.isRequired,
-  notebookId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+  notebookId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+}
 
 NotebookHeader.defaultProps = {
-  notebookId: null,
-};
+  notebookId: null
+}

@@ -7,6 +7,7 @@ import { fetchSingleNotebook } from '../../actions/notebooks_actions'
 import NotesIndexItem from '../notes/notes_index_item_container'
 
 class NotebookShow extends Component {
+
   componentDidMount() {
     this.props.fetchSingleNotebook(this.props.match.params.notebookId)
       .then(() => {

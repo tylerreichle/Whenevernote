@@ -1,16 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import NotebooksIndexItem from './notebooks_index_item';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import NotebooksIndexItem from './notebooks_index_item'
 
-export default class NotebooksIndex extends React.Component {
+export default class NotebooksIndex extends Component {
 
   componentDidMount() {
-    this.props.fetchNotebooks();
+    this.props.fetchNotebooks()
   }
 
   render() {
-    const notebooks = this.props.notebooks;
-    const notesCount = this.props.notesCount;
+    const {
+      notebooks,
+      notesCount,
+      updateNote,
+      iiCallback
+    } = this.props
 
     return (
       <div className="notebooks-index">
@@ -20,8 +24,8 @@ export default class NotebooksIndex extends React.Component {
               <NotebooksIndexItem
                 notebook={notebook}
                 note={this.props.note}
-                updateNote={this.props.updateNote}
-                iiCallback={this.props.iiCallback}
+                updateNote={updateNote}
+                iiCallback={iiCallback}
                 notesCount={notesCount}
                 key={notebook.id}
               />
@@ -29,7 +33,7 @@ export default class NotebooksIndex extends React.Component {
           }
         </ul>
       </div>
-    );
+    )
   }
 }
 
@@ -43,15 +47,15 @@ NotebooksIndex.propTypes = {
       PropTypes.number,
       PropTypes.string,
       PropTypes.object,
-      PropTypes.array,
+      PropTypes.array
     ])),
   notebooks: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),
-    PropTypes.object,
-  ]).isRequired,
-};
+    PropTypes.object
+  ]).isRequired
+}
 
 NotebooksIndex.defaultProps = {
   note: {},
-  updateNote: null,
-};
+  updateNote: null
+}

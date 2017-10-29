@@ -1,35 +1,38 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-class NewNotebook extends React.Component {
+class NewNotebook extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { title: '' };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      title: ''
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
+
     const notebook = {
       title: this.state.title,
-      author_id: this.props.currentUser.id,
-    };
-    this.props.createNotebook(notebook);
-    this.props.history.push('/notes');
+      author_id: this.props.currentUser.id
+    }
+    this.props.createNotebook(notebook)
+    this.props.history.push('/notes')
   }
 
   handleCancel(e) {
-    e.preventDefault();
-    this.props.history.push('/notes');
+    e.preventDefault()
+    this.props.history.push('/notes')
   }
 
   handleChange(e) {
-    const title = e.target.value;
-    this.setState({ title });
+    this.setState({ title: e.target.value })
   }
 
   render() {
@@ -51,24 +54,27 @@ class NewNotebook extends React.Component {
               <button
                 id="nn-cancel"
                 onClick={this.handleCancel}
-              >Cancel</button>
+              >Cancel
+              </button>
 
               <button
                 id="nn-create"
                 onClick={this.handleSubmit}
-              >Create notebook</button>
+              >Create notebook
+              </button>
             </div>
+
           </form>
         </section>
       </section>
-    );
+    )
   }
 }
 
 NewNotebook.propTypes = {
   createNotebook: PropTypes.func.isRequired,
   history: PropTypes.objectOf(Object).isRequired,
-  currentUser: PropTypes.objectOf(Object).isRequired,
-};
+  currentUser: PropTypes.objectOf(Object).isRequired
+}
 
-export default withRouter(NewNotebook);
+export default withRouter(NewNotebook)

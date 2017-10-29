@@ -8,7 +8,9 @@
     "semi": ["error", "never"],
     "comma-dangle": ["error", "never"],
     "react/forbid-prop-types": 0,
-    "function-paren-newline": 0
+    "function-paren-newline": 0,
+    "padded-blocks": 0,
+    "consistent-return": 0
   },
   "env": {
     "browser": true,
