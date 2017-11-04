@@ -1,17 +1,18 @@
-import React from 'react';
-import NotesIndexItem from './notes_index_item_container';
+import React from 'react'
+import PropTypes from 'prop-types'
+import NotesIndexItem from './notes_index_item_container'
 
 export default class NotesIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchNotes().then(() => {
-      this.props.history.push(`/notes/${this.props.notes[0].id}`);
-    });
+      this.props.history.push(`/notes/${this.props.notes[0].id}`)
+    })
   }
 
   render() {
-    const notes = this.props.notes;
-    const notesCount = notes.length;
+    const { notes, location } = this.props
+    const notesCount = notes.length
 
     return (
       <section className="notes-index">
@@ -25,7 +26,7 @@ export default class NotesIndex extends React.Component {
             notes.map(note => (
               <NotesIndexItem
                 linkPath={`/notes/${note.id}`}
-                notePath={this.props.location.pathname}
+                notePath={location.pathname}
                 key={note.id}
                 initialNote={note}
               />
@@ -33,6 +34,13 @@ export default class NotesIndex extends React.Component {
           }
         </ul>
       </section>
-    );
+    )
   }
+}
+
+NotesIndex.propTypes = {
+  fetchNotes: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
+  location: PropTypes.object.isRequired
 }

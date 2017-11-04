@@ -1,57 +1,59 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, withRouter } from 'react-router-dom'
+import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js'
 
 class NewNote extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       title: '',
-      body: '',
       notebook_id: 1,
-      editorState: EditorState.createEmpty(),
-    };
+      editorState: EditorState.createEmpty()
+    }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
-    this.onChange = editorState => this.setState({ editorState });
-    this.onTab = e => this._onTab(e);
-    this.focus = () => this.refs.editor.focus();
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.update = this.update.bind(this)
+    this.onChange = editorState => this.setState({ editorState })
+    this.onTab = e => this._onTab(e)
+    this.focus = () => this.refs.editor.focus()
   }
 
   componentDidMount() {
-    this.focus();
+    this.focus()
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
-    const body = JSON.stringify(noteBody);
+    const { id, title, notebook_id } = this.state
+    const { currentUser, createNote, history } = this.props
+    const noteBody = convertToRaw(this.state.editorState.getCurrentContent())
+    const body = JSON.stringify(noteBody)
 
     const note = {
+      id,
       body,
-      id: this.state.id,
-      title: this.state.title,
-      notebook_id: this.state.notebook_id,
-      author_id: this.props.currentUser.id,
-    };
-    this.props.createNote(note);
-    this.props.history.push('/notes');
+      title,
+      notebook_id,
+      author_id: currentUser.id
+    }
+    createNote(note)
+    history.push('/notes')
   }
 
   update(property) {
-    return e => this.setState({ [property]: e.target.value });
+    return e => this.setState({ [property]: e.target.value })
   }
 
   _onTab(e) {
-    const maxDepth = 4;
-    this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
+    const maxDepth = 4
+    this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth))
   }
 
   render() {
-    const { editorState } = this.state;
+    const { editorState, title } = this.state
 
     return (
       <section className="new-note">
@@ -60,7 +62,8 @@ class NewNote extends React.Component {
           <button
             id="new-create"
             onClick={this.handleSubmit}
-          >Create</button>
+          >Create
+          </button>
 
           <Link to="/notes">
             <button id="new-cancel">Cancel</button>
@@ -72,7 +75,7 @@ class NewNote extends React.Component {
           <input
             id="new-title"
             type="text"
-            value={this.state.title}
+            value={title}
             placeholder="Title your note"
             onChange={this.update('title')}
           />
@@ -90,8 +93,20 @@ class NewNote extends React.Component {
 
         </form>
       </section>
-    );
+    )
   }
 }
 
-export default withRouter(NewNote);
+NewNote.propTypes = {
+  currentUser: PropTypes.object,
+  history: PropTypes.object.isRequired,
+  createNote: PropTypes.func.isRequired
+}
+
+NewNote.defaultProps = {
+  currentUser: {
+    id: ''
+  }
+}
+
+export default withRouter(NewNote)

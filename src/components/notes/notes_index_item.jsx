@@ -1,41 +1,42 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { convertFromRaw } from 'draft-js';
-import timeSince from '../../util/app_util';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import { convertFromRaw } from 'draft-js'
+import timeSince from '../../util/app_util'
 
 export default class NotesIndexItem extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.handleClick = this.handleClick.bind(this);
-    this.highlightedClass = this.highlightedClass.bind(this);
+    this.handleClick = this.handleClick.bind(this)
+    this.highlightedClass = this.highlightedClass.bind(this)
   }
 
   handleClick(e) {
-    e.preventDefault();
-    this.props.fetchSingleNote(this.props.initialNote.id);
+    e.preventDefault()
+    this.props.fetchSingleNote(this.props.initialNote.id)
   }
 
   highlightedClass() {
     if (this.props.notePath === this.props.linkPath) {
-      return 'notes-index-item highlighted';
-    } else {
-      return 'notes-index-item';
+      return 'notes-index-item highlighted'
     }
+
+    return 'notes-index-item'
   }
 
   render() {
-    let { title, updated_at } = this.props.initialNote;
+    let { title, updated_at } = this.props.initialNote
 
     if (title.length > 30) {
-      const trimmedTitle = title.slice(0, 29) + '..';
-      title = trimmedTitle;
+      const trimmedTitle = `${title.slice(0, 29)}..`
+      title = trimmedTitle
     }
 
-    let body = convertFromRaw(JSON.parse(this.props.initialNote.body));
-    body = body.getPlainText();
-    const linkPath = this.props.linkPath;
-    const lastUpdate = timeSince(new Date(updated_at));
+    let body = convertFromRaw(JSON.parse(this.props.initialNote.body))
+    body = body.getPlainText()
+    const { linkPath } = this.props
+    const lastUpdate = timeSince(new Date(updated_at))
 
     return (
       <div onClick={this.handleClick} className={this.highlightedClass()}>
@@ -47,6 +48,13 @@ export default class NotesIndexItem extends React.Component {
           </li>
         </Link>
       </div>
-    );
+    )
   }
+}
+
+NotesIndexItem.propTypes = {
+  fetchSingleNote: PropTypes.func.isRequired,
+  initialNote: PropTypes.object.isRequired,
+  notePath: PropTypes.string.isRequired,
+  linkPath: PropTypes.string.isRequired
 }
