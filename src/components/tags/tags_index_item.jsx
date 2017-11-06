@@ -1,43 +1,64 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
-class NotebooksIndexItem extends React.Component {
+class NotebooksIndexItem extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.callbackAction = this.callbackAction.bind(this);
+    this.callbackAction = this.callbackAction.bind(this)
   }
 
   callbackAction() {
-    if (this.props.iiCallback === 'link') {
-      this.props.history.push(`/tag/${this.props.tag.id}/notes`);
-    } else if (this.props.iiCallback === 'assign') {
+    const {
+      tag,
+      noteId,
+      tagged,
+      history,
+      iiCallback,
+      deleteTaggedNote,
+      createTaggedNote
+    } = this.props
+
+    if (iiCallback === 'link') {
+      history.push(`/tag/${tag.id}/notes`)
+    } else if (iiCallback === 'assign') {
       const taggedNote = {
-        note_id: this.props.noteId,
-        tag_id: this.props.tag.id,
-      };
-      if (this.props.tagged) {
-        this.props.deleteTaggedNote(taggedNote);
+        note_id: noteId,
+        tag_id: tag.id
+      }
+
+      if (tagged) {
+        deleteTaggedNote(taggedNote)
       } else {
-        this.props.createTaggedNote(taggedNote);
+        createTaggedNote(taggedNote)
       }
     }
   }
 
   render() {
-    const { name } = this.props.tag;
-    let className = 'tags-ii';
+    const { tagged, tag: { name } } = this.props
 
-    if (this.props.tagged) {
-      className += ' tagged';
-    }
+    const className = tagged
+      ? 'tags-ii'
+      : 'tags-ii tagged'
 
     return (
       <li onClick={this.callbackAction} className={className}>
         <h4 className="tag-ii-child">{name}</h4>
       </li>
-    );
+    )
   }
 }
 
-export default withRouter(NotebooksIndexItem);
+NotebooksIndexItem.propTypes = {
+  tagged: PropTypes.bool.isRequired,
+  noteId: PropTypes.number.isRequired,
+  tag: PropTypes.object.isRequired,
+  iiCallback: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
+  deleteTaggedNote: PropTypes.func.isRequired,
+  createTaggedNote: PropTypes.func.isRequired
+}
+
+export default withRouter(NotebooksIndexItem)

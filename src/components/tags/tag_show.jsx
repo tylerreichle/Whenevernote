@@ -1,19 +1,31 @@
-import React from 'react';
-import NotesIndexItem from '../notes/notes_index_item_container';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import NotesIndexItem from '../notes/notes_index_item_container'
 
-export default class TagShow extends React.Component {
+export default class TagShow extends Component {
   componentDidMount() {
+
     this.props.fetchSingleTag(this.props.match.params.tagId)
       .then(() => {
-        this.props.history.push(`/tag/${this.props.tag.id}/notes/${this.props.tag.notes[0].id}`);
-      });
+        const { tag: { id, notes } } = this.props
+        if (notes) {
+          this.props.history.push(
+            `/tag/${id}/notes/${notes[0].id}`
+          )
+        }
+      })
   }
 
   render() {
-    const id = this.props.tag.id || '';
-    const name = this.props.tag.name || '';
-    const notes = this.props.tag.notes || [];
-    const notesCount = notes.length;
+    const {
+      location,
+      tag: {
+        id,
+        name,
+        notes = []
+      }
+    } = this.props
+    const notesCount = notes.length
 
     return (
       <section className="tag-show">
@@ -30,15 +42,31 @@ export default class TagShow extends React.Component {
           {
             notes.map(note => (
               <NotesIndexItem
-                linkPath={`/tag/${id}/notes/${note.id}`}
-                notePath={this.props.location.pathname}
                 key={note.id}
                 initialNote={note}
+                notePath={location.pathname}
+                linkPath={`/tag/${id}/notes/${note.id}`}
               />
             ))
           }
         </ul>
       </section>
-    );
+    )
+  }
+}
+
+TagShow.propTypes = {
+  tag: PropTypes.object,
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  fetchSingleTag: PropTypes.func.isRequired
+}
+
+TagShow.defaultProps = {
+  tag: {
+    id: '',
+    name: '',
+    notes: []
   }
 }

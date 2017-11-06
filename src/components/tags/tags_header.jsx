@@ -1,54 +1,64 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ReactModal from 'react-modal';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import ReactModal from 'react-modal'
 
-import TagsIndex from './tags_index_container';
+import TagsIndex from './tags_index_container'
 
-export default class TagsHeader extends React.Component {
+export default class TagsHeader extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { modalIsOpen: false };
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.state = {
+      modalIsOpen: false
+    }
+
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
   componentWillMount() {
-    ReactModal.setAppElement('body');
+    ReactModal.setAppElement('body')
   }
 
   openModal() {
-    this.setState({ modalIsOpen: true });
+    this.setState({ modalIsOpen: true })
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false })
   }
 
   tagsMenu() {
     if (this.state.dropdownOpen) {
+      const { tags, noteId } = this.props
+
       return (
         <div className="tags-header-dropdown">
 
-          <Link to="/tag/new">
+          <Link to="/tag/new" href="/tag/new">
             <div className="new-tag-item">
 
-              <div id="new-tag-img" className="new-tag-child"></div>
+              <div id="new-tag-img" className="new-tag-child" />
               <button className="new-tag-child">Create new tag</button>
             </div>
           </Link>
 
           <TagsIndex
-            noteTags={this.props.tags}
-            noteId={this.props.noteId}
-            iiCallback={'assign'}
+            noteTags={tags}
+            noteId={noteId}
+            sidebar={false}
+            iiCallback="assign"
           />
         </div>
-      );
+      )
     }
   }
 
   render() {
+    const { modalIsOpen } = this.state
+    const { tags, noteId } = this.props
+
     return (
       <div>
         <div className="tags-header" onClick={this.openModal}>
@@ -69,14 +79,14 @@ export default class TagsHeader extends React.Component {
         </div>
 
         <ReactModal
-          isOpen={this.state.modalIsOpen}
+          isOpen={modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="Notebooks Header"
           className="tags-header-dropdown"
           overlayClassName="clear-overlay"
         >
 
-          <Link to="/tag/new">
+          <Link to="/tag/new" href="/tag/new">
             <div className="new-tag-item">
 
               <div id="new-tag-img" className="new-tag-child" />
@@ -85,13 +95,22 @@ export default class TagsHeader extends React.Component {
           </Link>
 
           <TagsIndex
-            noteTags={this.props.tags}
-            noteId={this.props.noteId}
-            iiCallback={'assign'}
+            noteTags={tags}
+            noteId={noteId}
+            sidebar={false}
+            iiCallback="assign"
           />
 
         </ReactModal>
       </div>
-    );
+    )
   }
+}
+
+TagsHeader.propTypes = {
+  tags: PropTypes.array.isRequired,
+  noteId: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]).isRequired
 }

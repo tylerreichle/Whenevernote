@@ -1,15 +1,15 @@
-import { RECEIVE_SINGLE_NOTE } from '../actions/notes_actions';
+import { RECEIVE_SINGLE_NOTE } from '../actions/notes_actions'
 
 const NoteDetailReducer = (state = {}, action) => {
-  Object.freeze(state);
+  Object.freeze(state)
 
   switch (action.type) {
     case RECEIVE_SINGLE_NOTE:
-      return action.note;
+      return action.note
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default NoteDetailReducer;
+export default NoteDetailReducer
