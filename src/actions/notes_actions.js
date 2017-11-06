@@ -1,62 +1,62 @@
-import * as NotesAPI from '../util/notes_api_util';
-import { receiveErrors, clearErrors } from './session_actions';
+import * as NotesAPI from '../util/notes_api_util'
+import { receiveErrors, clearErrors } from './session_actions'
 
-export const RECEIVE_NOTES = 'RECEIVE_NOTES';
-export const RECEIVE_SINGLE_NOTE = 'RECEIVE_SINGLE_NOTE';
-export const REMOVE_NOTE = 'REMOVE_NOTE';
+export const RECEIVE_NOTES = 'RECEIVE_NOTES'
+export const RECEIVE_SINGLE_NOTE = 'RECEIVE_SINGLE_NOTE'
+export const REMOVE_NOTE = 'REMOVE_NOTE'
 
 export const receiveNotes = notes => ({
   type: RECEIVE_NOTES,
-  notes,
-});
+  notes
+})
 
 export const receiveSingleNote = note => ({
   type: RECEIVE_SINGLE_NOTE,
-  note,
-});
+  note
+})
 
 export const removeNote = note => ({
   type: REMOVE_NOTE,
-  note,
-});
+  note
+})
 
 export const fetchNotes = () => dispatch => (
   NotesAPI.fetchNotes()
     .then(notes => dispatch(receiveNotes(notes)))
-);
+)
 
 export const fetchSingleNote = noteId => dispatch => (
   NotesAPI.fetchSingleNote(noteId)
     .then((note) => {
-      dispatch(receiveSingleNote(note));
-      dispatch(clearErrors());
+      dispatch(receiveSingleNote(note))
+      dispatch(clearErrors())
     },
-    (errors => dispatch(receiveErrors(errors.responseJSON))))
-);
+      (errors => dispatch(receiveErrors(errors.responseJSON))))
+)
 
 export const createNote = note => dispatch => (
   NotesAPI.createNote(note)
     .then((newNote) => {
-      dispatch(receiveSingleNote(newNote));
-      dispatch(clearErrors());
+      dispatch(receiveSingleNote(newNote))
+      dispatch(clearErrors())
     },
-    (errors => dispatch(receiveErrors(errors.responseJSON))))
-);
+      (errors => dispatch(receiveErrors(errors.responseJSON))))
+)
 
 export const updateNote = note => dispatch => (
   NotesAPI.updateNote(note)
     .then((updatedNote) => {
-      dispatch(receiveSingleNote(updatedNote));
-      dispatch(clearErrors());
+      dispatch(receiveSingleNote(updatedNote))
+      dispatch(clearErrors())
     },
-    (errors => dispatch(receiveErrors(errors.responseJSON))))
-);
+      (errors => dispatch(receiveErrors(errors.responseJSON))))
+)
 
 export const deleteNote = noteId => dispatch => (
   NotesAPI.deleteNote(noteId)
     .then((deletedNote) => {
-      dispatch(removeNote(deletedNote));
-      dispatch(clearErrors());
+      dispatch(removeNote(deletedNote))
+      dispatch(clearErrors())
     },
-    (errors => dispatch(receiveErrors(errors.responseJSON))))
-);
+      (errors => dispatch(receiveErrors(errors.responseJSON))))
+)

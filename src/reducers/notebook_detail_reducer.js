@@ -1,15 +1,15 @@
-import { RECEIVE_SINGLE_NOTEBOOK } from '../actions/notebooks_actions';
+import { RECEIVE_SINGLE_NOTEBOOK } from '../actions/notebooks_actions'
 
 const NotebookDetailReducer = (state = {}, action) => {
-  Object.freeze(state);
+  Object.freeze(state)
 
   switch (action.type) {
     case RECEIVE_SINGLE_NOTEBOOK:
-      return action.notebook;
+      return action.notebook
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default NotebookDetailReducer;
+export default NotebookDetailReducer

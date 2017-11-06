@@ -1,15 +1,15 @@
-import { RECEIVE_SINGLE_TAG } from '../actions/tags_actions';
+import { RECEIVE_SINGLE_TAG } from '../actions/tags_actions'
 
 const TagDetailReducer = (state = {}, action) => {
-  Object.freeze(state);
+  Object.freeze(state)
 
   switch (action.type) {
     case RECEIVE_SINGLE_TAG:
-      return action.tag;
+      return action.tag
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default TagDetailReducer;
+export default TagDetailReducer
