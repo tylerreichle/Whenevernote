@@ -1,16 +1,16 @@
-import { connect } from 'react-redux';
-import TagShow from './tag_show';
-import { fetchSingleTag } from '../../actions/tags_actions';
+import { connect } from 'react-redux'
+import TagShow from './tag_show'
+import { fetchSingleTag } from '../../actions/tags_actions'
 
 const mapStateToProps = ({ tag }) => ({
-  tag,
-});
+  tag
+})
 
 const mapDispatchToProps = dispatch => ({
-  fetchSingleTag: tagId => dispatch(fetchSingleTag(tagId)),
-});
+  fetchSingleTag: tagId => dispatch(fetchSingleTag(tagId))
+})
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(TagShow);
+)(TagShow)

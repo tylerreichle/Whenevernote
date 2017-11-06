@@ -1,34 +1,28 @@
-import React from 'react';
-import TagsIndexItem from './tags_index_item';
-import { selectTagIds } from '../../reducers/selectors';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import TagsIndexItem from './tags_index_item'
+import { selectTagIds } from '../../reducers/selectors'
 
-export default class TagsIndex extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { noteTags: [] };
-  }
-
+export default class TagsIndex extends Component {
   componentDidMount() {
-    this.props.fetchTags();
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (!this.props.sidebar) {
-      if (this.props.noteTags.length !== newProps.noteTags.length) {
-        this.setState(newProps.noteTags);
-      }
-    }
+    this.props.fetchTags()
   }
 
   render() {
-    const { iiCallback, tags } = this.props;
-    let noteTags;
+    const {
+      tags,
+      noteId,
+      sidebar,
+      iiCallback,
+      deleteTaggedNote,
+      createTaggedNote
+    } = this.props
 
-    if (this.props.sidebar) {
-      noteTags = [];
+    let noteTags
+    if (sidebar) {
+      noteTags = []
     } else {
-      noteTags = selectTagIds(this.props.noteTags);
+      noteTags = selectTagIds(this.props.noteTags)
     }
 
     return (
@@ -36,25 +30,41 @@ export default class TagsIndex extends React.Component {
         <ul>
           {
             tags.map((tag) => {
-              let tagged = false;
+              let tagged = false
               if (noteTags.includes(tag.id)) {
-                tagged = true;
+                tagged = true
               }
               return (
                 <TagsIndexItem
                   tag={tag}
                   key={tag.id}
-                  iiCallback={iiCallback}
-                  noteId={this.props.noteId}
+                  noteId={noteId}
                   tagged={tagged}
-                  deleteTaggedNote={this.props.deleteTaggedNote}
-                  createTaggedNote={this.props.createTaggedNote}
+                  iiCallback={iiCallback}
+                  deleteTaggedNote={deleteTaggedNote}
+                  createTaggedNote={createTaggedNote}
                 />
-              );
+              )
             })
           }
         </ul>
       </div>
-    );
+    )
   }
+}
+
+TagsIndex.propTypes = {
+  noteId: PropTypes.number,
+  noteTags: PropTypes.array,
+  tags: PropTypes.array.isRequired,
+  sidebar: PropTypes.bool.isRequired,
+  fetchTags: PropTypes.func.isRequired,
+  iiCallback: PropTypes.string.isRequired,
+  deleteTaggedNote: PropTypes.func.isRequired,
+  createTaggedNote: PropTypes.func.isRequired
+}
+
+TagsIndex.defaultProps = {
+  noteId: 0,
+  noteTags: []
 }

@@ -15,13 +15,15 @@ const Header = () => (
         target="_blank"
         rel="noopener noreferrer"
         href="https://github.com/tylerreichle/Whenevernote"
-      >Github</a>
+      >Github
+      </a>
 
       <a
         target="_blank"
         rel="noopener noreferrer"
         href="https://www.linkedin.com/in/tyler-reichle-36b379130/"
-      >LinkedIn</a>
+      >LinkedIn
+      </a>
     </div>
   </header>
 )

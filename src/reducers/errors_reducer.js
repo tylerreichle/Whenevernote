@@ -1,16 +1,17 @@
-import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/session_actions';
+import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/session_actions'
 
 const ErrorsReducer = (state = [], action) => {
-  Object.freeze(state);
+  Object.freeze(state)
 
   switch (action.type) {
     case RECEIVE_ERRORS:
-      return [...action.errors];
+      if (action.errors) return [...action.errors]
+      return state
     case CLEAR_ERRORS:
-      return [];
+      return []
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default ErrorsReducer;
+export default ErrorsReducer

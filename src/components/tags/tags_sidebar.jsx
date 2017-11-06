@@ -1,35 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ReactModal from 'react-modal';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-import TagsIndex from './tags_index_container';
+import ReactModal from 'react-modal'
+import TagsIndex from './tags_index_container'
 
-export default class TagsSidebar extends React.Component {
+export default class TagsSidebar extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { modalIsOpen: false };
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.state = { modalIsOpen: false }
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
   componentWillMount() {
-    ReactModal.setAppElement('body');
+    ReactModal.setAppElement('body')
   }
 
   componentDidMount() {
-    this.props.fetchTags();
+    this.props.fetchTags()
   }
 
   openModal() {
-    this.setState({ modalIsOpen: true });
+    this.setState({ modalIsOpen: true })
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false })
   }
 
   render() {
+    const { tags, noteId } = this.props
+
     return (
       <div>
         <button
@@ -50,20 +53,30 @@ export default class TagsSidebar extends React.Component {
           <div className="tags-panel-header">
             <h3>TAGS</h3>
 
-            <Link to="/tag/new">
+            <Link to="/tag/new" href="/tag/new">
               <button />
             </Link>
           </div>
 
           <TagsIndex
-            tags={this.props.tags}
-            noteId={this.props.noteId}
-            iiCallback={'link'}
-            sidebar={'true'}
+            sidebar
+            tags={tags}
+            noteId={noteId}
+            iiCallback="link"
           />
 
         </ReactModal>
       </div>
-    );
+    )
   }
+}
+
+TagsSidebar.propTypes = {
+  noteId: PropTypes.number,
+  tags: PropTypes.array.isRequired,
+  fetchTags: PropTypes.func.isRequired
+}
+
+TagsSidebar.defaultProps = {
+  noteId: 0
 }

@@ -1,34 +1,39 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react'
+import { PropTypes } from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
-class NewTag extends React.Component {
+class NewTag extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { name: '' };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      name: ''
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
+    const { currentUser, createTag, history } = this.props
+
     const tag = {
       name: this.state.name,
-      author_id: this.props.currentUser.id,
-    };
-    this.props.createTag(tag);
-    this.props.history.push('/notes');
+      author_id: currentUser.id
+    }
+    createTag(tag)
+    history.push('/notes')
   }
 
   handleCancel(e) {
-    e.preventDefault();
-    this.props.history.push('/notes');
+    e.preventDefault()
+    this.props.history.push('/notes')
   }
 
   handleChange(e) {
-    const name = e.target.value;
-    this.setState({ name });
+    this.setState({ name: e.target.value })
   }
 
   render() {
@@ -53,19 +58,27 @@ class NewTag extends React.Component {
               <button
                 id="nt-cancel"
                 onClick={this.handleCancel}
-              >Cancel</button>
+              >Cancel
+              </button>
 
               <button
                 id="nt-create"
                 onClick={this.handleSubmit}
-              >Create tag</button>
+              >Create tag
+              </button>
 
             </div>
           </form>
         </section>
       </section>
-    );
+    )
   }
 }
 
-export default withRouter(NewTag);
+NewTag.propTypes = {
+  createTag: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  currentUser: PropTypes.object.isRequired
+}
+
+export default withRouter(NewTag)
