@@ -205,16 +205,16 @@ export default class NoteDetail extends Component {
     return (
       <div className={className} onClick={this.focus}>
         <Editor
-          blocksStyleFn={blocksStyleFn}
-          blockRendererFn={this.blockRendererFn}
-          blockRenderMap={DefaultDraftBlockRenderMap.merge(blockRenderMap)}
-          customStyleMap={styleMap}
-          editorState={editorState}
-          handleKeyCommand={this.handleKeyCommand}
-          onChange={this.onChange}
-          onTab={this.onTab}
-          placeholder="Just start typing..."
           ref="editor"
+          onTab={this.onTab}
+          onChange={this.onChange}
+          editorState={editorState}
+          customStyleMap={styleMap}
+          blocksStyleFn={blocksStyleFn}
+          placeholder="Just start typing..."
+          blockRendererFn={this.blockRendererFn}
+          handleKeyCommand={this.handleKeyCommand}
+          blockRenderMap={DefaultDraftBlockRenderMap.merge(blockRenderMap)}
         />
       </div>
     )

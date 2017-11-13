@@ -8,7 +8,7 @@ export default class SessionForm extends React.Component {
 
     this.state = {
       username: '',
-      password: '',
+      password: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -41,7 +41,7 @@ export default class SessionForm extends React.Component {
 
     const user = {
       username,
-      password,
+      password
     }
 
     setTimeout(() => {
@@ -76,16 +76,16 @@ export default class SessionForm extends React.Component {
           </div>
         </div>
       )
-    } else {
-      return (
-        <div className="form-nav-link">
-          <h4>Don't have an account?</h4>
-          <div>
-            <button onClick={this.handleClick}>Create account</button>
-          </div>
-        </div>
-      )
     }
+
+    return (
+      <div className="form-nav-link">
+        <h4>Don&#8217;t have an account?</h4>
+        <div>
+          <button onClick={this.handleClick}>Create account</button>
+        </div>
+      </div>
+    )
   }
 
   submitButtons() {
@@ -95,24 +95,28 @@ export default class SessionForm extends React.Component {
           <button
             id="signup"
             onClick={this.handleSubmit}
-          >SIGN UP FOR FREE</button>
-        </div>
-      )
-    } else {
-      return (
-        <div className="submit-buttons">
-          <button onClick={this.handleDemo}>DEMO</button>
-          <button onClick={this.handleSubmit}>SIGN IN</button>
+          >SIGN UP FOR FREE
+          </button>
         </div>
       )
     }
+
+    return (
+      <div className="submit-buttons">
+        <button onClick={this.handleDemo}>DEMO</button>
+        <button onClick={this.handleSubmit}>SIGN IN</button>
+      </div>
+    )
   }
 
   render() {
     return (
       <section className="auth-comp">
         <h2>Remember Everything</h2>
-        <h3>Inspiration strikes anywhere. Whenevernote lets you capture and nurture ideas whenevever you have them.</h3>
+        <h3>
+          Inspiration strikes anywhere. Whenevernote lets you capture and
+          nurture ideas whenevever you have them.
+        </h3>
 
         <form className="auth-form">
           <div className="auth-inputs">
@@ -148,5 +152,5 @@ SessionForm.propTypes = {
   processForm: PropTypes.func.isRequired,
   clearErrors: PropTypes.func.isRequired,
   history: PropTypes.objectOf(Object).isRequired,
-  formType: PropTypes.string.isRequired,
+  formType: PropTypes.string.isRequired
 }
