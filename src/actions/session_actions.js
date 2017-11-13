@@ -1,8 +1,8 @@
 import * as SessionAPI from '../util/session_api_util'
 
-export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS'
 export const CLEAR_ERRORS = 'CLEAR_ERRORS'
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS'
+export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -38,9 +38,6 @@ export const signin = user => dispatch => (
 
 export const signout = () => dispatch => (
   SessionAPI.signout()
-    .then(() => {
-      dispatch(receiveCurrentUser(null))
-      dispatch(clearErrors())
-    },
+    .then(() => dispatch(receiveCurrentUser(null)),
       (errors => dispatch(receiveErrors(errors.responseJSON))))
 )
