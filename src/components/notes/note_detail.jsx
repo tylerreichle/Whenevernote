@@ -67,7 +67,9 @@ export default class NoteDetail extends Component {
     } = this.props
 
     fetchSingleNote(match.params.noteId).then(() => {
-      fetchSingleNotebook(note.notebook_id)
+      if (note.notebook_id) {
+        fetchSingleNotebook(note.notebook_id)
+      }
       this.convertFromDB(note)
     })
 
