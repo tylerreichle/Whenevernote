@@ -108,6 +108,8 @@ export default class NoteDetail extends Component {
 
   // auto save on body/title change
   autoSave() {
+    if (!this.props.note.title || !this.props.note.body) return
+
     const noteBody = convertToRaw(this.state.editorState.getCurrentContent())
     const body = JSON.stringify(noteBody)
 
