@@ -1,9 +1,9 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import Header from './header';
-import SessionForm from './session_form_container';
-import Footer from './footer';
-import SplashVid from './splash_vid';
+import React from 'react'
+import { Route } from 'react-router-dom'
+import Header from './header'
+import SessionForm from './session_form_container'
+import Footer from './footer'
+import SplashVid from './splash_vid'
 
 const SplashPage = () => (
   <div className="splash-container">
@@ -17,6 +17,6 @@ const SplashPage = () => (
     <Footer />
     <SplashVid />
   </div>
-);
+)
 
-export default SplashPage;
+export default SplashPage
