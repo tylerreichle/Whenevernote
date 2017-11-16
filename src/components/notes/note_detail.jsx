@@ -67,7 +67,9 @@ export default class NoteDetail extends Component {
     } = this.props
 
     fetchSingleNote(match.params.noteId).then(() => {
-      fetchSingleNotebook(note.notebook_id)
+      if (note.notebook_id) {
+        fetchSingleNotebook(note.notebook_id)
+      }
       this.convertFromDB(note)
     })
 
@@ -106,6 +108,8 @@ export default class NoteDetail extends Component {
 
   // auto save on body/title change
   autoSave() {
+    if (!this.props.note.title || !this.props.note.body) return
+
     const noteBody = convertToRaw(this.state.editorState.getCurrentContent())
     const body = JSON.stringify(noteBody)
 
@@ -205,16 +209,16 @@ export default class NoteDetail extends Component {
     return (
       <div className={className} onClick={this.focus}>
         <Editor
-          blocksStyleFn={blocksStyleFn}
-          blockRendererFn={this.blockRendererFn}
-          blockRenderMap={DefaultDraftBlockRenderMap.merge(blockRenderMap)}
-          customStyleMap={styleMap}
-          editorState={editorState}
-          handleKeyCommand={this.handleKeyCommand}
-          onChange={this.onChange}
-          onTab={this.onTab}
-          placeholder="Just start typing..."
           ref="editor"
+          onTab={this.onTab}
+          onChange={this.onChange}
+          editorState={editorState}
+          customStyleMap={styleMap}
+          blocksStyleFn={blocksStyleFn}
+          placeholder="Just start typing..."
+          blockRendererFn={this.blockRendererFn}
+          handleKeyCommand={this.handleKeyCommand}
+          blockRenderMap={DefaultDraftBlockRenderMap.merge(blockRenderMap)}
         />
       </div>
     )
