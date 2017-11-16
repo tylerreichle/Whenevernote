@@ -80,28 +80,29 @@ Rich Text Editing in the Note Detail view
 ```javascript
 // Sorting of notes into most recently updated
 export const notesByUpdated = ({ notes }) => {
-  const allNotes = values(notes);
-  return allNotes.sort((a, b) => (new Date(b.updated_at) - new Date(a.updated_at)));
-};
+  const allNotes = values(notes)
+  return allNotes.sort((a, b) => (new Date(b.updated_at) - new Date(a.updated_at)))
+}
 
 // Notes Index fetches notes then loads the most recent
 componentDidMount() {
   this.props.fetchNotes().then(() => {
-    this.props.history.push(`/notes/${this.props.notes[0].id}`);
-  });
+    this.props.history.push(`/notes/${this.props.notes[0].id}`)
+  })
 }
 ```
 Session form designed to be used for both signing in and signing up for site. Process form method determined by current route inside the component containter then called when submit button is clicked.
 
 ```javascript
-const mapDispatchToProps = (dispatch, ownProps) => {
-  const formType = ownProps.location.pathname;
-  const processForm = (formType === '/signup/') ? signup : signin;
+const mapDispatchToProps = (dispatch, { location }) => {
+  const formType = location.pathname
+  const processForm = (formType === '/signup/') ? signup : signin
+
   return {
     processForm: user => dispatch(processForm(user)),
-    clearErrors: () => dispatch(clearErrors()),
-  };
-};
+    clearErrors: () => dispatch(clearErrors())
+  }
+}
 ```
 
 Notebook Index component designed for use in multiple locations in the application. When in the sidebar modal, the click will cause a redirect to show all notes within selected notebook. Clicking an index item inside of the Note detail page will move the current note into the selected notebook.
@@ -111,33 +112,33 @@ The component when created is assigned a callback 'type' passed down as a prop t
 ```javascript
 // Notebook Index created in Note detail toolbar
 <NotebooksIndex
+  notesCount={false}
+  iiCallback="assign"
   note={this.props.note}
   updateNote={this.props.updateNote}
-  iiCallback={'assign'}
-  notesCount={false}
 />
 
 // Callback action called upon click either redirecting or updating of note
 callbackAction() {
   if (this.props.iiCallback === 'link') {
-    this.props.history.push(`/notebook/${this.props.notebook.id}/notes`);
+    this.props.history.push(`/notebook/${this.props.notebook.id}/notes`)
   } else if (this.props.iiCallback === 'assign') {
-    const newNotebook = { notebook_id : this.props.notebook.id };
-    const updatedNote = merge({}, this.props.note, newNotebook);
+    const newNotebook = { notebook_id : this.props.notebook.id }
+    const updatedNote = merge({}, this.props.note, newNotebook)
 
-    this.props.updateNote(updatedNote);
+    this.props.updateNote(updatedNote)
   }
 }
 
 render() {
-  const { title } = this.props.notebook;
+  const { title } = this.props.notebook
 
   return (
     <li onClick={this.callbackAction} className="notebooks-ii">
       <h4 className="nb-ii-child">{title}</h4>
       {this.notesCount()}
     </li>
-  );
+  )
 }
 ```
 
@@ -146,18 +147,18 @@ NoteDetail component mounts then loads note to display based off the current rou
 ```javascript
 componentDidMount() {
   this.props.fetchSingleNote(this.props.match.params.noteId).then(() => {
-    this.props.fetchSingleNotebook(this.props.note.notebook_id);
-    this.convertFromDB(this.props.note);
-  });
+    this.props.fetchSingleNotebook(this.props.note.notebook_id)
+    this.convertFromDB(this.props.note)
+  })
 
   this.setInterval(() => {
-    this.autoSave();
-  }, 5000);
+    this.autoSave()
+  }, 5000)
 }
 
 autoSave() {
-  const noteBody = convertToRaw(this.state.editorState.getCurrentContent());
-  const body = JSON.stringify(noteBody);
+  const noteBody = convertToRaw(this.state.editorState.getCurrentContent())
+  const body = JSON.stringify(noteBody)
 
   if ((this.state.title !== this.props.note.title) || (body !== this.props.note.body)) {
     const note = {
@@ -165,7 +166,7 @@ autoSave() {
       id: this.state.id,
       title: this.state.title,
       notebook_id: this.state.notebook_id,
-    };
+    }
     this.props.updateNote(note);
   }
 }
