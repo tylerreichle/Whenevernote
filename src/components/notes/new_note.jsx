@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { Editor, EditorState, RichUtils, convertToRaw } from 'draft-js'
 
-class NewNote extends React.Component {
+class NewNote extends Component {
   constructor(props) {
     super(props)
 
@@ -65,7 +65,7 @@ class NewNote extends React.Component {
           >Create
           </button>
 
-          <Link to="/notes">
+          <Link to="/notes" href="/notes">
             <button id="new-cancel">Cancel</button>
           </Link>
         </div>
@@ -82,12 +82,12 @@ class NewNote extends React.Component {
 
           <div className="RichEditor-editor" onClick={this.focus}>
             <Editor
-              editorState={editorState}
-              onChange={this.onChange}
-              onTab={this.onTab}
-              placeholder="Just start typing..."
               spellCheck
               ref="editor"
+              onTab={this.onTab}
+              onChange={this.onChange}
+              editorState={editorState}
+              placeholder="Just start typing..."
             />
           </div>
 

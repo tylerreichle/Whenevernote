@@ -27,7 +27,7 @@ export default class NoteInfo extends Component {
 
   render() {
     const { title } = this.props
-    const { modalIsOpen} = this.state
+    const { modalIsOpen } = this.state
 
     const options = {
       weekday: 'long',
@@ -35,7 +35,7 @@ export default class NoteInfo extends Component {
       month: 'short',
       day: 'numeric',
       hour: '2-digit',
-      minute: '2-digit',
+      minute: '2-digit'
     }
 
     const createdAt = new Date(this.props.createdAt).toLocaleString('en-us', options)
@@ -68,15 +68,15 @@ export default class NoteInfo extends Component {
               <h4>Overview</h4>
               <ul>
                 <li>
-                  <label
-                    htmlFor="created-at"
-                  >CREATED:</label>
+                  <label htmlFor="created-at" >
+                    CREATED:
+                  </label>
                   <p id="created-at">{createdAt}</p>
                 </li>
                 <li>
-                  <label
-                    htmlFor="updated-at"
-                  >UPDATED:</label>
+                  <label htmlFor="updated-at">
+                  UPDATED:
+                  </label>
                   <p id="updated-at">{updatedAt}</p>
                 </li>
               </ul>
@@ -86,7 +86,8 @@ export default class NoteInfo extends Component {
               <button
                 className="modal-close"
                 onClick={this.closeModal}
-              >Close</button>
+              >Close
+              </button>
 
             </div>
           </div>
@@ -100,5 +101,5 @@ export default class NoteInfo extends Component {
 NoteInfo.propTypes = {
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
-  updatedAt: PropTypes.string.isRequired,
+  updatedAt: PropTypes.string.isRequired
 }

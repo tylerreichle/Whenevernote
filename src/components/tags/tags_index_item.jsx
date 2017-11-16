@@ -52,11 +52,11 @@ class NotebooksIndexItem extends Component {
 }
 
 NotebooksIndexItem.propTypes = {
+  tag: PropTypes.object.isRequired,
   tagged: PropTypes.bool.isRequired,
   noteId: PropTypes.number.isRequired,
-  tag: PropTypes.object.isRequired,
-  iiCallback: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
+  iiCallback: PropTypes.string.isRequired,
   deleteTaggedNote: PropTypes.func.isRequired,
   createTaggedNote: PropTypes.func.isRequired
 }

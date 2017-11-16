@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Errors from '../errors/errors'
 
-export default class SessionForm extends React.Component {
+export default class SessionForm extends Component {
   constructor(props) {
     super(props)
 

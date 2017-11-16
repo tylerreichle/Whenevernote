@@ -45,12 +45,12 @@ export default class NotebooksModal extends Component {
           <div className="nb-modal-header">
             <h3>NOTEBOOKS</h3>
 
-            <Link to="/notebook/new">
+            <Link to="/notebook/new" href="/notebook/new">
               <button />
             </Link>
           </div>
 
-          <NotebooksIndex notesCount={false} iiCallback={'link'} />
+          <NotebooksIndex notesCount={false} iiCallback="link" />
 
         </ReactModal>
       </div>

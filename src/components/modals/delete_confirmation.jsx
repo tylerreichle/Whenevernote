@@ -66,12 +66,14 @@ class DeleteConfirmation extends Component {
               <button
                 id="delete-cancel"
                 onClick={this.closeModal}
-              >Close</button>
+              >Close
+              </button>
 
               <button
                 id="delete-delete"
                 onClick={this.handleDelete}
-              >Delete</button>
+              >Delete
+              </button>
             </div>
 
           </div>
@@ -83,10 +85,10 @@ class DeleteConfirmation extends Component {
 }
 
 DeleteConfirmation.propTypes = {
-  history: PropTypes.objectOf(Object).isRequired,
-  deleteNote: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  deleteNote: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(Object).isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
 }
 
 export default withRouter(DeleteConfirmation)

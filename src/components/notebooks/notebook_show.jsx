@@ -17,7 +17,9 @@ class NotebookShow extends Component {
 
   render() {
     const {
-      location: { pathname },
+      location: {
+        pathname
+      },
       notebook: {
         id,
         title,

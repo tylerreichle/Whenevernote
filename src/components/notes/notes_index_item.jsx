@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { convertFromRaw } from 'draft-js'
 import timeSince from '../../util/app_util'
 
-export default class NotesIndexItem extends React.Component {
+export default class NotesIndexItem extends Component {
   constructor(props) {
     super(props)
 

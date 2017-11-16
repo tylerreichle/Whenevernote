@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import NotesIndexItem from './notes_index_item_container'
 
-export default class NotesIndex extends React.Component {
+export default class NotesIndex extends Component {
 
   componentDidMount() {
     this.props.fetchNotes().then(() => {
