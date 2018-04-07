@@ -3,19 +3,19 @@ import React from 'react'
 const SplashVid = () => (
   <div className="bg-video">
     <video
-      autoPlay="autoplay"
       loop="loop"
-      poster="https://d1235ca2z646oc.cloudfront.net/thumbnails/255/MadeInLadakh-HD_3.mp4-poster.png"
+      autoPlay="autoplay"
+      poster="https://s3-us-west-1.amazonaws.com/whenevernote/splash-still.jpg"
     >
       <source
         className="webm"
         type="video/webm"
-        src="https://d1235ca2z646oc.cloudfront.net/videos/processed/255/MadeInLadakh-HD_3.mp4.webm"
+        src="https://s3-us-west-1.amazonaws.com/whenevernote/splash.webm"
       />
       <source
         className="mp4"
         type="video/mp4"
-        src="https://d1235ca2z646oc.cloudfront.net/videos/processed/255/MadeInLadakh-HD_3.mp4.mp4"
+        src="https://s3-us-west-1.amazonaws.com/whenevernote/splash.mp4"
       />
     </video>
   </div>
