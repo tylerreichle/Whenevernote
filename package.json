@@ -12,6 +12,7 @@
     "test": "test"
   },
   "scripts": {
+    "test": "jest",
     "start": "webpack --watch",
     "postinstall": "webpack",
     "heroku:db:reset": "heroku pg:reset DATABASE --app whenevernote --confirm whenevernote",
