@@ -21,7 +21,7 @@ const Header = () => (
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.linkedin.com/in/tyler-reichle-36b379130/"
+        href="https://www.linkedin.com/in/tyler-reichle/"
       >LinkedIn
       </a>
     </div>
