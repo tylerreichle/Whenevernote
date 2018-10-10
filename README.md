@@ -20,7 +20,7 @@ Splash Page with Session Form component and Webm video background
 - Notes are auto-saved upon edits so users have less to worry about
 
 ## Requirements
- - node `>6.1.x`
+ - node `6.10.1`
  - rails `>5.0.7`
  - postgreql
  - yarn
