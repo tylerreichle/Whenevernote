@@ -27,10 +27,6 @@
   "author": "Tyler Reichle",
   "license": "ISC",
   "dependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "draft-js": "^0.10.1",
     "draft-js-checkable-list-item": "^2.0.5",
     "lodash": "^4.17.4",
@@ -48,7 +44,11 @@
     "webpack": "^2.5.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-jest": "^21.2.0",
+    "babel-loader": "^8.0.4",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-15": "^1.0.2",
     "eslint": "^4.10.0",
