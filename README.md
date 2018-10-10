@@ -1,6 +1,9 @@
 # [Whenevernote](https://whenevernote.herokuapp.com)
 
 ![travis status](https://travis-ci.org/tylerreichle/Whenevernote.svg?branch=master)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/tylerreichle/Whenevernote/blob/master/LICENSE.md)
+
 
 Whenevernote is a full-stack web application inspired by Evernote built using Ruby on Rails and React/Redux with PostgreSQL. Whenevernote allows users to take notes, create to-do lists, and quickly write down their thoughts. These notes can be tagged and stored in notebooks for quick lookup whenever needed.
 
@@ -15,6 +18,52 @@ Splash Page with Session Form component and Webm video background
 - Categorize notes by tagging them with multiple tags
 - View all notes in a notebook and all notes with a certain tag
 - Notes are auto-saved upon edits so users have less to worry about
+
+## Requirements
+ - node `>6.1.x`
+ - rails `>5.0.7`
+ - postgreql
+ - yarn
+ - bundler
+
+## Running Locally
+  1. Clone repo
+  2. Navigate to project folder
+  3. Install project dependencies:
+
+```
+bundle install
+yarn install
+```
+
+  4. Create local database and seed
+
+```
+// create postgres database
+bundle exec rake db:create
+
+// seed database (optional)
+bundle exec rake db:seed
+```
+
+  5. Start local server and webpack
+
+```
+// In separate terminal windows
+
+// Start rails server
+rails server
+
+// Run webpack watch
+yarn start
+```
+
+  6. Open browser and navigate to `localhost:3000`
+
+### Issues getting application to run?
+
+`¯\_(ツ)_/¯`
+
 
 ## Project Design
 
